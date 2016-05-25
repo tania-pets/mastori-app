@@ -60,10 +60,10 @@ module.exports = function (grunt) {
     yeoman: appConfig,
 
     // Replace the configuration according to the profile
-    // replace: {
-    //  development: getConfig("development"),
-    //  production: getConfig("production")
-    // },
+    replace: {
+     development: getConfig("development"),
+     production: getConfig("production")
+    },
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -599,7 +599,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      //'replace:development',
+      'replace:development',
       'wiredep',
       'concurrent:server',
       'autoprefixer:server',
@@ -625,7 +625,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
-    //'replace:production',
+    'replace:production',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',

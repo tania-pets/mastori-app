@@ -5,7 +5,7 @@
   angular.module('app')
     .constant('Config', {
       api: {
-         url: 'http://localhost:8400',
+         url: '@@API_URL',
        }
       }
     );
