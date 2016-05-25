@@ -45,7 +45,7 @@
                             margin: 80px 0 0;
                         }
                     }
-                }            
+                }
             }
         }
     }
@@ -60,7 +60,7 @@
         > .nav-container.nav-horizontal {
             float: none;
             width: auto;
-            
+
             // content
             & + .content-container {
                 margin-left: 0;
@@ -79,7 +79,7 @@
             .slimScrollRail {
                 display: none !important;
             }
-        }     
+        }
 
         .nav {
             overflow: visible !important;
@@ -125,7 +125,7 @@
 
                     > .icon-has-ul { // icon for default vertical nav
                         display: none;
-                    }                    
+                    }
                 }
 
                 > .icon-has-ul-h { // icon for horizontal nav
@@ -143,7 +143,7 @@
                 }
 
 
-                
+
                 // sub menu
                 > ul {
                     z-index: 9; // less then header, so that it's below header dropdown

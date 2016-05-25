@@ -49,6 +49,20 @@ angular.module('app')
                 templateUrl: 'views/home.html',
                 controller:'HomeCtrl'
             })
+            .state('app.signup', {
+                url: '/signup',
+                templateUrl: 'views/user/signup.html',
+            })
+            .state('app.signin', {
+                url: '/signup',
+                templateUrl: 'views/user/signin.html',
+            })
+            .state('app.forgot-password', {
+                url: '/forgot-password',
+                templateUrl: 'views/user/forgot-password.html',
+            })
+
+
              $urlRouterProvider
                 .otherwise('app/home');
       }

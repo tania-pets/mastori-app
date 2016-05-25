@@ -49,7 +49,7 @@
 
             $window = $(window);
 
-            $lists = ele.find('ul').parent('li');
+            $lists = $(ele.find('ul').parent('li'));
 
             $lists.append('<i class="fa fa-angle-down icon-has-ul-h"></i>');
 
