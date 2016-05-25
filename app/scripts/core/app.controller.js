@@ -2,13 +2,13 @@
     'use strict';
 
     angular.module('app')
-    .controller('AppCtrl', [ '$scope', '$rootScope', '$state', '$document', 'appConfig', AppCtrl]) // overall control
+    .controller('AppCtrl', [ '$scope', '$rootScope', '$state', '$document', 'appConfig', '$translate', AppCtrl]) // overall control
 
-    function AppCtrl($scope, $rootScope, $state, $document, appConfig) {
+    function AppCtrl($scope, $rootScope, $state, $document, appConfig, $translate) {
         $scope.pageTransitionOpts = appConfig.pageTransitionOpts;
         $scope.main = appConfig.main;
         $scope.color = appConfig.color;
-
+        $translate.use('el');
         $scope.$watch('main', function(newVal, oldVal) {
             // if (newVal.menu !== oldVal.menu || newVal.layout !== oldVal.layout) {
             //     $rootScope.$broadcast('layout:changed');

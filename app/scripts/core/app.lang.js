@@ -3,7 +3,6 @@
     angular.module('app')
         .config(['$translateProvider', i18nConfig])
         .controller('LangCtrl', ['$scope', '$translate', LangCtrl]);
-
     // English, Español, 日本語, 中文, Deutsch, français, Italiano, Portugal, Русский язык, 한국어
     // Note: Used on Header, Sidebar, Footer, Dashboard
     // English:            EN-US
@@ -33,10 +32,9 @@
     }
 
     function LangCtrl($scope, $translate) {
-        $scope.lang = 'English';
+        $scope.lang = 'Greek';
         $scope.setLang = setLang;
         $scope.getFlag = getFlag;
-
 
         function setLang (lang) {
             switch (lang) {
@@ -46,6 +44,9 @@
                 case 'Español':
                     $translate.use('es');
                     break;
+                case 'Greek':
+                      $translate.use('el');
+                     break;
                 case '中文':
                     $translate.use('zh');
                     break;
@@ -77,6 +78,9 @@
                     break;
                 case 'Portugal':
                     return 'flags-portugal';
+                    break;
+                case 'Greek':
+                    return 'flags-greece';
                     break;
                 case '日本語':
                     return 'flags-japan';

@@ -22,7 +22,6 @@
             };
 
             addBg = function(path) {
-              console.log(path);
                 $element.removeClass('body-wide body-err body-lock body-auth');
                 switch (path) {
                     case '/404':

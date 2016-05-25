@@ -314,13 +314,7 @@
                 </a>
                 <ul class="uib-dropdown-menu with-arrow pull-right dropdown-menu-scaleIn">
                     <li>
-                        <a href="#/">
-                            <i class="zmdi zmdi-home"></i>
-                            <span data-translate="DASHBOARD"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#/page/profile">
+                        <a ui-sref="app.profile">
                             <i class="zmdi zmdi-account"></i>
                             <span data-translate="MY_PROFILE"></span>
                         </a>
@@ -331,25 +325,6 @@
                             <span data-translate="LOG_OUT"></span>
                         </a>
                     </li>
-                </ul>
-            </li>
-            <li class="dropdown langs text-normal" data-ng-controller="LangCtrl" uib-dropdown is-open="status.isopenLang">
-                <a href="javascript:;" class="dropdown-toggle active-flag" uib-dropdown-toggle ng-disabled="disabled" md-button aria-label="lang">
-                    <div class="flag {{ getFlag() }}"></div>
-                </a>
-                <ul class="uib-dropdown-menu with-arrow    pull-right list-langs dropdown-menu-scaleIn" role="menu">
-                    <li data-ng-show="lang !== 'English' ">
-                        <a href="javascript:;" data-ng-click="setLang('English')"><div class="flag flags-american"></div> English</a></li>
-                    <li data-ng-show="lang !== 'Español' ">
-                        <a href="javascript:;" data-ng-click="setLang('Español')"><div class="flag flags-spain"></div> Español</a></li>
-                    <li data-ng-show="lang !== 'Portugal' ">
-                        <a href="javascript:;" data-ng-click="setLang('Portugal')"><div class="flag flags-portugal"></div> Portugal</a></li>
-                    <li data-ng-show="lang !== '中文' ">
-                        <a href="javascript:;" data-ng-click="setLang('中文')"><div class="flag flags-china"></div> 中文</a></li>
-                    <li data-ng-show="lang !== '日本語' ">
-                        <a href="javascript:;" data-ng-click="setLang('日本語')"><div class="flag flags-japan"></div> 日本語</a></li>
-                    <li data-ng-show="lang !== 'Русский язык' ">
-                        <a href="javascript:;" data-ng-click="setLang('Русский язык')"><div class="flag flags-russia"></div> Русский язык</a></li>
                 </ul>
             </li>
         </ul>

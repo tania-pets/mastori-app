@@ -57,11 +57,26 @@ angular.module('app')
                 url: '/signup',
                 templateUrl: 'views/user/signin.html',
             })
+            .state('app.profile', {
+                url: '/profile',
+                templateUrl: 'views/user/profile.html',
+            })
             .state('app.forgot-password', {
                 url: '/forgot-password',
                 templateUrl: 'views/user/forgot-password.html',
             })
-
+            .state('app.404', {
+                url: '/404',
+                templateUrl: 'views/pages/404.html',
+            })
+            .state('app.500', {
+                url: '/500',
+                templateUrl: 'views/pages/500.html',
+            })
+            .state('app.blank', {
+                url: '/blank',
+                templateUrl: 'views/pages/blank.html',
+            })
 
              $urlRouterProvider
                 .otherwise('app/home');
