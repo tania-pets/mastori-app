@@ -16,6 +16,7 @@
       'chart.js',
       'cgBusy',
       'angularSpinner',
+      'ngStorage'
 
      // Custom modules
     //  ,'app.layout'

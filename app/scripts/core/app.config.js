@@ -3,7 +3,7 @@
 
     angular.module('app')
     .factory('appConfig', [appConfig])
-    .config(['$mdThemingProvider', mdConfig]);
+    .config(['$mdThemingProvider', '$httpProvider', mdConfig]);
 
     function appConfig() {
         var pageTransitionOpts = [
@@ -53,7 +53,8 @@
         }
     }
 
-    function mdConfig($mdThemingProvider) {
+    function mdConfig($mdThemingProvider, $httpProvider) {
+        $httpProvider.interceptors.push('AuthInterceptor');
         var cyanAlt = $mdThemingProvider.extendPalette('cyan', {
             'contrastLightColors': '500 600 700 800 900',
             'contrastStrongLightColors': '500 600 700 800 900'

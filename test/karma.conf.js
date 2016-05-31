@@ -57,6 +57,7 @@ module.exports = function(config) {
       'bower_components/angular-busy/dist/angular-busy.js',
       'bower_components/spin.js/spin.js',
       'bower_components/angular-spinner/angular-spinner.js',
+      'bower_components/ngstorage/ngStorage.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
       // endbower

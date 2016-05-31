@@ -20,6 +20,8 @@ Install node & bower packages
     bower install
 
 ## Build & development
+
+Update your config/development.json
 Run `grunt` for building and `grunt serve` for preview.
 
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)

@@ -303,9 +303,9 @@
             </li>
         </ul>
 
-        <ul class="nav-right pull-right list-unstyled">
+        <ul class="nav-right pull-right list-unstyled" >
 
-            <li class="dropdown text-normal nav-profile"    uib-dropdown is-open="status.isopenProfile">
+            <li ng-if="AuthService.isAuthenticated()" class="dropdown text-normal nav-profile"    uib-dropdown is-open="status.isopenProfile">
                 <a href="javascript:;" class="dropdown-toggle" uib-dropdown-toggle ng-disabled="disabled" md-button aria-label="email" aria-label="profile">
                     <img src="images/g1.jpg" alt="" class="img-circle img30_30">
                     <span class="hidden-xs">
@@ -320,12 +320,15 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#/page/signin">
+                        <a ng-click="AuthService.logout()" href="#">
                             <i class="zmdi zmdi-forward"></i>
                             <span data-translate="LOG_OUT"></span>
                         </a>
                     </li>
                 </ul>
+            </li>
+            <li ng-if="!AuthService.isAuthenticated()">
+                <a ui-sref="app.signin">Sign In</a>
             </li>
         </ul>
     </div>

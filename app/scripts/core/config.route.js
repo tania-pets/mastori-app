@@ -54,7 +54,7 @@ angular.module('app')
                 templateUrl: 'views/user/signup.html',
             })
             .state('app.signin', {
-                url: '/signup',
+                url: '/signin',
                 templateUrl: 'views/user/signin.html',
             })
             .state('app.profile', {

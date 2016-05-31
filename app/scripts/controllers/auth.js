@@ -8,10 +8,14 @@
  * Controller for user auth functions
  */
 angular.module('app')
-  .controller('authCtrl', function ($scope) {
+  .controller('authCtrl', function ($scope, AuthService, $state) {
 
     $scope.login = function() {
-        $location.url('/')
+      AuthService.login({email: $scope.email, password: $scope.password}, function(response){
+        if (response.token) {
+            $state.go('app.home')
+        }
+      });
     }
 
     $scope.signup = function() {
