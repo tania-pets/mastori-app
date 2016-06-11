@@ -60,7 +60,10 @@
             return Boolean($localStorage.credentials && $localStorage.credentials.user);
           },
 
-
+          //get logged user
+          user: function user() {
+            return ($localStorage.credentials && $localStorage.credentials.user) ? $localStorage.credentials.user : null;
+          },
           /**
            * Method make login request to backend server. Successfully response from
            * server contains user data and JWT token as in JSON object. After successful

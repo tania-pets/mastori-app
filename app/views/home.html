@@ -1,1 +1,24 @@
-HOME LAY
+<section class="page-form-ele page" >
+    <div class="row ui-section" >
+        <div class="col-lg-8 clearfix"> <h2 class="section-header">Search</h2> </div>
+        <div class="col-md-12">
+          <section class="panel panel-default" cg-busy="professions.$promise">
+              <div class="panel-body">
+                  <div class="row">
+                      <form class="form-horizontal">
+                        <md-input-container flex>
+                            <label>Profession</label>
+                            <md-select ng-model="search.profession">
+                                <md-option ng-repeat="profession in professions" value="{{profession.id}}">
+                                    {{profession.title}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                      </form>
+
+                  </div>
+              </div>
+          </section>
+        </div>
+    </div>
+</section>
