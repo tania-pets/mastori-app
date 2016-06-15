@@ -1,0 +1,23 @@
+
+<div class="wrapper">
+    <div class="main-body">
+        <div class="body-inner">
+            <div class="card bg-white">
+                <div class="card-content">
+                    <button class="btn btn-flat" ng-class="{'btn-danger': params.order == 'asc' && params.orderby == 'last_name'}"  ng-click="setParams({orderby: 'last_name', order: 'asc'})">Order By Last name asc</button>
+                    <button class="btn btn-flat" ng-class="{'btn-danger': params.order == 'desc' && params.orderby == 'last_name'}"  ng-click="setParams({orderby: 'last_name', order: 'desc'})">Order By Last name desc</button>
+                    <button class="btn btn-flat" ng-class="{'btn-danger': params.order == 'asc' && params.orderby == 'avg_rating'}" ng-click="setParams({orderby: 'avg_rating', order: 'desc'})">Order By Rating</button>
+                    <md-checkbox ng-false-value="null" ng-model="params.only_offers" ng-change="setParams({only_offers: params.only_offers})">
+                        Only offers
+                    </md-checkbox>
+                    <ul>
+                        <li ng-repeat="mastori in mastoria.data">
+                          {{ ::mastori.last_name }} {{ ::mastori.first_name }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

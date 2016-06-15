@@ -49,6 +49,11 @@ angular.module('app')
                 templateUrl: 'views/home.html',
                 controller:'HomeCtrl'
             })
+            .state('app.mastoria', {
+                url: '/mastoria',
+                templateUrl: 'views/mastoria/list.html',
+                controller:'MastoriaCtrl'
+            })
             .state('app.signup', {
                 url: '/signup',
                 templateUrl: 'views/user/signup.html',
