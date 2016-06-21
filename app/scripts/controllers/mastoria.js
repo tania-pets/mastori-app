@@ -8,7 +8,7 @@
  * Controller of the app
  */
 angular.module('app')
-  .controller('MastoriaCtrl', function ($scope, MastoriModel) {
+  .controller('MastoriaCtrl', function ($scope, $state, $stateParams, MastoriModel) {
 
 	  $scope.params = {
 	    per_page: null,
@@ -20,14 +20,14 @@ angular.module('app')
 	    area: null
 		};
 
-		$scope.mastoria = MastoriModel.query($scope.params);
-
     $scope.setParams = function(params) {
-    	angular.forEach(params, function(value, key) {
-    		$scope.params[key] = value;
-    	});
+    	angular.extend($scope.params, params);
+    	console.info($scope.params);
 
     	$scope.mastoria = MastoriModel.query($scope.params);
+    	$state.go('app.mastoria', $scope.params);
     };
+
+    $scope.setParams($stateParams);
 
   });
