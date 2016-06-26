@@ -8,16 +8,27 @@
  * Controller of the app
  */
 angular.module('app')
-  .controller('MastoriaCtrl', function ($scope, $state, $stateParams, MastoriModel) {
+  .controller('MastoriaCtrl', function ($scope, $state, $rootScope, $stateParams, MastoriModel, ProfessionModel, AreaModel) {
+
+	  $scope.professions = ProfessionModel.query();
+
+	  $scope.areas = AreaModel.query();
+
+	  $scope.$watch('coords', function() {
+	  		console.info('current location (scope)', $rootScope.coords);
+        $scope.near = $rootScope.coords ? $rootScope.coords.lat + ',' + $rootScope.coords.lng : null;
+    });
+    $scope.coords = $rootScope.coords;
 
 	  $scope.params = {
-	    per_page: null,
-	    page: null,
+	    per_page: 50,
 	    order: null,
 	    orderby: null,
 	    only_offers: null,
-	    profession: null,
-	    area: null
+	    'profession[]': [],
+	    'area[]': null,
+	    near: null,
+	    q: null
 		};
 
     $scope.setParams = function(params) {
@@ -29,5 +40,38 @@ angular.module('app')
     };
 
     $scope.setParams($stateParams);
+
+
+    $scope.toggleItem = function(itemId, itemKey) {
+
+    	var params = {};
+    	var items = $scope.params[itemKey] || [];
+
+    	if (items.indexOf(itemId) >= 0) {
+    		items.splice(items.indexOf(itemId), 1);
+    	} else {
+    		items.push(itemId);
+    	}
+
+    	params[itemKey] = items;
+    	$scope.setParams(params);
+    }
+
+    $scope.loadMore = function() {
+			if ($scope.busy) {
+				return;
+			}
+			$scope.busy = true;
+
+			var page = $scope.mastoria.current_page + 1;
+    	var queryParams = angular.extend({page: page}, $scope.params);
+    	var oldData = $scope.mastoria.data;
+
+    	MastoriModel.query(queryParams, function (data) {
+    		$scope.busy = false;
+    		$scope.mastoria = data;
+    		$scope.mastoria.data = oldData.concat(data.data);
+    	});
+    }
 
   });

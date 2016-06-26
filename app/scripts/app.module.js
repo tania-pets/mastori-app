@@ -16,7 +16,9 @@
       'chart.js',
       'cgBusy',
       'angularSpinner',
-      'ngStorage'
+      'ngStorage',
+      'infinite-scroll',
+      'geolocation'
 
      // Custom modules
     //  ,'app.layout'

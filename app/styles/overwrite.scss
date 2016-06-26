@@ -1,7 +1,55 @@
+.m-auto {
+	margin: auto !important;
+}
+
+.m-r-xs {
+	margin-right: 5px !important;
+}
+
+.m-t-xs {
+	margin-top: 5px !important;
+}
+
+.m-l-xs {
+	margin-left: 5px !important;
+}
+
+.m-b-xs {
+	margin-bottom: 5px !important;
+}
+
+.m-r-md {
+	margin-right: 15px !important;
+}
+
+.m-t-md {
+	margin-top: 15px !important;
+}
+
+.m-l-md {
+	margin-left: 15px !important;
+}
+
+.m-b-md {
+	margin-bottom: 15px !important;
+}
+
 .p-b-xs {
-	padding-bottom: 5px;
+	padding-bottom: 5px !important;
 }
 
 .p-b-sm {
-	padding-bottom: 10px;
+	padding-bottom: 10px !important;
+}
+
+.panel-filters .btn, .panel-filters md-checkbox, .panel-filers span {
+	vertical-align: baseline;
+	margin-bottom: 0;
+}
+
+#mastori-loader-container {
+    background: transparent url('../images/mastori-loader.png') no-repeat center center;
+    min-height: 200px;
+    overflow: hidden;
+    z-index: 99999;
 }

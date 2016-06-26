@@ -50,7 +50,7 @@ angular.module('app')
                 controller:'HomeCtrl'
             })
             .state('app.mastoria', {
-                url: '/mastoria?order&orderby&only_offers&profession&area&per_page',
+                url: '/mastoria?order&orderby&only_offers&{profession[]:int}&{area[]:int}&near&q',
                 reloadOnSearch : false,
                 templateUrl: 'views/mastoria/list.html',
                 controller:'MastoriaCtrl'
