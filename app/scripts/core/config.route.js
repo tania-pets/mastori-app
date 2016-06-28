@@ -34,10 +34,10 @@ angular.module('app')
     }
   ]
 )
+
 .config(['$stateProvider', '$urlRouterProvider',
     function ($stateProvider,   $urlRouterProvider) {
         var main_layout = "views/layouts/main.html";
-
         $stateProvider
             .state('app', {
                 abstract: true,
@@ -82,6 +82,11 @@ angular.module('app')
             .state('app.blank', {
                 url: '/blank',
                 templateUrl: 'views/pages/blank.html',
+            })
+            .state('landing', {
+                url: '/landing',
+                templateUrl: 'views/pages/landing.html',
+                controller:'LandingCtrl'
             })
 
              $urlRouterProvider

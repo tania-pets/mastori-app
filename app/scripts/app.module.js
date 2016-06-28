@@ -18,7 +18,8 @@
       'angularSpinner',
       'ngStorage',
       'infinite-scroll',
-      'geolocation'
+      'geolocation',
+      'oc.lazyLoad'
 
      // Custom modules
     //  ,'app.layout'
