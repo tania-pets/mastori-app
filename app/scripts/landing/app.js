@@ -170,7 +170,7 @@ if ( typeof define === 'function' && define.amd ) {
   var support = { animations : Modernizr.cssanimations },
     container = document.getElementById( 'ip-container' ),
     header = container.querySelector( 'header.ip-header' ),
-    loader = new PathLoader( document.getElementById( 'ip-loader-circle' ) ),
+    //loader = new PathLoader( document.getElementById( 'ip-loader-circle' ) ),
     animEndEventNames = {
       'WebkitAnimation' : 'webkitAnimationEnd',
       'OAnimation' : 'oAnimationEnd',
@@ -181,26 +181,26 @@ if ( typeof define === 'function' && define.amd ) {
     animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ];
 
   function init() {
-    var onEndInitialAnimation = function() {
-      if( support.animations ) {
-        this.removeEventListener( animEndEventName, onEndInitialAnimation );
-      }
-
-      startLoading();
-    };
-
-    // disable scrolling
-    window.addEventListener( 'scroll', noscroll );
-
-    // initial animation
-    classie.add( container, 'loading' );
-
-    if( support.animations ) {
-      container.addEventListener( animEndEventName, onEndInitialAnimation );
-    }
-    else {
-      onEndInitialAnimation();
-    }
+    // var onEndInitialAnimation = function() {
+    //   if( support.animations ) {
+    //     this.removeEventListener( animEndEventName, onEndInitialAnimation );
+    //   }
+    //
+    //   startLoading();
+    // };
+    //
+    // // disable scrolling
+    // window.addEventListener( 'scroll', noscroll );
+    //
+    // // initial animation
+    // classie.add( container, 'loading' );
+    //
+    // if( support.animations ) {
+    //   container.addEventListener( animEndEventName, onEndInitialAnimation );
+    // }
+    // else {
+    //   onEndInitialAnimation();
+    // }
   }
 
   function startLoading() {

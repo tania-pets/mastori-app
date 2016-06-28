@@ -373,7 +373,6 @@ h1, h2, h3 {
     font-size: 20px;
     line-height: 20px;
     font-weight: 300;
-    text-transform: uppercase;
     letter-spacing: .2em;
     color: #fff;
 }
@@ -429,7 +428,6 @@ h1, h2, h3 {
     .header .navbar-nav {
     font-size: 14px;
     line-height: 20px;
-    text-transform: uppercase;
     letter-spacing: .1em;
     padding: 7px 0;
 }
@@ -596,6 +594,8 @@ h1, h2, h3 {
     -webkit-animation-delay: 0.2s;
     animation-delay: 0.2s;
 }
+
+
 @-webkit-keyframes animInitialHeader {
     from {
     opacity: 0;
@@ -667,6 +667,8 @@ h1, h2, h3 {
     -webkit-animation-delay: 0.2s;
     animation-delay: 0.2s;
 }
+
+
 @-webkit-keyframes animLoadedContent {
     from {
     opacity: 0;
@@ -682,6 +684,7 @@ h1, h2, h3 {
 }.main-content {
     overflow: hidden;
 }
+
 .hero {
     position: relative;
     border: 0;
@@ -736,7 +739,6 @@ h1, h2, h3 {
     margin-bottom: 60px;
 }
 .features header h3 {
-    text-transform: uppercase;
 }
 .features .feature-item {
     margin-bottom: 50px;
@@ -770,7 +772,6 @@ h1, h2, h3 {
     margin-bottom: .6rem;
     font-weight: normal;
     color: #263237;
-    text-transform: uppercase;
 }
 .features .feature-item .desc {
     max-width: 310px;
@@ -804,7 +805,6 @@ h1, h2, h3 {
     text-align: center;
     font-size: 36px;
     font-weight: normal;
-    text-transform: uppercase;
     color: #f1f1f1;
 }
 .newsletter p {
