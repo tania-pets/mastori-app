@@ -19,8 +19,8 @@
       'ngStorage',
       'infinite-scroll',
       'geolocation',
-      'oc.lazyLoad'
-
+      'oc.lazyLoad',
+      'uiGmapgoogle-maps'
      // Custom modules
     //  ,'app.layout'
     //  ,'app.i18n'

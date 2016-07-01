@@ -30,3 +30,8 @@ version 0.15.1.
 ## Testing
 
 Running `grunt test` will run the unit tests with karma.
+
+## Problematic package versions
+
+  "angular-google-maps": "2.3.2", resolve [angular-google-maps issue #1853](https://github.com/angular-ui/angular-google-maps/issues/1853)
+  "lodash":"3.X" resolve [angular-google-maps issue #1822](https://github.com/angular-ui/angular-google-maps/issues/1822)
