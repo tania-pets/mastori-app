@@ -8,13 +8,15 @@
  * Controller of the app
  */
 angular.module('app')
-  .controller('MastoriaCtrl', function ($scope, $state, $rootScope, $stateParams, MastoriModel, ProfessionModel, AreaModel) {
+  .controller('MastoriaCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'uiGmapGoogleMapApi', 'MastoriModel', 'ProfessionModel', 'AreaModel',
+    function ($scope, $state, $rootScope, $stateParams, uiGmapGoogleMapApi, MastoriModel, ProfessionModel, AreaModel) {
 
-	  $scope.professions = ProfessionModel.query();
+    var polyOptions = { fillColor: '#2c8aa7', color: '#2c8aa7', opacity: '0.3' };
+    var polyOptionsChecked = { fillColor: 'orange', color: 'orange', opacity: '0.5' };
 
-	  $scope.areas = AreaModel.query();
+    $scope.professions = ProfessionModel.query();
 
-	  $scope.$watch('coords', function() {
+    $scope.$watch('coords', function() {
 	  		console.info('current location (scope)', $rootScope.coords);
         $scope.near = $rootScope.coords ? $rootScope.coords.lat + ',' + $rootScope.coords.lng : null;
     });
@@ -33,7 +35,7 @@ angular.module('app')
 
     $scope.setParams = function(params) {
     	angular.extend($scope.params, params);
-    	console.info($scope.params);
+    	// console.info($scope.params);
 
     	$scope.mastoria = MastoriModel.query($scope.params);
     	$state.go('app.mastoria', $scope.params);
@@ -46,9 +48,11 @@ angular.module('app')
 
     	var params = {};
     	var items = $scope.params[itemKey] || [];
+      var itemIndex = items.indexOf(itemId);
 
-    	if (items.indexOf(itemId) >= 0) {
+    	if (itemIndex >= 0) {
     		items.splice(items.indexOf(itemId), 1);
+
     	} else {
     		items.push(itemId);
     	}
@@ -58,12 +62,12 @@ angular.module('app')
     }
 
     $scope.loadMore = function() {
-			if ($scope.busy) {
-				return;
-			}
-			$scope.busy = true;
+  		if ($scope.busy) {
+  			return;
+  		}
+  		$scope.busy = true;
 
-			var page = $scope.mastoria.current_page + 1;
+  		var page = $scope.mastoria.current_page + 1;
     	var queryParams = angular.extend({page: page}, $scope.params);
     	var oldData = $scope.mastoria.data;
 
@@ -74,4 +78,41 @@ angular.module('app')
     	});
     }
 
-  });
+    $scope.map = {
+      center: {
+        latitude: 39.0742,
+        longitude: 21.8243
+      },
+      pan: true,
+      zoom: 6,
+      options: {minZoom: 6},
+      events: {},
+      bounds: {},
+      getPolyFill: function(model){
+        if(!model){
+          return;
+        }
+
+        return model.checked ? polyOptionsChecked : polyOptions;
+      },
+      polyEvents: {
+        click: function (gPoly, eventName, polyModel) {
+            $scope.toggleItem(polyModel.id, 'area[]');
+
+            var options = _.indexOf($scope.params['area[]'], polyModel.id) >= 0 ? polyOptionsChecked : polyOptions;
+            gPoly.setOptions(options);
+        }
+      },
+      draw: undefined
+    };
+
+    uiGmapGoogleMapApi.then(function () {
+      AreaModel.query(function(areas) {
+        $scope.areas = areas;
+        areas.map(function(area) {
+            area.checked = _.indexOf($scope.params['area[]'], area.id) >= 0; // I do this ONLY to access the checked property inside getPolyLine
+        })
+      });
+    });
+
+  }]);

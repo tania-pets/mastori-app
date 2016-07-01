@@ -18,8 +18,8 @@
       'angularSpinner',
       'ngStorage',
       'infinite-scroll',
-      'geolocation'
-
+      'geolocation',
+      'uiGmapgoogle-maps'
      // Custom modules
     //  ,'app.layout'
     //  ,'app.i18n'

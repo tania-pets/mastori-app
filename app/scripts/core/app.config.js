@@ -3,7 +3,16 @@
 
     angular.module('app')
     .factory('appConfig', [appConfig])
-    .config(['$mdThemingProvider', '$httpProvider', mdConfig]);
+    .config(['$mdThemingProvider', '$httpProvider', 'uiGmapGoogleMapApiProvider', mdConfig]);
+
+    // Google Maps SDK Async Loader
+    // .config(function(uiGmapGoogleMapApiProvider) {
+    //     uiGmapGoogleMapApiProvider.configure({
+    //         //    key: 'your api key',
+    //         v: '3.20', //defaults to latest 3.X anyhow
+    //         // libraries: 'weather,geometry,visualization'
+    //     });
+    // });
 
     function appConfig() {
         var pageTransitionOpts = [
@@ -53,7 +62,7 @@
         }
     }
 
-    function mdConfig($mdThemingProvider, $httpProvider) {
+    function mdConfig($mdThemingProvider, $httpProvider, uiGmapGoogleMapApiProvider) {
         $httpProvider.interceptors.push('AuthInterceptor');
         var cyanAlt = $mdThemingProvider.extendPalette('cyan', {
             'contrastLightColors': '500 600 700 800 900',
@@ -99,6 +108,12 @@
                 'default': '500'
             })
             .backgroundPalette('grey');
+
+        uiGmapGoogleMapApiProvider.configure({
+            key: 'AIzaSyBJFOPHy8n_7xrE0drmP7GeQM5Sb_-i8LQ',
+            v: '3.23',
+            libraries: 'geometry'
+        });
     }
 
 })();

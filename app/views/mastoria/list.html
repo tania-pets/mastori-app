@@ -66,6 +66,26 @@
                             <!-- Areas -->
                             <div class="panel panel-default panel-labeled">
                                 <md-subheader class="md-warn">ΠΕΡΙΟΧΕΣ</md-subheader>
+                                <div ng-show="!areas.$resolved">
+                                    <md-progress-circular md-mode="indeterminate" class="md-warn md-hue-3 m-auto" md-diameter="96"></md-progress-circular>
+                                </div>
+                                <ui-gmap-google-map id="map"
+                                               center="map.center"
+                                               pan="map.pan"
+                                               zoom="map.zoom"
+                                               draggable="true"
+                                               refresh="map.refresh"
+                                               options="map.options"
+                                               events="map.events"
+                                               bounds="map.bounds">
+
+                                    <ui-gmap-polygons models="areas" idKey="'id'" path='"geo_json"' fill="map.getPolyFill"
+                                                 stroke="{ color: '#2c8aa7', weight: 1, opacity: '1.0' }" visible="true" geodesic="true" fit="false"
+                                                 editable="false" static="true" ng-cloak="" events="map.polyEvents">
+
+                                    </ui-gmap-polygons>
+
+                                </ui-gmap-google-map>
                                 <md-list ng-show="areas.$resolved">
                                     <md-list-item ng-repeat="area in areas | orderBy:'name'">
                                         <p>{{ ::area.name }}</p>
