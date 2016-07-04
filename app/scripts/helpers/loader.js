@@ -4,6 +4,7 @@
     });
 
     function hideLoader() {
+      console.log('file');
         $('#loader-container').fadeOut("slow")
-    }    
-})(); 
+    }
+})();
