@@ -84,13 +84,13 @@ angular.module('app')
                 templateUrl: 'views/pages/blank.html',
             })
             .state('landing', {
-                url: '/landing',
+                url: '/',
                 templateUrl: 'views/pages/landing.html',
                 controller:'LandingCtrl'
             })
 
              $urlRouterProvider
-                .otherwise('app/home');
+                .otherwise('/');
       }
     ]
   );

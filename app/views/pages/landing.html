@@ -38,7 +38,27 @@
           <div class="container">
             <div class="col-lg-6 col-lg-offset-3">
               <h2>Βρες εύκολα το μάστορά σου όπου κι αν βρίσκεσαι</h2>
-              <!-- <p>Material admin is a Google Material Design inspired admin dashboard template built with Bootstrap and AngularJS.</p><a href="http://themeforest.net/item/material-design-admin-with-angularjs/13582227?ref=arousing" target="_blank" class="btn btn-primary btn-cta btn-lg btn-raised ui-wave">Download Material</a> -->
+            </div>
+            <div class="col-lg-6 col-lg-offset-3">
+              <form ng-submit="$event.preventDefault()">
+                  <md-autocomplete
+                          md-selected-item="selectedItem"
+                          md-search-text-change="searchTextChange(searchText)"
+                          md-search-text="searchText"
+                          md-selected-item-change="selectedItemChange(item.title)"
+                          md-items="item in querySearch(searchText)"
+                          md-item-text="item.title"
+                          md-min-length="0"
+                          placeholder="Διάλεξε ειδικότητα">
+                      <md-item-template>
+                          <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.title}}</span>
+                      </md-item-template>
+                      <md-not-found>
+                          Δε βρέθηκαν ειδικότητες για "{{searchText}}".
+                      </md-not-found>
+                  </md-autocomplete>
+                  <br/>
+              </form>
             </div>
           </div>
         </div>
