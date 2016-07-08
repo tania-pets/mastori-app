@@ -36,7 +36,7 @@ h1, h2, h3 {
     background: #eff0f3;*/
 }
 
-.faq .section-heading-underline{
+.testimorials .section-heading-underline{
   color:#0398b8;
   font-size:34px;
 }
@@ -857,34 +857,60 @@ h1, h2, h3 {
     color: #f5f5f5;
     color: rgba(255, 255, 255, 0.85);
 }
-.faq {
+.testimorials {
     background: url("../../images/landing/background-users.png") repeat 0 0;
     padding: 4em 2em 5em;
+
 }
-.faq ul.faq-list {
+.testimorials .quote{
+  font-size:22px;
+  color:#6e6579;
+  line-height:22px;
+  margin-top:10px;
+}
+.testimorials .container{
+  position:relative;
+}
+
+.testimorials h3{
+  font-size:18px;
+  color:#4c5559;
+  font-weight: bold;
+}
+
+.testimorials small{
+  color: #4c5559;
+  font-size:14px;
+}
+ul[rn-carousel] {
+    width: 100%;
+    min-height: 200px;
+    margin: 0 auto;
+}
+/*.testimorials ul.testimorials-list {
     padding: 0;
-}
-.faq li {
+}*/
+/*.testimorials li {
     list-style-type: none;
     margin-bottom: 1.6em;
     padding: 1em 1em;
-}
-@media (min-width: 34em) {
-    .faq li {
+}*/
+/*@media (min-width: 34em) {
+    .testimorials li {
     padding: 1em 3em;
 }
 }@media (min-width: 47.5em) {
-    .faq li {
+    .testimorials li {
     width: 49%;
     display: inline-block;
     vertical-align: top;
-}
-}.faq h4 {
+}*/
+}.testimorials h4 {
     margin-bottom: .6em;
     font-size: 21px;
     line-height: 1.6em;
 }
-.faq .faq-a {
+.testimorials .testimorials-a {
     font-family: Georgia, "Times New Roman", Times, serif;
     font-size: 16px;
     line-height: 1.6em;
