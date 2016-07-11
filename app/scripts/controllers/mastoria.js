@@ -8,13 +8,11 @@
  * Controller of the app
  */
 angular.module('app')
-  .controller('MastoriaCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'uiGmapGoogleMapApi', 'MastoriModel', 'ProfessionModel', 'AreaModel',
-    function ($scope, $state, $rootScope, $stateParams, uiGmapGoogleMapApi, MastoriModel, ProfessionModel, AreaModel) {
-
-    var polyOptions = { fillColor: '#2c8aa7', color: '#2c8aa7', opacity: '0.3' };
-    var polyOptionsChecked = { fillColor: 'orange', color: 'orange', opacity: '0.5' };
+  .controller('MastoriaCtrl', ['$scope', '$state', '$rootScope', '$stateParams', '$filter', 'MastoriModel', 'ProfessionModel', 'AreaModel',
+    function ($scope, $state, $rootScope, $stateParams, $filter, MastoriModel, ProfessionModel, AreaModel) {
 
     $scope.professions = ProfessionModel.query();
+    $scope.areas = AreaModel.query();
 
     $scope.$watch('coords', function() {
 	  		console.info('current location (scope)', $rootScope.coords);
@@ -78,41 +76,8 @@ angular.module('app')
     	});
     }
 
-    $scope.map = {
-      center: {
-        latitude: 39.0742,
-        longitude: 21.8243
-      },
-      pan: true,
-      zoom: 6,
-      options: {minZoom: 6},
-      events: {},
-      bounds: {},
-      getPolyFill: function(model){
-        if(!model){
-          return;
-        }
-
-        return model.checked ? polyOptionsChecked : polyOptions;
-      },
-      polyEvents: {
-        click: function (gPoly, eventName, polyModel) {
-            $scope.toggleItem(polyModel.id, 'area[]');
-
-            var options = _.indexOf($scope.params['area[]'], polyModel.id) >= 0 ? polyOptionsChecked : polyOptions;
-            gPoly.setOptions(options);
-        }
-      },
-      draw: undefined
-    };
-
-    uiGmapGoogleMapApi.then(function () {
-      AreaModel.query(function(areas) {
-        $scope.areas = areas;
-        areas.map(function(area) {
-            area.checked = _.indexOf($scope.params['area[]'], area.id) >= 0; // I do this ONLY to access the checked property inside getPolyLine
-        })
-      });
+    $scope.$on('areaToggled', function (e, mapArea) {
+      $scope.toggleItem(mapArea._id, 'area[]');
     });
 
   }]);

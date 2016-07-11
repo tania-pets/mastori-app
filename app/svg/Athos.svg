@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (c) ammap.com | SVG map of Afghanistan - Low -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:amcharts="http://amcharts.com/ammap" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+	<defs>
+		<style type="text/css">
+			.land
+			{
+				fill: #CCCCCC;
+				fill-opacity: 1;
+				stroke:white;
+				stroke-opacity: 1;
+				stroke-width:0.5;
+			}
+		</style>
+
+	<amcharts:ammap projection="mercator" leftLongitude="23.827972" topLatitude="40.503195" rightLongitude="24.45282
+" bottomLatitude="40.001714"></amcharts:ammap>
+
+		<!-- All areas are listed in the line below. You can use this list in your script. -->		<!--{id:"AF-PIA"},{id:"AF-WAR"},{id:"AF-SAM"},{id:"AF-PAR"},{id:"AF-LOG"},{id:"AF-LAG"},{id:"AF-PAN"},{id:"AF-KAP"},{id:"AF-KAB"},{id:"AF-BGL"},{id:"AF-TAK"},{id:"AF-NAN"},{id:"AF-KDZ"},{id:"AF-KNR"},{id:"AF-NUR"},{id:"AF-BDS"},{id:"AF-PKA"},,{id:"AF-KHO"},{id:"AF-GHA"},{id:"AF-ZAB"},{id:"AF-KAN"},{id:"AF-DAY"},{id:"AF-URU"},{id:"AF-NIM"},{id:"AF-HEL"},{id:"AF-FRA"},{id:"AF-SAR"},{id:"AF-GHO"},{id:"AF-JOW"},{id:"AF-FYB"},{id:"AF-BAL"},{id:"AF-BAM"},{id:"AF-HER"},{id:"AF-BDG"}-->
+
+
+	</defs>
+  <g>
+            <path d="M 23.98842351890029 -231019.67033761047 L 23.98842351890029 -231019.67033761047 L 51.691956758742606 -231533.83768072288 L 1001.3818593840095 -231224.5822178661 L 1506.0775175643582 -230557.17642560444 L 1962.7763549993015 -230191.46100023604 L 2058.7400359295293 -229810.80115588394 L 1580.269856582589 -229660.54664953408 L 858.8594646970704 -230782.09536541413 L 23.98842351890029 -231019.67033761047 "  ID_2="3" _id="43" NAME_1="Athos" ID_0="89" CCN_3="0" CCA_3="0" NAME_0="Greece" NAME_2="Athos" ISO="GRC" NL_title="Άθως" id="Athos" title="Athos" ENGTYPE_3="Municipality" ID_1="2"/>
+  </g>
+</svg>

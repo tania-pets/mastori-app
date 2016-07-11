@@ -3,7 +3,7 @@
 
     angular.module('app')
     .factory('appConfig', [appConfig])
-    .config(['$mdThemingProvider', '$httpProvider', 'uiGmapGoogleMapApiProvider', mdConfig]);
+    .config(['$mdThemingProvider', '$httpProvider', mdConfig]);
 
     // Google Maps SDK Async Loader
     // .config(function(uiGmapGoogleMapApiProvider) {
@@ -62,7 +62,7 @@
         }
     }
 
-    function mdConfig($mdThemingProvider, $httpProvider, uiGmapGoogleMapApiProvider) {
+    function mdConfig($mdThemingProvider, $httpProvider) {
         $httpProvider.interceptors.push('AuthInterceptor');
         var cyanAlt = $mdThemingProvider.extendPalette('cyan', {
             'contrastLightColors': '500 600 700 800 900',
@@ -108,12 +108,6 @@
                 'default': '500'
             })
             .backgroundPalette('grey');
-
-        uiGmapGoogleMapApiProvider.configure({
-            key: 'AIzaSyBJFOPHy8n_7xrE0drmP7GeQM5Sb_-i8LQ',
-            v: '3.23',
-            libraries: 'geometry'
-        });
     }
 
 })();

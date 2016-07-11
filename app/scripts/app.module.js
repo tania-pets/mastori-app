@@ -20,7 +20,6 @@
       'infinite-scroll',
       'geolocation',
       'oc.lazyLoad',
-      'uiGmapgoogle-maps',
       'ngTouch',
       'angular-carousel'
      // Custom modules
