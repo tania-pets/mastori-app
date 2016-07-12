@@ -13,7 +13,7 @@
 			}
 		</style>
 
-	<amcharts:ammap projection="mercator" leftLongitude="24.334717" topLatitude="40.219519" rightLongitude="29.608925" bottomLatitude="37.297544"></amcharts:ammap>
+	<amcharts:ammap projection="mercator" leftLongitude="24.334717" topLatitude="40.219519" rightLongitude="28.755341" bottomLatitude="37.297544"></amcharts:ammap>
 
 		<!-- All areas are listed in the line below. You can use this list in your script. -->		<!--{id:"AF-PIA"},{id:"AF-WAR"},{id:"AF-SAM"},{id:"AF-PAR"},{id:"AF-LOG"},{id:"AF-LAG"},{id:"AF-PAN"},{id:"AF-KAP"},{id:"AF-KAB"},{id:"AF-BGL"},{id:"AF-TAK"},{id:"AF-NAN"},{id:"AF-KDZ"},{id:"AF-KNR"},{id:"AF-NUR"},{id:"AF-BDS"},{id:"AF-PKA"},,{id:"AF-KHO"},{id:"AF-GHA"},{id:"AF-ZAB"},{id:"AF-KAN"},{id:"AF-DAY"},{id:"AF-URU"},{id:"AF-NIM"},{id:"AF-HEL"},{id:"AF-FRA"},{id:"AF-SAR"},{id:"AF-GHO"},{id:"AF-JOW"},{id:"AF-FYB"},{id:"AF-BAL"},{id:"AF-BAM"},{id:"AF-HER"},{id:"AF-BDG"}-->
 
