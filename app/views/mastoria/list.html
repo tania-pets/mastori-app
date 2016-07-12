@@ -7,7 +7,7 @@
                     <div class="row">
                         <!-- MASTORIA TOTAL COUNT AND INFO -->
                         <div layout="row" class="col-sm-3" layout-padding layout-wrap layout-fill>
-                            <md-whiteframe class="md-whiteframe-1dp bg-danger" flex-sm="25" flex-gt-sm="25" flex-gt-md="25" layout layout-align="center center">
+                            <md-whiteframe class="md-whiteframe-1dp bg-primary" flex-sm="25" flex-gt-sm="25" flex-gt-md="25" layout layout-align="center center">
                                 <span ng-if="mastoria.$resolved">{{ mastoria.total }}</span>
                                 <span ng-hide="mastoria.$resolved"><md-progress-circular md-mode="indeterminate" class="md-warn md-hue-3 m-auto" md-diameter="20px"></md-progress-circular></span>
                             </md-whiteframe>
@@ -15,7 +15,7 @@
                         </div>
                         <!-- SEARCH OVERVIEW -->
                         <div class="col-sm-6">
-                            <ol class="breadcrumb bg-danger">
+                            <ol class="breadcrumb bg-primary">
                                 <li>
                                     <small>EΙΔΙΚΟΤΗΤΑ:</small>
                                     <span ng-if="params['profession[]']">
@@ -44,7 +44,7 @@
                             <div class="input-group">
                               <input type="text" ng-keyup="$event.keyCode == 13 && setParams({q: params.q})" ng-model="params.q" class="form-control" placeholder="Ψάχνω τον/την...">
                               <span class="input-group-btn">
-                                <button class="btn btn-danger" ng-click="setParams({q: params.q})" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                                <button class="btn btn-warning" ng-click="setParams({q: params.q})" type="button"><span class="glyphicon glyphicon-search"></span></button>
                               </span>
                             </div><!-- /input-group -->
                           </div><!-- /.col-lg-6 -->
@@ -55,16 +55,19 @@
                         <div class="col-sm-3">
                             <!-- Professions -->
                             <div class="panel panel-default panel-labeled">
-                                <md-subheader class="md-warn">ΕΙΔΙΚΟΤΗΤΑ</md-subheader>
+                                <md-subheader class="bg-primary">Ειδικότητα</md-subheader>
                                 <md-list ng-show="professions.$resolved">
                                     <md-list-item ng-repeat="profession in professions | orderBy:'title'">
                                         <p>{{ ::profession.title }}</p>
-                                        <md-checkbox class="md-warn" ng-checked="params['profession[]'].indexOf(profession.id) >= 0" ng-click="toggleItem(profession.id, 'profession[]')"></md-checkbox>
+                                        <md-checkbox md-no-ink class="md-primary" ng-checked="params['profession[]'].indexOf(profession.id) >= 0" ng-click="toggleItem(profession.id, 'profession[]')"></md-checkbox>
                                     </md-list-item>
                                 </md-list>
                             </div>
                             <!-- Areas -->
-                            <div class="panel panel-default panel-labeled">
+                            <div class="panel panel-default panel-labeled panel-collapse">
+                                <md-subheader class="bg-primary">Χαρτης</md-subheader>
+                                <p class="p-xs">Επιλέξτε περιοχή</p>
+                                <drill-down-map ng-if="areas.$resolved" selected="params['area[]']" areas="areas"></drill-down-map>
                                 <!--md-subheader class="md-warn">ΠΕΡΙΟΧΕΣ</md-subheader>
                                 <div ng-show="!showMap">
                                     <md-progress-circular md-mode="indeterminate" class="md-warn md-hue-3 m-auto" md-diameter="96"></md-progress-circular>
@@ -86,25 +89,24 @@
                                     </ui-gmap-polygons>
 
                                 </ui-gmap-google-map-->
-                                <md-list ng-show="areas.$resolved">
+                                <!--md-list ng-show="areas.$resolved">
                                     <md-list-item ng-repeat="area in areas | orderBy:'name'">
                                         <p>{{ ::area.name }}</p>
                                         <md-checkbox class="md-warn" ng-checked="params['area[]'].indexOf(area.id) >= 0" ng-click="toggleItem(area.id, 'area[]')"></md-checkbox>
                                     </md-list-item>
-                                </md-list>
+                                </md-list-->
                             </div>
                         </div>
                         <!-- RESULTS -->
                         <div class="col-sm-9">
-                            <drill-down-map ng-if="areas.$resolved" selected="params['area[]']" areas="areas"></drill-down-map>
                             <!-- SORTING AND OFFERS/NEAR ME FILTERS -->
                             <div class="panel panel-default">
                                 <div class="panel-filters">
-                                    <span class="m-l-xs"><strong>ΤΑΞΙΝΟΜΗΣΗ ΑΝΑ</strong></span>
-                                    <button class="btn btn-flat" ng-class="{'btn-danger': params.order == 'asc' && params.orderby == 'last_name'}"  ng-click="setParams({orderby: 'last_name', order: 'asc'})">A-Z</button>
-                                    <button class="btn btn-flat" ng-class="{'btn-danger': params.order == 'desc' && params.orderby == 'last_name'}"  ng-click="setParams({orderby: 'last_name', order: 'desc'})">Z-A</button>
-                                    <button class="btn btn-flat" ng-class="{'btn-danger': params.order == 'desc' && params.orderby == 'avg_rating'}" ng-click="setParams({orderby: 'avg_rating', order: 'desc'})">Αξιολογησεις</button>
-                                    <button class="btn btn-flat" ng-class="{'btn-danger': params.order == 'asc' && params.orderby == 'avg_response_time'}" ng-click="setParams({orderby: 'avg_response_time', order: 'asc'})">Χρονος</button>
+                                    <span class="m-l-md"><strong>ΤΑΞΙΝΟΜΗΣΗ ΑΝΑ</strong></span>
+                                    <button class="btn btn-flat" ng-class="{'btn-primary': params.order == 'asc' && params.orderby == 'last_name'}"  ng-click="setParams({orderby: 'last_name', order: 'asc'})">A-Z</button>
+                                    <button class="btn btn-flat" ng-class="{'btn-primary': params.order == 'desc' && params.orderby == 'last_name'}"  ng-click="setParams({orderby: 'last_name', order: 'desc'})">Z-A</button>
+                                    <button class="btn btn-flat" ng-class="{'btn-primary': params.order == 'desc' && params.orderby == 'avg_rating'}" ng-click="setParams({orderby: 'avg_rating', order: 'desc'})">Αξιολογησεις</button>
+                                    <button class="btn btn-flat" ng-class="{'btn-primary': params.order == 'asc' && params.orderby == 'avg_response_time'}" ng-click="setParams({orderby: 'avg_response_time', order: 'asc'})">Χρονος</button>
                                     <md-checkbox class="md-warn m-l-md" ng-false-value="null" ng-true-value="'yes'" ng-model="params.only_offers" ng-change="setParams({only_offers: params.only_offers})">
                                         Προσφορές
                                     </md-checkbox>
@@ -115,44 +117,46 @@
                             </div>
 
                             <div class="panel panel-default panel-labeled">
-                                <div id="mastori-loader-container" ng-hide="mastoria.$resolved"></div>
+                                <div ng-hide="mastoria.$resolved">
+                                    <md-progress-circular md-mode="indeterminate" class="md-primary md-hue-3 m-auto" md-diameter="96"></md-progress-circular>
+                                </div>
                                 <div class="panel-body" ng-if="mastoria.$resolved">
                                     <!-- NO MASTORIA -->
                                     <div ng-show="mastoria.total === 0">
-                                        <span class="text-danger">Πίκρα! Δε βρέθηκε κανένα μαστόρι...</span>
+                                        <span class="text-primary">Πίκρα! Δε βρέθηκε κανένα μαστόρι...</span>
                                     </div>
                                     <!-- LIST OF MASTORIA -->
                                     <div infinite-scroll="loadMore()" infinite-scroll-disabled="busy || mastoria.data.length === mastoria.total" infinite-scroll-distance="1" class="media-list media-divider-full">
-                                        <div class="media" ng-repeat="mastori in mastoria.data" ng-class="{'ui-ribbon-container ui-ribbon-danger' : mastori.offers}">
+                                        <div class="media" ng-repeat="mastori in mastoria.data" ng-class="{'ui-ribbon-container ui-ribbon-primary' : mastori.offers}">
                                             <div class="ui-ribbon-wrapper" ng-if="mastori.offers">
                                                 <div class="ui-ribbon">
                                                     <small>ΠΡΟΣΦΟΡΑ</small>
                                                 </div>
                                             </div>
                                             <a class="media-left p-b-sm" href="">
-                                                <img alt="" src="images/g1.jpg" class="img-circle img64_64">
+                                                <img alt="" src="images/g1.jpg" class="img-circle img80_80">
                                             </a>
                                             <div class="media-body">
-                                                <h4 class="media-heading">
-                                                    {{ ::mastori.last_name }} {{ ::mastori.first_name }}
-                                                    <small ng-if="mastori.paratsoukli" class="text-danger"><i>aka {{ ::mastori.paratsoukli }}</i></small>
-                                                </h4>
+                                                <p class="media-heading">
+                                                    <strong>{{ ::mastori.last_name }} {{ ::mastori.first_name }} </strong>
+                                                    <small ng-if="mastori.paratsoukli" class="text-primary"><i>, {{ ::mastori.paratsoukli }}</i></small>
+                                                    <small class="text-danger">(35 κριτικές)</small>
+                                                </p>
                                                 <div>
-                                                    <p class="text-muted">{{ ::mastori.addresses[0].address }}</p>
-                                                    <p class="text-muted">T: {{ ::mastori.phone }}</p>
-
                                                     <uib-rating class="ui-rating size-h4 ui-rating-warning" ng-model="mastori.avg_rating" max="5" data-readonly="true"></uib-rating>
 
-                                                    <p class="m-t-xs">
+                                                    <p class="text-muted"><i class="text-danger zmdi zmdi-pin"></i> {{ ::mastori.addresses[0].address }}</p>
+                                                    <p class="text-muted"><i class="text-danger zmdi zmdi-smartphone-iphone"></i> {{ ::mastori.phone }}</p>
+                                                    <!--p class="m-t-xs">
                                                         ΕΞΥΠΗΡΕΤΕΙ: <to-string values="mastori.areas" key="name"></to-string>
-                                                    </p>
+                                                    </p-->
                                                 </div>
                                                 <!-- <p>{{ ::mastori.description }}</p> -->
                                             </div>
                                         </div>
                                     </div>
                                     <div ng-show="busy">
-                                        <md-progress-circular md-mode="indeterminate" class="md-warn md-hue-3 m-auto" md-diameter="96"></md-progress-circular>
+                                        <md-progress-circular md-mode="indeterminate" class="md-primary md-hue-3 m-auto" md-diameter="96"></md-progress-circular>
                                     </div>
                                 </div>
                             </div>

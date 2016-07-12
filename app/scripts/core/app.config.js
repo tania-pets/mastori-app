@@ -44,12 +44,12 @@
             skin: '31'                                      // 11,12,13,14,15,16; 21,22,23,24,25,26; 31,32,33,34,35,36
         };
         var color = {
-            primary:    '#262B33',//'#009688',
+            primary:    '#0198b6',//'#262B33',//'#009688',
             success:    '#8BC34A',
             info:       '#00BCD4',
             infoAlt:    '#7E57C2',
-            warning:    '#ea5b48',
-            danger:     '#F44336',
+            warning:    '#fcc23b',// '#ea5b48',
+            danger:     '#c14e1a', //'#F44336',
             gray:       '#EDF0F1',
             positive:   '#009688',
             negative:   '#db1313',

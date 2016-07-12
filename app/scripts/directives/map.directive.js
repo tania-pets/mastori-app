@@ -43,7 +43,7 @@
                                 id: area.name,
                                 _id: area.id,
                                 parent_id: area.parent_id,
-                                color: "#605675",
+                                color: "#f89932",
                                 showAsSelected: selected
                             }
                         );
@@ -70,14 +70,14 @@
                     $scope.map = AmCharts.makeChart("map", {
                         type: "map",
                         "theme": "none",
-                        projection:"winkel3",
+                        // projection:"winkel3",
 
                         areasSettings: {
                             autoZoom: true,
-                            rollOverOutlineColor: "#9a7bca",
-                            selectedColor: "#9a7bca",
-                            color: "#a791b4",
-                            rollOverColor: "#9a7bca",
+                            rollOverOutlineColor: "#c14e1a",
+                            selectedColor: "#c14e1a",
+                            color: "#f89932",
+                            rollOverColor: "#c14e1a",
                             selectable: true
                         },
 
