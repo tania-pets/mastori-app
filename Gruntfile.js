@@ -224,6 +224,11 @@ module.exports = function (grunt) {
         src: ['<%= yeoman.app %>/index.html'],
         ignorePath:  /\.\.\//,
         exclude: ['bower_components/requirejs', 'bower_components/angular/',  'bower_components/jquery'],
+        overrides: {
+        'ammap3': {
+          'main': ['ammap/ammap.js', 'ammap/maps/js/greeceLow.js']
+        }
+       }
       },
       test: {
         devDependencies: true,

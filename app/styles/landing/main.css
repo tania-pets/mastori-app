@@ -39,6 +39,8 @@ h1, h2, h3 {
 .testimorials .section-heading-underline{
   color:#0398b8;
   font-size:34px;
+  margin-top:0;
+  margin-bottom:50px;
 }
 @-webkit-keyframes slideInDown {
     0% {
@@ -860,13 +862,29 @@ h1, h2, h3 {
 .testimorials {
     background: url("../../images/landing/background-users.png") repeat 0 0;
     padding: 4em 2em 5em;
+}
 
+#map{
+  background: #22435D url("../../images/landing/background-map.png") no-repeat;
+  /*background-size:contain;*/
+  background-position:left;
+  min-height:545px;
+  /*padding: 4em 2em 5em;*/
 }
 .testimorials .quote{
-  font-size:22px;
-  color:#6e6579;
+  font-size:21px;
+  color:#6e7579;
   line-height:22px;
-  margin-top:10px;
+  padding-top:15px;
+}
+
+.testimorials .rn-carousel-control{
+  color:#D24918;
+  font-weight:bold;
+  font-size:35px;
+}
+.testimorials ul[rn-carousel]{
+  min-height:270px;
 }
 .testimorials .container{
   position:relative;
@@ -880,7 +898,7 @@ h1, h2, h3 {
 
 .testimorials small{
   color: #4c5559;
-  font-size:14px;
+  font-size:13px;
 }
 ul[rn-carousel] {
     width: 100%;
@@ -978,3 +996,91 @@ ul[rn-carousel] {
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
 }
 input{color:#000;}
+
+
+/*map*/
+
+.map-marker {
+    /* adjusting for the marker dimensions
+    so that it is centered on coordinates */
+    margin-left: -8px;
+    margin-top: -8px;
+}
+.map-marker.map-clickable {
+    cursor: pointer;
+}
+.pulse {
+		width: 10px;
+		height: 10px;
+		border: 5px solid #f7f14c;
+		-webkit-border-radius: 30px;
+		-moz-border-radius: 30px;
+		border-radius: 30px;
+		background-color: #716f42;
+		z-index: 10;
+		position: absolute;
+	}
+.map-marker .dot {
+		border: 10px solid #fff601;
+		background: transparent;
+		-webkit-border-radius: 60px;
+		-moz-border-radius: 60px;
+		border-radius: 60px;
+		height: 50px;
+		width: 50px;
+		-webkit-animation: pulse 3s ease-out;
+		-moz-animation: pulse 3s ease-out;
+		animation: pulse 3s ease-out;
+		-webkit-animation-iteration-count: infinite;
+		-moz-animation-iteration-count: infinite;
+		animation-iteration-count: infinite;
+		position: absolute;
+		top: -25px;
+		left: -25px;
+		z-index: 1;
+		opacity: 0;
+	}
+	@-moz-keyframes pulse {
+	 0% {
+	   	-moz-transform: scale(0);
+	   	opacity: 0.0;
+	 }
+	 25% {
+	   	-moz-transform: scale(0);
+	   	opacity: 0.1;
+	 }
+	 50% {
+	   	-moz-transform: scale(0.1);
+	   	opacity: 0.3;
+	 }
+	 75% {
+	   	-moz-transform: scale(0.5);
+	   	opacity: 0.5;
+	 }
+	 100% {
+	   	-moz-transform: scale(1);
+	   	opacity: 0.0;
+	 }
+	}
+	@-webkit-keyframes "pulse" {
+	 0% {
+	    -webkit-transform: scale(0);
+	   	opacity: 0.0;
+	 }
+	 25% {
+	    -webkit-transform: scale(0);
+	   	opacity: 0.1;
+	 }
+	 50% {
+	    -webkit-transform: scale(0.1);
+	   	opacity: 0.3;
+	 }
+	 75% {
+	    -webkit-transform: scale(0.5);
+	   	opacity: 0.5;
+	 }
+	 100% {
+	    -webkit-transform: scale(1);
+	   	opacity: 0.0;
+	 }
+	}

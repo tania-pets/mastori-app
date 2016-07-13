@@ -8,10 +8,36 @@
  * Controller of the app
  */
 angular.module('app')
-  .controller('LandingCtrl', function ($ocLazyLoad, $scope, $timeout, ProfessionModel) {
+  .controller('LandingCtrl', function ($ocLazyLoad, $scope, $timeout, ProfessionModel, AreaModel) {
     $ocLazyLoad.load('scripts/landing/modernizr.js');
     $ocLazyLoad.load('styles/landing/main.css');
     $ocLazyLoad.load('scripts/landing/app.js');
+
+    /*Map*/
+    $scope.mapMarkers = [{
+        zoomLevel: 5,
+        scale: 0.5,
+        title: "Athens",
+        latitude: 37.9839,
+        longitude: 23.7294
+    },
+      {
+          zoomLevel: 5,
+          scale: 0.5,
+          title: "Thessaloniki",
+          latitude: 40.6403,
+          longitude: 22.9439
+      }
+    ];
+
+    // $scope.mapOptions = {
+    //         "zoomControl": {
+		//         "zoomControlEnabled": false
+	  //        }
+
+    /*End Map*/
+
+    /*Professions*/
 
     //load professions
     $scope.professions = ProfessionModel.query();
@@ -30,23 +56,23 @@ angular.module('app')
                     || profession.title.indexOf(query) === 0);
         };
     }
-
     //search for professions
     $scope.querySearch = function(query) {
         var results = query ? $scope.professions.filter( createFilterFor(query) ) : $scope.professions,
                 deferred;
         return results;
     }
-
     //search change
     $scope.searchTextChange = function(text) {
       //console.log('Text changed to ' + text);
     }
-
     //match found
     $scope.selectedItemChange = function(item) {
       //console.log('Item changed to ' + JSON.stringify(item));
     }
+    /* End Professions*/
+
+
 
     //capitalizes first letter
     function fistToUpper(str) {
