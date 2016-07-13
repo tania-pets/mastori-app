@@ -12,19 +12,21 @@
               extraOptions: '=',
               map: '=',
               markers: '=',
-              zoomable: '='
+              zoomable: '=',
+              lines: '='
             },
             template:
-            '<div id="map"></div>',
+            '<div id="countryMap"></div>',
             link: function($scope, $el) {
 
                 //the country map to be loaded
                 $scope.country = $scope.country || 'greeceLow';
                 $scope.markers = $scope.markers || [];
+                $scope.lines = $scope.lines || [];
                 $scope.zoomable = $scope.zoomable || false;
 
                 var mapInit = function() {
-                    $scope.map = AmCharts.makeChart("map", {
+                    $scope.map = AmCharts.makeChart("countryMap", {
                           type: "map",
                           imagesSettings: {
                               rollOverColor: "#fff",
@@ -34,11 +36,14 @@
                               color: "#FC561F"
                           },
                           areasSettings: {
-                              unlistedAreasColor: "#1998B6"
+                              unlistedAreasColor: "#1998B6",
+                              outlineAlpha: 0,
+                              outlineThickness:0,
                           },
                           dataProvider: {
                               map: $scope.country,
-                              images:$scope.markers
+                              images:$scope.markers,
+                              lines: $scope.lines
                           },
                           zoomControl: {
               		          zoomControlEnabled: $scope.zoomable,

@@ -165,10 +165,15 @@
       </div>
       <div id="map" class="map">
         <div class="container">
-          <!-- <header>
-            <h2 class="section-heading-underline">Σχόλια χρηστών</h2>
-          </header> -->
-          <country-map markers="mapMarkers" zoomable="false"></country-map >
+
+          <div class="row">
+            <div class="col-md-8">
+              <country-map markers="mapMarkers" zoomable="false" lines="mapLines"></country-map >
+            </div>
+            <div class="col-md-4">
+                <h2 class="section-heading-underline">Περιοχές που εξυπηρετούμε</h2>
+            </div>
+          </div>
         </div>
       </div>
       <div id="newsletter" data-stellar-background-ratio="0.6" class="newsletter">

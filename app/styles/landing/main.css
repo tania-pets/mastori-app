@@ -869,7 +869,7 @@ h1, h2, h3 {
   /*background-size:contain;*/
   background-position:left;
   min-height:545px;
-  /*padding: 4em 2em 5em;*/
+  padding: 4em 2em 2.2em;
 }
 .testimorials .quote{
   font-size:21px;
@@ -1000,6 +1000,11 @@ input{color:#000;}
 
 /*map*/
 
+#countryMap{
+  width: 100%;
+  height: 100%;
+  min-height: 450px;
+}
 .map-marker {
     /* adjusting for the marker dimensions
     so that it is centered on coordinates */
@@ -1010,18 +1015,18 @@ input{color:#000;}
     cursor: pointer;
 }
 .pulse {
-		width: 10px;
-		height: 10px;
-		border: 5px solid #f7f14c;
+		width: 20px;
+		height: 20px;
+		border: 5px solid #FC5520;
 		-webkit-border-radius: 30px;
 		-moz-border-radius: 30px;
 		border-radius: 30px;
-		background-color: #716f42;
+		background-color: #FC5520;
 		z-index: 10;
 		position: absolute;
 	}
 .map-marker .dot {
-		border: 10px solid #fff601;
+		border: 10px solid #fff;
 		background: transparent;
 		-webkit-border-radius: 60px;
 		-moz-border-radius: 60px;
@@ -1035,8 +1040,8 @@ input{color:#000;}
 		-moz-animation-iteration-count: infinite;
 		animation-iteration-count: infinite;
 		position: absolute;
-		top: -25px;
-		left: -25px;
+		top: -15px;
+		left: -15px;
 		z-index: 1;
 		opacity: 0;
 	}

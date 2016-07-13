@@ -30,11 +30,13 @@ angular.module('app')
       }
     ];
 
-    // $scope.mapOptions = {
-    //         "zoomControl": {
-		//         "zoomControlEnabled": false
-	  //        }
-
+    $scope.mapLines = [{
+            id: "line1",
+            color: "#fff",
+            alpha: 1,
+            latitudes: [37.9839, 32.9839],
+            longitudes: [23.7294, 23.7294]
+        }],
     /*End Map*/
 
     /*Professions*/
