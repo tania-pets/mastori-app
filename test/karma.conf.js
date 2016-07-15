@@ -53,6 +53,7 @@ module.exports = function(config) {
       'bower_components/angular-validation-match/dist/angular-validation-match.min.js',
       'bower_components/angular-ui-tree/dist/angular-ui-tree.js',
       'bower_components/jquery.slimscroll/jquery.slimscroll.js',
+      'bower_components/jquery.slimscroll/jquery.slimscroll.min.js',
       'bower_components/jquery-steps/build/jquery.steps.js',
       'bower_components/angular-busy/dist/angular-busy.js',
       'bower_components/spin.js/spin.js',
@@ -64,6 +65,7 @@ module.exports = function(config) {
       'bower_components/lodash/lodash.js',
       'bower_components/angular-carousel/dist/angular-carousel.js',
       'bower_components/ammap3/ammap/ammap.js',
+      'bower_components/angular-breadcrumb/release/angular-breadcrumb.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
       // endbower

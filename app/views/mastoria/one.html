@@ -1,0 +1,99 @@
+
+<div class="page page-profile">
+
+    <header class="profile-header">
+        <div class="profile-img">
+            <img alt="" src="images/g1.jpg" class="img-circle">
+        </div>
+
+        <div class="profile-social">
+            <h3 class="text-white">
+                {{ ::mastori.last_name }} {{ ::mastori.first_name }}
+                <i class="size-h4" ng-if="mastori.paratsoukli"> {{ ::mastori.paratsoukli }}</i>
+            </h3>
+            <to-string values="mastori.professions" key="title"></to-string>
+            <br />
+            <uib-rating class="ui-rating size-h4 ui-rating-warning" ng-model="mastori.avg_rating" max="5" data-readonly="true"></uib-rating>
+        </div>
+
+        <div class="profile-info">
+            <ul class="list-unstyled list-inline">
+            <li><i class="fa fa-video-camera"></i> Films <span class="text-muted">(39)</span></li>
+            <li><i class="fa fa-image"></i> Photos <span class="text-muted">(63)</span></li>
+            <li><i class="fa fa-bookmark"></i> Collections <span class="text-muted">(55)</span></li>
+            <li><i class="fa fa-check"></i> Tasks <span class="text-muted">(34)</span></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="divider divider-lg"></div>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="panel mini-box">
+            <span class="btn-icon btn-icon-round btn-icon-lg-alt bg-danger">
+                <i class="text-white zmdi zmdi-smartphone-iphone"></i>
+            </span>
+            <div class="box-info-mastori">
+                <!-- <p class="size-h2">Τ:</p> -->
+                <p class="text-muted">{{ ::mastori.phone }}</p>
+            </div>
+            </div>
+        </div>
+        <div class="col-sm-3" ng-repeat="address in mastori.addresses">
+            <div class="panel mini-box">
+            <span class="btn-icon btn-icon-round btn-icon-lg-alt bg-warning">
+                <i class="text-danger zmdi zmdi-pin"></i>
+            </span>
+            <div class="box-info-mastori">
+                <!-- <p class="size-h2">Δ:</p> -->
+                <p class="text-muted">{{ ::address.address }}</p>
+            </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="panel mini-box">
+            <span class="btn-icon btn-icon-round btn-icon-lg-alt bg-info">
+                <i class="text-white zmdi zmdi-car"></i>
+            </span>
+            <div class="box-info-mastori">
+                <!-- <p class="size-h2">Τ:</p> -->
+                <p class="text-muted"><to-string values="mastori.areas" key="name"></to-string></p>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider divider-lg"></div>
+    <div class="row ui-section">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Λιγα λογια..</h3>
+                </div>
+                <div class="panel-body">
+                    {{ ::mastori.description }}
+                </div>
+            </div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Τιμοκαταλογος</h3>
+                </div>
+                <div class="panel-body">
+                    {{ ::mastori.pricelist }}
+                </div>
+            </div>
+
+            <div class="panel panel-primary" ng-if="mastori.offers">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Προσφορες</h3>
+                </div>
+                <div class="panel-body">
+                    {{ ::mastori.offers }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
