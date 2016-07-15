@@ -1,8 +1,7 @@
 
-<div class="wrapper">
-    <div class="main-body">
-        <div class="body-inner">
-            <div class="card bg-white">
+<div class="mastoria-page">
+            <header class="mastoria-header"></header>
+            <div class="card">
                 <div class="card-content">
                     <div class="row">
                         <!-- MASTORIA TOTAL COUNT AND INFO -->
@@ -133,14 +132,18 @@
                                                     <small>ΠΡΟΣΦΟΡΑ</small>
                                                 </div>
                                             </div>
-                                            <a class="media-left p-b-sm" href="">
+                                            <a ng-href="#/app/mastoria/{{ mastori.id }}" class="media-left p-b-sm">
                                                 <img alt="" src="images/g1.jpg" class="img-circle img80_80">
                                             </a>
                                             <div class="media-body">
                                                 <p class="media-heading">
-                                                    <strong>{{ ::mastori.last_name }} {{ ::mastori.first_name }} </strong>
-                                                    <small ng-if="mastori.paratsoukli" class="text-primary"><i>, {{ ::mastori.paratsoukli }}</i></small>
-                                                    <small class="text-danger">(35 κριτικές)</small>
+                                                    <strong>
+                                                        <a ng-href="#/app/mastoria/{{ mastori.id }}">
+                                                            {{ ::mastori.last_name }} {{ ::mastori.first_name }}
+                                                        </a>
+                                                    </strong>
+                                                    <small ng-if="mastori.paratsoukli" class="text-muted"><i> {{ ::mastori.paratsoukli }}</i></small>
+                                                    <small class="text-danger"> (35 κριτικές)</small>
                                                 </p>
                                                 <div>
                                                     <uib-rating class="ui-rating size-h4 ui-rating-warning" ng-model="mastori.avg_rating" max="5" data-readonly="true"></uib-rating>
@@ -164,7 +167,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+
 
 </div>

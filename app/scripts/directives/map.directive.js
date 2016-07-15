@@ -10,7 +10,9 @@
             replace: true,
             scope: {
               selected: '=',
-              areas: '='
+              areas: '=',
+              color: '=',
+              selectedColor: '='
             },
             template:
             '<div id="map"></div>',
@@ -20,6 +22,33 @@
                 $scope.areas = $scope.areas || [];
                 $scope.selected = $scope.selected || [];
                 $scope.defaultDataProvider = {};
+                $scope.color = $scope.color || "#f89932";
+                $scope.selectedColor = $scope.selectedColor || "#c14e1a";
+
+                var images = [ {
+                    id: "selectAll",
+                    label: "Select All",
+                    labelColor: $scope.color,
+                    rollOverColor: $scope.selectedColor,
+                    labelRollOverColor: $scope.selectedColor,
+                    useTargetsZoomValues: true,
+                    left: 0,
+                    bottom: 30,
+                    labelFontSize: 13,
+                    selectable: true
+                },
+                {
+                    id: "selectNone",
+                    label: "Select None",
+                    labelColor: $scope.color,
+                    rollOverColor: $scope.selectedColor,
+                    labelRollOverColor: $scope.selectedColor,
+                    useTargetsZoomValues: true,
+                    left: 100,
+                    bottom: 30,
+                    labelFontSize: 13,
+                    selectable: true
+                } ];
 
                 var prepareAreas = function() {
                     var groupAreas, prefecture, selected, selectedPrefecture;
@@ -58,7 +87,8 @@
                     if (selectedPrefecture) {
                         $scope.defaultDataProvider = {
                             mapURL: "svg/" + selectedPrefecture + ".svg",
-                            areas: $scope.mapAreas[selectedPrefecture]
+                            areas: $scope.mapAreas[selectedPrefecture],
+                            images: images
                         };
                     } else {
                         $scope.defaultDataProvider = $scope.prefectureDataProvider;
@@ -73,11 +103,11 @@
                         // projection:"winkel3",
 
                         areasSettings: {
-                            autoZoom: true,
-                            rollOverOutlineColor: "#c14e1a",
-                            selectedColor: "#c14e1a",
-                            color: "#f89932",
-                            rollOverColor: "#c14e1a",
+                            autoZoom: false,
+                            rollOverOutlineColor: $scope.selectedColor,
+                            selectedColor: $scope.selectedColor,
+                            color: $scope.color,
+                            rollOverColor: $scope.selectedColor,
                             selectable: true
                         },
 
@@ -93,15 +123,36 @@
                     setMapDataProvider($scope.prefectureDataProvider);
                 }
 
+                var togglePrefecture = function(selected) {
+                    angular.forEach($scope.map.dataProvider.areas, function(area){
+                        area.showAsSelected = selected;
+                    });
+                    $scope.map.validateData();
+                    if (selected) {
+                        $scope.$emit('prefectureSelected', $scope.map.dataProvider.areas[0].parent_id);
+                    } else {
+                        $scope.$emit('resetAllAreas');
+                    }
+                }
+
                 var handleMapObjectClick = function(event) {
                     if ( event.mapObject.id == "backButton" ) {
                         return handleGoHome();
                     }
 
+                    if ( event.mapObject.id == "selectAll" ) {
+                        return togglePrefecture(true);
+                    }
+
+                    if ( event.mapObject.id == "selectNone" ) {
+                        return togglePrefecture(false);
+                    }
+
                     if (!event.mapObject.parent_id) {
                         var mapDataProvider = {
                             mapURL: "svg/" + event.mapObject.id + '.svg',
-                            areas: $scope.mapAreas[event.mapObject.id]
+                            areas: $scope.mapAreas[event.mapObject.id],
+                            images: images
                         }
                         setMapDataProvider(mapDataProvider);
                     } else {

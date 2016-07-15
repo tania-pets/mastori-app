@@ -15,7 +15,7 @@ angular.module('app')
     $scope.areas = AreaModel.query();
 
     $scope.$watch('coords', function() {
-	  		console.info('current location (scope)', $rootScope.coords);
+  		console.info('current location (scope)', $rootScope.coords);
         $scope.near = $rootScope.coords ? $rootScope.coords.lat + ',' + $rootScope.coords.lng : null;
     });
     $scope.coords = $rootScope.coords;
@@ -46,7 +46,7 @@ angular.module('app')
 
     	var params = {};
     	var items = $scope.params[itemKey] || [];
-      var itemIndex = items.indexOf(itemId);
+        var itemIndex = items.indexOf(itemId);
 
     	if (itemIndex >= 0) {
     		items.splice(items.indexOf(itemId), 1);
@@ -76,8 +76,20 @@ angular.module('app')
     	});
     }
 
+    $scope.$on('resetAllAreas', function (e) {
+      $scope.setParams({'area[]': []});
+    });
+
     $scope.$on('areaToggled', function (e, mapArea) {
       $scope.toggleItem(mapArea._id, 'area[]');
+    });
+
+    $scope.$on('prefectureSelected', function (e, id) {
+        var selectedAreasFromPrefecture = $filter('filter')($scope.areas, { parent_id: id }, true);
+
+        if (selectedAreasFromPrefecture.length > 0) {
+            $scope.setParams({'area[]': _.pluck(selectedAreasFromPrefecture, 'id')});
+        }
     });
 
   }]);
