@@ -126,7 +126,7 @@
                                     </div>
                                     <!-- LIST OF MASTORIA -->
                                     <div infinite-scroll="loadMore()" infinite-scroll-disabled="busy || mastoria.data.length === mastoria.total" infinite-scroll-distance="1" class="media-list media-divider-full">
-                                        <div class="media" ng-repeat="mastori in mastoria.data" ng-class="{'ui-ribbon-container ui-ribbon-primary' : mastori.offers}">
+                                        <div class="media" ng-repeat="mastori in mastoria.data" ng-class="{'ui-ribbon-container ui-ribbon-warning' : mastori.offers}">
                                             <div class="ui-ribbon-wrapper" ng-if="mastori.offers">
                                                 <div class="ui-ribbon">
                                                     <small>ΠΡΟΣΦΟΡΑ</small>
@@ -136,23 +136,30 @@
                                                 <img alt="" src="images/g1.jpg" class="img-circle img80_80">
                                             </a>
                                             <div class="media-body">
-                                                <p class="media-heading">
-                                                    <strong>
-                                                        <a ng-href="#/app/mastoria/{{ mastori.id }}">
-                                                            {{ ::mastori.last_name }} {{ ::mastori.first_name }}
-                                                        </a>
-                                                    </strong>
-                                                    <small ng-if="mastori.paratsoukli" class="text-muted"><i> {{ ::mastori.paratsoukli }}</i></small>
-                                                    <small class="text-danger"> (35 κριτικές)</small>
-                                                </p>
-                                                <div>
-                                                    <uib-rating class="ui-rating size-h4 ui-rating-warning" ng-model="mastori.avg_rating" max="5" data-readonly="true"></uib-rating>
+                                                <div class="row">
+                                                    <div class="col-sm-8">
+                                                        <p class="media-heading">
+                                                            <strong>
+                                                                <a ng-href="#/app/mastoria/{{ mastori.id }}">
+                                                                    {{ ::mastori.last_name }} {{ ::mastori.first_name }}
+                                                                </a>
+                                                            </strong>
+                                                            <small ng-if="mastori.paratsoukli" class="text-muted"><i> {{ ::mastori.paratsoukli }}</i></small>
+                                                            <small class="text-danger"> (35 κριτικές)</small>
+                                                        </p>
+                                                        <div>
+                                                            <uib-rating class="ui-rating size-h4 ui-rating-warning" ng-model="mastori.avg_rating" max="5" data-readonly="true"></uib-rating>
 
-                                                    <p class="text-muted"><i class="text-danger zmdi zmdi-pin"></i> {{ ::mastori.addresses[0].address }}</p>
-                                                    <p class="text-muted"><i class="text-danger zmdi zmdi-smartphone-iphone"></i> {{ ::mastori.phone }}</p>
-                                                    <!--p class="m-t-xs">
-                                                        ΕΞΥΠΗΡΕΤΕΙ: <to-string values="mastori.areas" key="name"></to-string>
-                                                    </p-->
+                                                            <p class="text-muted"><i class="text-danger zmdi zmdi-pin"></i> {{ ::mastori.addresses[0].address }}</p>
+                                                            <p class="text-muted"><i class="text-danger zmdi zmdi-smartphone-iphone"></i> {{ ::mastori.phone }}</p>
+                                                            <!--p class="m-t-xs">
+                                                                ΕΞΥΠΗΡΕΤΕΙ: <to-string values="mastori.areas" key="name"></to-string>
+                                                            </p-->
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <a ng-href="#/app/mastoria/{{ mastori.id }}" class="btn btn-primary btn-md m-t-md">ΚΛΕΙΣΕ ΡΑΝΤΕΒΟΥ</a>
+                                                    </div>
                                                 </div>
                                                 <!-- <p>{{ ::mastori.description }}</p> -->
                                             </div>

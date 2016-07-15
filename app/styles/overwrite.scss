@@ -58,6 +58,14 @@
 	margin-bottom: 0px;
 }
 
+.breadcrumb > .active {
+    color: #0198b6!important;
+}
+
+.breadcrumb > li + li:before {
+    color: #025465;
+}
+
 #mastori-loader-container {
     background: transparent url('../images/mastori-loader.png') no-repeat center center;
     min-height: 200px;
