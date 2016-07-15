@@ -47,13 +47,30 @@ angular.module('app')
             .state('app.home', {
                 url: '/home',
                 templateUrl: 'views/home.html',
-                controller:'HomeCtrl'
+                controller:'HomeCtrl',
+                ncyBreadcrumb: {
+                  label: 'Home'
+                }
             })
             .state('app.mastoria', {
                 url: '/mastoria?order&orderby&only_offers&{profession[]:int}&{area[]:int}&near&q',
                 reloadOnSearch : false,
                 templateUrl: 'views/mastoria/list.html',
-                controller:'MastoriaCtrl'
+                controller:'MastoriaCtrl',
+                ncyBreadcrumb: {
+                  label: 'Mastoria',
+                  parent: 'app.home'
+                }
+            })
+            .state('app.mastori', {
+                url: '/mastoria/:id',
+                templateUrl: 'views/mastoria/one.html',
+                controller:'MastoriCtrl',
+                ncyBreadcrumb: {
+                  label: '{{ ::mastori.last_name }} {{ ::mastori.first_name }}',
+                  parent: 'app.mastoria'
+
+                }
             })
             .state('app.signup', {
                 url: '/signup',

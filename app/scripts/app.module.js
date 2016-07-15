@@ -21,7 +21,8 @@
       'geolocation',
       'oc.lazyLoad',
       'ngTouch',
-      'angular-carousel'
+      'angular-carousel',
+      'ncy-angular-breadcrumb'
      // Custom modules
     //  ,'app.layout'
     //  ,'app.i18n'
