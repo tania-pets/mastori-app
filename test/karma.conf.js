@@ -66,6 +66,9 @@ module.exports = function(config) {
       'bower_components/angular-carousel/dist/angular-carousel.js',
       'bower_components/ammap3/ammap/ammap.js',
       'bower_components/angular-breadcrumb/release/angular-breadcrumb.js',
+      'bower_components/AngularJS-Toaster/toaster.js',
+      'bower_components/moment/moment.js',
+      'bower_components/angular-moment/angular-moment.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
       // endbower

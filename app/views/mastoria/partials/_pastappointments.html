@@ -1,0 +1,29 @@
+<div class="ui-timline-container" ng-if="appointments.$resolved">
+    <section class="ui-timeline" infinite-scroll="loadMoreAppointments()" infinite-scroll-disabled="busyAp || appointments.data.length === appointments.total" infinite-scroll-distance="1" class="media-list media-divider-full">
+    	<article class="tl-item">
+            <div class="tl-body">
+                <div class="tl-entry">
+                    <div class="tl-caption">
+                        <a href="javascript:;" class="btn btn-primary btn-block">Today</a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article class="tl-item" ng-class-even="'alt'" ng-repeat="appointment in appointments.data">
+            <div class="tl-body">
+                <div class="tl-entry">
+                    <div class="tl-time" am-time-ago="appointment.created_at"></div>
+                    <div class="tl-icon btn-icon-round btn-icon btn-icon-thin btn-primary"><i class="zmdi zmdi-time"></i></div>
+                    <div class="tl-content">
+                        <h4 class="tl-tile text-primary">{{ ::appointment.issue }}</h4>
+                        <p>{{ ::appointment.mastori.name }}</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+	</section>
+	<div ng-show="busyAp">
+        <md-progress-circular md-mode="indeterminate" class="md-primary md-hue-3 m-auto" md-diameter="96"></md-progress-circular>
+    </div>
+</div>

@@ -98,7 +98,7 @@
           'contrastDarkColors': '50 100 A100 A200'
         });
         $mdThemingProvider.theme('default')
-            .primaryPalette('black', {
+            .primaryPalette('teal', {
                 'default': '500'
             })
             .accentPalette('grey', {

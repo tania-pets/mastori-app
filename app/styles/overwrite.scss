@@ -80,6 +80,7 @@
 	height	: 250px;
 }
 
+// mastori
 .box-info-mastori {
 	max-width: 130px;
 	vertical-align: middle;
@@ -90,10 +91,30 @@
     vertical-align: middle;
 }
 
+// mastoria
 .mastoria-page header {
 	position: relative;
   margin: 0 -30px 15px;
   padding: 50px 30px 90px;
 	background: url("../images/background/1.jpg") no-repeat center center fixed;
 	background-size: cover;
+}
+
+// forms
+md-datepicker.md-default-theme, md-datepicker {
+    background: transparent;
+}
+
+.has-datepicker {
+  margin-bottom: 34px;
+  margin-top: -15px;
+}
+
+.has-datepicker label {
+	font-size: 11px;
+	color: rgba(0,0,0,0.54);
+}
+
+.required {
+	color: rgb(213,0,0)!important;
 }

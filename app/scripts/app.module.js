@@ -22,7 +22,9 @@
       'oc.lazyLoad',
       'ngTouch',
       'angular-carousel',
-      'ncy-angular-breadcrumb'
+      'ncy-angular-breadcrumb',
+      'toaster',
+      'angularMoment'
      // Custom modules
     //  ,'app.layout'
     //  ,'app.i18n'
