@@ -53,7 +53,6 @@ module.exports = function(config) {
       'bower_components/angular-validation-match/dist/angular-validation-match.min.js',
       'bower_components/angular-ui-tree/dist/angular-ui-tree.js',
       'bower_components/jquery.slimscroll/jquery.slimscroll.js',
-      'bower_components/jquery.slimscroll/jquery.slimscroll.min.js',
       'bower_components/jquery-steps/build/jquery.steps.js',
       'bower_components/angular-busy/dist/angular-busy.js',
       'bower_components/spin.js/spin.js',
