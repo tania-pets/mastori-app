@@ -79,26 +79,39 @@
                 function createCustomMarker(image) {
                     // create holder
                     var holder = document.createElement('div');
-                    holder.className = 'map-marker';
-                    holder.title = image.title;
-                    holder.style.position = 'absolute';
-                    // maybe add a link to it?
-                    if (undefined != image.url) {
-                        holder.onclick = function() {
-                            window.location.href = image.url;
-                        };
-                        holder.className += ' map-clickable';
+
+                    if (image.text) {
+                      holder.innerHTML = image.text;
+                      holder.style.color = image.color;
+                      holder.style['font-size'] = image.fontSize;
+                      holder.style['font-family'] = image.fontFamily;
+
+
+                      holder.style.position = 'absolute';
                     }
-                    // create dot
-                    var dot = document.createElement('div');
-                    dot.className = 'dot';
-                    holder.appendChild(dot);
-                    // create pulse
-                    var pulse = document.createElement('div');
-                    pulse.className = 'pulse';
-                    holder.appendChild(pulse);
+                    else  {
+                      holder.className = 'map-marker';
+                      holder.title = image.title;
+                      holder.style.position = 'absolute';
+                      // maybe add a link to it?
+                      if (undefined != image.url) {
+                          holder.onclick = function() {
+                              window.location.href = image.url;
+                          };
+                          holder.className += ' map-clickable';
+                      }
+                      // create dot
+                      var dot = document.createElement('div');
+                      dot.className = 'dot';
+                      holder.appendChild(dot);
+                      // create pulse
+                      var pulse = document.createElement('div');
+                      pulse.className = 'pulse';
+                      holder.appendChild(pulse);
+                    }
                     // append the marker to the map container
                     image.chart.chartDiv.appendChild(holder);
+
                     return holder;
                 }
 

@@ -17,7 +17,7 @@
     transform: translateX(3px);
 }
 }body {
-    background-color: #f5f5f5;
+    background-color: #fff;
 }
 h1, h2, h3 {
     font-weight: bold;
@@ -810,55 +810,42 @@ h1, h2, h3 {
   color:#fff;
   margin-top:20px;
 }
-.newsletter {
-    position: relative;
-    background-color: #263237;
-    background: url("../../images/landing/photo-1423753623104.jpg") repeat-y 0 0 fixed;
-    background-size: cover;
-    padding: 150px 0;
-    text-align: center;
-    color: #eee;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+
+.apps{
+  background: url("../../images/landing/bg-apps.png") no-repeat;
+  background-size: cover;
+  min-height:549px;
+  padding: 50px 0;
 }
-.newsletter:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
+.apps p {
+ font-size:20px;
+ color:#fff;
 }
-.newsletter h2 {
-    position: relative;
-    text-align: center;
-    font-size: 36px;
-    font-weight: normal;
-    color: #f1f1f1;
+.apps h2 {
+  text-align: left;
+
 }
-.newsletter p {
-    margin-bottom: 40px;
+
+
+.whatis {
+  position: relative;
+  padding: 50px 0;
+  color: #515151;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
 }
-.newsletter form {
-    padding: 0 15px;
-    max-width: 450px;
-    margin: 0 auto;
+
+.whatis h2 {
+  position: relative;
+  font-size: 34px;
+  text-align: left;
+  font-weight: normal;
+  color: #0398b8;
 }
-.newsletter .ui-input-group>input, .newsletter .ui-input-group>textarea {
-    border-bottom: 2px solid #ccc;
-    color: #fafafa;
+.whatis p {
+    margin: 30px 0px;
+    font-size:18px;
 }
-.newsletter .ui-input-group>label {
-    color: #ccc;
-}
-.newsletter .btn {
-    margin-top: 30px;
-    font-size: 14px;
-    min-width: 220px;
-    padding: 1em;
-    color: #f5f5f5;
-    color: rgba(255, 255, 255, 0.85);
-}
+
 .testimorials {
     background: url("../../images/landing/background-users.png") repeat 0 0;
     padding: 4em 2em 5em;
@@ -866,7 +853,6 @@ h1, h2, h3 {
 
 #map{
   background: #22435D url("../../images/landing/background-map.png") no-repeat;
-  /*background-size:contain;*/
   background-position:left;
   min-height:545px;
   padding: 4em 2em 2.2em;
@@ -905,24 +891,7 @@ ul[rn-carousel] {
     min-height: 200px;
     margin: 0 auto;
 }
-/*.testimorials ul.testimorials-list {
-    padding: 0;
-}*/
-/*.testimorials li {
-    list-style-type: none;
-    margin-bottom: 1.6em;
-    padding: 1em 1em;
-}*/
-/*@media (min-width: 34em) {
-    .testimorials li {
-    padding: 1em 3em;
-}
-}@media (min-width: 47.5em) {
-    .testimorials li {
-    width: 49%;
-    display: inline-block;
-    vertical-align: top;
-}*/
+
 }.testimorials h4 {
     margin-bottom: .6em;
     font-size: 21px;
@@ -978,11 +947,42 @@ ul[rn-carousel] {
 }
 .footer {
     position: relative;
-    color: #7a859e;
+    color: #fff;
     position: relative;
-    background-color: #263237;
-    padding: 50px 0;
+    background-color: #0398b8;
+    padding: 50px 50px;
     font-size: 12px;
+    margin:0 auto;
+    font-size:20px;
+}
+
+.footer a {
+  color:#91e2fc;
+  font-size:18px;
+}
+.footer hr{
+  border-top: 1px solid #91e2fc;
+}
+.footer ul.social a{
+  font-size:24px;
+}
+.footer ul.social li{
+  float:left;
+  margin-right:15px;
+}
+.footer ul.social li :last-child{
+  margin-right:0;
+}
+.footer .fnav{
+  margin:0 auto;
+}
+.footer .fnav ul{
+  list-style: none;
+  float:left;
+  margin-right:25px;
+}
+.footer .fnav ul li:first-child{
+  margin-bottom:15px;
 }
 
 .alpha80 {
@@ -996,6 +996,7 @@ ul[rn-carousel] {
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
 }
 input{color:#000;}
+
 
 
 /*map*/
@@ -1022,7 +1023,7 @@ input{color:#000;}
 		-moz-border-radius: 30px;
 		border-radius: 30px;
 		background-color: #FC5520;
-		z-index: 10;
+		/*z-index: 10;*/
 		position: absolute;
 	}
 .map-marker .dot {
@@ -1089,3 +1090,21 @@ input{color:#000;}
 	   	opacity: 0.0;
 	 }
 	}
+
+
+#search {
+  border:1px solid red;
+  padding:10px 15px;
+}
+
+/*Address search*/
+#address-input {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 300px;
+}

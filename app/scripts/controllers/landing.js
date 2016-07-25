@@ -8,7 +8,7 @@
  * Controller of the app
  */
 angular.module('app')
-  .controller('LandingCtrl', function ($ocLazyLoad, $scope, $timeout, ProfessionModel, AreaModel) {
+  .controller('LandingCtrl', function ($ocLazyLoad, $scope, lazyLoadGoogleMaps, ProfessionModel, AreaModel) {
     $ocLazyLoad.load('scripts/landing/modernizr.js');
     $ocLazyLoad.load('styles/landing/main.css');
     $ocLazyLoad.load('scripts/landing/app.js');
@@ -17,16 +17,38 @@ angular.module('app')
     $scope.mapMarkers = [{
         zoomLevel: 5,
         scale: 0.5,
-        title: "Athens",
+        title: "Αθήνα",
         latitude: 37.9839,
         longitude: 23.7294
     },
       {
           zoomLevel: 5,
           scale: 0.5,
-          title: "Thessaloniki",
+          title: "Θεσσαλονίκη",
           latitude: 40.6403,
           longitude: 22.9439
+      },
+      {
+          zoomLevel: 5,
+          scale: 0.5,
+          title: "Αθήνα",
+          text: "Αθήνα",
+          color: "#fff",
+          fontSize: '16px',
+          fontFamily: ' "Roboto", "Helvetica Neue", Arial, sans-serif',
+          latitude: 38.935413,
+          longitude: 26.5906801
+      },
+      {
+          zoomLevel: 5,
+          scale: 0.5,
+          title: "Θεσσαλονίκη",
+          text: "Θεσσαλονίκη",
+          color: "#fff",
+          fontSize: '16px',
+          fontFamily: ' "Roboto", "Helvetica Neue", Arial, sans-serif',
+          latitude: 41.659674,
+          longitude: 19.341553
       }
     ];
 
@@ -34,8 +56,29 @@ angular.module('app')
             id: "line1",
             color: "#fff",
             alpha: 1,
-            latitudes: [37.9839, 32.9839],
-            longitudes: [23.7294, 23.7294]
+            latitudes: [37.9839, 38.545413],
+            longitudes: [23.7294, 26.376801]
+        },
+        {
+          id: "line2",
+          color: "#fff",
+          alpha: 1,
+          latitudes: [38.545413, 38.545413],
+          longitudes: [26.376801, 27.791290]
+        },
+        {
+          id: "line3",
+          color: "#fff",
+          alpha: 1,
+          latitudes: [40.6403, 41.289674],
+          longitudes: [22.9439, 21.489502]
+        },
+        {
+          id: "line4",
+          color: "#fff",
+          alpha: 1,
+          latitudes: [41.289674, 41.289674],
+          longitudes: [21.489502, 19.001553]
         }],
     /*End Map*/
 
@@ -73,6 +116,38 @@ angular.module('app')
       //console.log('Item changed to ' + JSON.stringify(item));
     }
     /* End Professions*/
+
+
+    /*Address search*/
+
+    var autocomplete;
+    var lat;
+    var lng;
+    lazyLoadGoogleMaps.then(loadGoogleSearch);
+
+    function loadGoogleSearch() {
+      var input = document.getElementById('address-input');
+      autocomplete = new google.maps.places.Autocomplete(input);
+      //autocomplete.bindTo('bounds', $scope.map);
+      autocomplete.addListener('place_changed', function () {
+          selectPlace();
+      });
+    }
+
+    function selectPlace() {
+      var place = autocomplete.getPlace();
+      if (!place.geometry) {
+           window.alert("Autocomplete's returned place contains no geometry");
+           return;
+       } else {
+         lat = place.geometry.location.lat();
+         lng = place.geometry.location.lng();
+         console.log( lng, lat);
+       }
+    }
+
+
+
 
 
 
