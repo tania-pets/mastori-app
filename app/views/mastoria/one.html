@@ -18,10 +18,8 @@
 
         <div class="profile-info">
             <ul class="list-unstyled list-inline">
-            <li><i class="fa fa-video-camera"></i> Films <span class="text-muted">(39)</span></li>
-            <li><i class="fa fa-image"></i> Photos <span class="text-muted">(63)</span></li>
-            <li><i class="fa fa-bookmark"></i> Collections <span class="text-muted">(55)</span></li>
-            <li><i class="fa fa-check"></i> Tasks <span class="text-muted">(34)</span></li>
+                <li><i class="fa fa-video-camera"></i> Κριτικές <span class="text-muted">({{ ::mastori.ratings_count }})</span></li>
+                <li ng-if="user"><i class="fa fa-image"></i> Προηγούμενα Ραντεβού <span class="text-muted">({{ appointments.data.length }})</span></li>
             </ul>
         </div>
     </header>
@@ -33,7 +31,7 @@
         <uib-tab heading="Κριτικές">
             <div data-ng-include=" 'views/mastoria/partials/_reviews.html' "></div>
         </uib-tab>
-        <uib-tab heading="Προηγούμενα Ραντεβού" disable="!user || appointments.length == 0">
+        <uib-tab heading="Προηγούμενα Ραντεβού" disable="!user || appointments.data.length == 0">
             <div data-ng-include=" 'views/mastoria/partials/_pastappointments.html' "></div>
         </uib-tab>
     </uib-tabset>

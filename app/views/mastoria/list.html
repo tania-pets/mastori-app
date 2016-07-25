@@ -145,7 +145,7 @@
                                                                 </a>
                                                             </strong>
                                                             <small ng-if="mastori.paratsoukli" class="text-muted"><i> {{ ::mastori.paratsoukli }}</i></small>
-                                                            <small class="text-danger"> (35 κριτικές)</small>
+                                                            <small class="text-danger"> ({{ ::mastori.ratings_count }} κριτικές)</small>
                                                         </p>
                                                         <div>
                                                             <uib-rating class="ui-rating size-h4 ui-rating-warning" ng-model="mastori.avg_rating" max="5" data-readonly="true"></uib-rating>

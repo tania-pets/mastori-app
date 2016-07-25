@@ -8,14 +8,18 @@
  * Controller of the app
  */
 angular.module('app')
-  .controller('MastoriCtrl', ['$scope', '$state', 'MastoriModel', 'AppointmentModel', 'AuthService', 'toaster',
-    function ($scope, $state, MastoriModel, AppointmentModel, AuthService, toaster) {
+  .controller('MastoriCtrl', ['$scope', '$state', 'MastoriModel', 'AppointmentModel', 'RatingModel', 'AuthService', 'toaster',
+    function ($scope, $state, MastoriModel, AppointmentModel, RatingModel, AuthService, toaster) {
 
     $scope.mastori = MastoriModel.query({id: $state.params.id});
     $scope.user = AuthService.user();
+
     var appointmentQueryParams = {orderby: 'created_at', order: 'desc', mastori_id: $state.params.id};
+    var ratingQueryParams = {orderby: 'created_at', order: 'desc', mastori_id: $state.params.id};
 
     var today = new Date();
+
+    $scope.ratings = RatingModel.query(ratingQueryParams);
 
     var appointmentInit = function() {
     	$scope.appointment = new AppointmentModel();
@@ -26,6 +30,10 @@ angular.module('app')
 		);
 		$scope.appointment.address_id = $scope.user.addresses[0].id;
     };
+
+    $scope.appoointmentRatingInit = function(appointment) {
+        appointment.rating = new RatingModel();
+    }
 
     $scope.deadline = {
     	maxDate: new Date(
@@ -52,6 +60,21 @@ angular.module('app')
 		});
     }
 
+    $scope.submitRating = function(form, appointment) {
+        form.$setPristine(); // clear form
+        form.$setUntouched();
+
+        appointment.rating.mastori_id = $scope.mastori.id;
+        appointment.rating.appointment_id = appointment.id;
+
+        appointment.rating.$saveForMastori(function(saved){
+
+            toaster.pop('success', "Κομπλέ!", "Σε ευχαριστούμε για την κριτική σου! Θα δημοσιευτεί μόλις την εγκρίνει ο μαστορο-admin! By the way, μόλις κέρδισες " + saved.points_rewarded + " μαστοροπόντους!!");
+        }, function(error){
+            toaster.pop('error', "Ουπς!", "Κάτι δεν πήγε καλά.. Ξαναπροσπάθησε παρακαλώ!");
+        });
+    }
+
     $scope.loadMoreAppointments = function() {
   		if ($scope.busyAp) {
   			return;
@@ -67,6 +90,23 @@ angular.module('app')
     		$scope.appointments = data;
     		$scope.appointments.data = oldData.concat(data.data);
     	});
+    }
+
+    $scope.loadMoreRatings= function() {
+        if ($scope.busyAp) {
+            return;
+        }
+        $scope.busyRat = true;
+
+        var page = $scope.ratings.current_page + 1;
+        var queryParams = angular.extend({page: page}, ratingQueryParams);
+        var oldData = $scope.ratings.data;
+
+        RatingModel.query(queryParams, function (data) {
+            $scope.busyRat = false;
+            $scope.ratings = data;
+            $scope.ratings.data = oldData.concat(data.data);
+        });
     }
 
     // If user is logged in init appointment, fetch past appointments
