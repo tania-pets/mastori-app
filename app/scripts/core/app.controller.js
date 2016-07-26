@@ -42,7 +42,12 @@
           console.info('current location', data.coords);
         });
 
+        $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+            $rootScope.preloader = true;
+        });
+
         $rootScope.$on("$stateChangeSuccess", function (event, currentRoute, previousRoute) {
+            $rootScope.preloader = false;
             $document.scrollTo(0, 0);
         });
 

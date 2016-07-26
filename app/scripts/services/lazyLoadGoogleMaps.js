@@ -12,11 +12,13 @@ angular.module('app').service('lazyLoadGoogleMaps', function lazyLoadApi($window
     deferred.resolve()
   }
 
-  if ($window.attachEvent) {
-    $window.attachEvent('onload', loadScript)
-  } else {
-    $window.addEventListener('load', loadScript, false)
-  }
+  // if ($window.attachEvent) {
+  //   $window.attachEvent('onload', loadScript)
+  // } else {
+  //   $window.addEventListener('load', loadScript, false)
+  // }
+
+  angular.element($window).bind('load', loadScript());
 
   return deferred.promise
 });

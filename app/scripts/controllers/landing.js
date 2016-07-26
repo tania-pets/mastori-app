@@ -8,11 +8,11 @@
  * Controller of the app
  */
 angular.module('app')
-  .controller('LandingCtrl', function ($ocLazyLoad, $scope, lazyLoadGoogleMaps, ProfessionModel, AreaModel) {
+  .controller('LandingCtrl', function ($ocLazyLoad, $scope, lazyLoadGoogleMaps, ProfessionModel, AreaModel, $state) {
     $ocLazyLoad.load('scripts/landing/modernizr.js');
     $ocLazyLoad.load('styles/landing/main.css');
     $ocLazyLoad.load('scripts/landing/app.js');
-
+    
     /*Map*/
     $scope.mapMarkers = [{
         zoomLevel: 5,
@@ -128,7 +128,6 @@ angular.module('app')
     function loadGoogleSearch() {
       var input = document.getElementById('address-input');
       autocomplete = new google.maps.places.Autocomplete(input);
-      //autocomplete.bindTo('bounds', $scope.map);
       autocomplete.addListener('place_changed', function () {
           selectPlace();
       });
@@ -142,7 +141,7 @@ angular.module('app')
        } else {
          lat = place.geometry.location.lat();
          lng = place.geometry.location.lng();
-         console.log( lng, lat);
+         $state.go('app.mastoria', {userlocation: lat+','+lng});
        }
     }
 
