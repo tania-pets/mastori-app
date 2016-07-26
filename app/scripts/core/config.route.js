@@ -53,7 +53,7 @@ angular.module('app')
                 }
             })
             .state('app.mastoria', {
-                url: '/mastoria?order&orderby&only_offers&{profession[]:int}&{area[]:int}&near&q',
+                url: '/mastoria?order&orderby&only_offers&{profession[]:int}&{area[]:int}&near&q&{userlocation}',
                 reloadOnSearch : false,
                 templateUrl: 'views/mastoria/list.html',
                 controller:'MastoriaCtrl',

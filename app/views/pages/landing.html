@@ -1,13 +1,6 @@
-<div id="loader-container" ng-show="preloader"></div>
+<div id="loader-container" ></div>
 <div id="ip-container" class="ip-container">
-  <!-- <header class="ip-header">
-    <div class="ip-loader">
-      <svg width="60px" height="60px" viewBox="0 0 80 80" class="ip-inner">
-        <path d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z" class="ip-loader-circlebg"></path>
-        <path id="ip-loader-circle" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z" class="ip-loader-circle"></path>
-      </svg>
-    </div>
-  </header> -->
+
   <div class="ip-main">
     <!-- Mobile nav -->
     <div id="cbp-spmenu" class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right">
@@ -41,13 +34,13 @@
             </div>
             <div class="col-lg-8 col-lg-offset-2 alpha80" id="search">
               <form ng-submit="$event.preventDefault()">
-                <div class="row">
-                  <div class="col-md-6">
+                <div class="row center-block">
+                  <div class="col-md-5 control" >
                     <md-autocomplete
                             md-selected-item="selectedItem"
                             md-search-text-change="searchTextChange(searchText)"
                             md-search-text="searchText"
-                            md-selected-item-change="selectedItemChange(item.title)"
+                            md-selected-item-change="selectedItemChange(item)"
                             md-items="item in querySearch(searchText)"
                             md-item-text="item.title"
                             md-min-length="0"
@@ -60,12 +53,11 @@
                         </md-not-found>
                     </md-autocomplete>
                   </div>
-                  <div class="col-md-4">
-                    <input id="address-input" type="text" placeholder="Enter a location">
-
+                  <div class="col-md-5 control">
+                    <input id="address-input" type="text" class="form-control" placeholder="Διεύθυνση">
                   </div>
-                  <div class="col-md-2">
-                    <button class="btn btn-warning"><i class="zmdi zmdi-search"></i> Βρες τώρα</button>
+                  <div class="col-md-1 control">
+                    <button class="btn btn-warning" ng-click="search()"><i class="zmdi zmdi-search"></i> Βρες τώρα</button>
                   </div>
                 </div>
               </form>

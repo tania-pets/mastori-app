@@ -9,11 +9,16 @@
  */
 angular.module('app')
   .controller('LandingCtrl', function ($ocLazyLoad, $scope, lazyLoadGoogleMaps, ProfessionModel, AreaModel, $state) {
-    $ocLazyLoad.load('scripts/landing/modernizr.js');
-    $ocLazyLoad.load('styles/landing/main.css');
-    $ocLazyLoad.load('scripts/landing/app.js');
-    
+
+    $ocLazyLoad.load(['scripts/landing/modernizr.js', 'styles/landing/main.css', 'scripts/landing/app.js'])
+              .then(function() {
+                loadPageFeatures();
+              })
+
+
     /*Map*/
+
+    //markers and texts for cities that we serve
     $scope.mapMarkers = [{
         zoomLevel: 5,
         scale: 0.5,
@@ -52,6 +57,7 @@ angular.module('app')
       }
     ];
 
+    //the map lines
     $scope.mapLines = [{
             id: "line1",
             color: "#fff",
@@ -79,12 +85,13 @@ angular.module('app')
           alpha: 1,
           latitudes: [41.289674, 41.289674],
           longitudes: [21.489502, 19.001553]
-        }],
+        }];
     /*End Map*/
 
     /*Professions*/
 
     //load professions
+    var selectedProfession;
     $scope.professions = ProfessionModel.query();
 
     /**
@@ -114,16 +121,17 @@ angular.module('app')
     //match found
     $scope.selectedItemChange = function(item) {
       //console.log('Item changed to ' + JSON.stringify(item));
+      selectedProfession = item;
     }
     /* End Professions*/
 
 
     /*Address search*/
-
+    lazyLoadGoogleMaps.then(loadGoogleSearch);
     var autocomplete;
     var lat;
     var lng;
-    lazyLoadGoogleMaps.then(loadGoogleSearch);
+    var selectedLocation;
 
     function loadGoogleSearch() {
       var input = document.getElementById('address-input');
@@ -141,19 +149,32 @@ angular.module('app')
        } else {
          lat = place.geometry.location.lat();
          lng = place.geometry.location.lng();
-         $state.go('app.mastoria', {userlocation: lat+','+lng});
+         selectedLocation = lng+','+lat;
        }
     }
 
-
-
-
+    /*search mastoria*/
+    $scope.search = function() {
+      var params = {};
+      if (selectedLocation) {
+        params.userlocation = selectedLocation;
+      }
+      if (selectedProfession && selectedProfession.id) {
+        params['profession[]'] = selectedProfession.id;
+      }
+      $state.go('app.mastoria', params);
+    }
 
 
     //capitalizes first letter
     function fistToUpper(str) {
       return str.charAt(0).toUpperCase() + str.slice(1);
     }
+
+
+    angular.element(document).ready(function () {
+      $('#loader-container').fadeOut('slow');
+    });
 
 
   });
