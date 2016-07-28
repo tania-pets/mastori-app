@@ -60,8 +60,8 @@ function loadPageFeatures() {
             $('#hero').css('height', h );
         },
         smoothScroll: function() {
-            $(".navbar-nav a").smoothScroll();
-            $(".navbar-nav-mobile a").smoothScroll();
+            $(".navbar-nav a").smoothScroll({offset: -70});
+            $(".navbar-nav-mobile a").smoothScroll({offset: -70});
         },
         stellar: function() {
             $(window).stellar({

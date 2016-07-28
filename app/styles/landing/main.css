@@ -369,6 +369,8 @@ h1, h2, h3 {
     -webkit-animation-name: slideInDown;
     animation-name: slideInDown;
     color: #243333;
+    padding-top:0;
+    padding-bottom:0;
 }
 .header.navbar-fixed-top a, .header.navbar-fixed-top .navbar-toggler, .header.navbar-fixed-top .navbar-nav>li>a {
     color: #243333;
@@ -379,6 +381,12 @@ h1, h2, h3 {
 .header.navbar-fixed-top .container {
     padding: 1em 0;
 }
+
+.header.navbar-fixed-top img{width:130px; margin-top:-15px;}
+.header.navbar-fixed-top .navbar ul {
+    padding: 20px 0;
+}
+
 .header .navbar-brand {
     padding: 0px 0;
     font-size: 20px;
@@ -390,19 +398,7 @@ h1, h2, h3 {
 .header .navbar-brand:hover, .header .navbar-brand:active, .header .navbar-brand:focus {
     color: #f1f1f1;
 }
-.header .logo {
-    display: inline-block;
-    margin-right: 20px;
-    width: 40px;
-    height: 40px;
-    font-size: 24px;
-    line-height: 40px;
-    text-align: center;
-    letter-spacing: normal;
-    color: #f5f5f5;
-    font-weight: 100;
-    background-color: #009688;
-    border-radius: 50%}
+
 .header .brand-txt {
     display: none;
 }
@@ -784,15 +780,14 @@ ul[rn-carousel] {
     color: #fff;
     position: relative;
     background-color: #0398b8;
-    padding: 50px 50px;
-    font-size: 12px;
+    padding: 20px 0px;
     margin:0 auto;
-    font-size:20px;
+    font-size:16px;
 }
 
 .footer a {
   color:#91e2fc;
-  font-size:18px;
+  font-size:14px;
 }
 .footer hr{
   border-top: 1px solid #91e2fc;
@@ -812,12 +807,17 @@ ul[rn-carousel] {
 }
 .footer .fnav ul{
   list-style: none;
-  float:left;
-  margin-right:25px;
-}
-.footer .fnav ul li:first-child{
+  text-align: left;
   margin-bottom:15px;
 }
+.footer .fnav ul li:first-child{
+  margin-bottom:10px;
+}
+.footer .fnav ul:last-child{
+  margin-right:0px;
+}
+
+.footer .copyright{font-size:14px;}
 
 .alpha80 {
     /* Fallback for web browsers that don't support RGBa */
@@ -934,7 +934,7 @@ input{color:#000;}
   padding:0;
 }
 #search .control:last-child{
-  margin-left:5px;
+  margin-left:15px;
 }
 
 /*Address search*/
@@ -947,3 +947,15 @@ input{color:#000;}
     text-overflow: ellipsis;
     /*width: 300px;*/
 }
+
+
+
+/*.header .navbar ul li:hover{
+  background-color: rgb(3,  182,  205,  0.4)
+  background-color: rgba(3,  182,  205,  0.4);
+  background: rgba(3,  182,  205,  0.4);
+  color: rgba(3,  182,  205,  0.4)
+
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}*/

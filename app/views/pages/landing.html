@@ -12,13 +12,13 @@
         <div class="navbar">
           <ul class="nav navbar-nav pull-left col-md-4">
             <li class="nav-item"><a href="#hero">Αρχική</a></li>
-            <li class="nav-item"><a href="#features">Περιοχές</a></li>
+            <li class="nav-item"><a href="#map">Περιοχές</a></li>
           </ul>
-          <a href="#" class="navbar-brand pull-left col-md-4 text-center">
-            <img src="images/landing/logo.png" class="img-responsive center-block"/>
+          <a href="#" class="navbar-brand pull-left col-md-4  text-center">
+            <img src="images/landing/logo.png" class="center-block"/>
           </a>
           <ul class="nav navbar-nav pull-right col-md-4">
-            <li class="nav-item"><a href="#hero">Πώς Λειτουργεί</a></li>
+            <li class="nav-item"><a href="#features">Πώς Λειτουργεί</a></li>
             <li class="nav-item"><a href="#features">Σύνδεση</a></li>
           </ul>
           <div class="pull-right togger-container"><span id="showRight" class="zmdi zmdi-menu navbar-toggler"></span></div>
@@ -35,7 +35,7 @@
             <div class="col-lg-8 col-lg-offset-2 alpha80" id="search">
               <form ng-submit="$event.preventDefault()">
                 <div class="row center-block">
-                  <div class="col-md-5 control" >
+                  <div class="col-md-4 control" >
                     <md-autocomplete
                             md-selected-item="selectedItem"
                             md-search-text-change="searchTextChange(searchText)"
@@ -53,10 +53,10 @@
                         </md-not-found>
                     </md-autocomplete>
                   </div>
-                  <div class="col-md-5 control">
+                  <div class="col-md-4 control">
                     <input id="address-input" type="text" class="form-control" placeholder="Διεύθυνση">
                   </div>
-                  <div class="col-md-1 control">
+                  <div class="col-md-2 col-md-offset-1 control text-right">
                     <button class="btn btn-warning" ng-click="search()"><i class="zmdi zmdi-search"></i> Βρες τώρα</button>
                   </div>
                 </div>
@@ -211,10 +211,10 @@
             </p>
             <div class="row m-t-lg">
               <div class="col-md-4">
-                <img src="images/landing/icon-appstore.png" class="img-responsive center-block"/>
+                <a href="https://itunes.apple.com" target="_blank"><img src="images/landing/icon-appstore.png" class="img-responsive center-block"/></a>
               </div>
               <div class="col-md-4">
-                <img src="images/landing/icon-googleplay.png" class="img-responsive center-block"/>
+                <a href="https://play.google.com/store" target="_blank"><img src="images/landing/icon-googleplay.png" class="img-responsive center-block"/></a>
               </div>
             </div>
           </div>
@@ -227,44 +227,48 @@
   <footer class="footer">
       <div class="row fnav">
         <div class="col-md-10 col-md-offset-1">
-          <ul>
-            <li>Αρχική</li>
-          </ul>
-          <ul>
-            <li>Σχετικά με Εμάς</li>
-            <li><a href="">Η ομάδα</a></li>
-            <li><a href="">Όροι και προϋποθέσεις</a></li>
-          </ul>
-          <ul >
-            <li>Περιοχές</li>
-            <li><a href="">Αθήνα</a></li>
-            <li><a href="">Θεσσαλονίκη</a></li>
-          </ul>
-
-          <ul >
-            <li>Blog</li>
-          </ul>
-          <ul>
-            <li>Κοινωνική Δικτύωση</li>
-            <li><a href="">Facebook</a></li>
-            <li><a href="">Twitter</a></li>
-          </ul>
-          <ul>
-            <li>Ο Λογαριασμός μου</li>
-            <li><a href="">Εγγραφή</a></li>
-            <li><a href="">Σύνδεση</a></li>
-          </ul>
+          <div class="row center-block text-center">
+            <!-- <ul class="col-md-2">
+              <li>Αρχική</li>
+            </ul> -->
+            <ul class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+              <li>Σχετικά με Εμάς</li>
+              <li><a href="">Η ομάδα</a></li>
+              <li><a href="">Όροι και προϋποθέσεις</a></li>
+            </ul>
+            <ul class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+              <li>Περιοχές</li>
+              <li><a href="">Αθήνα</a></li>
+              <li><a href="">Θεσσαλονίκη</a></li>
+            </ul>
+            <!--
+            <ul class="col-md-2">
+              <li>Blog</li>
+            </ul> -->
+            <ul class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+              <li>Κοινωνική Δικτύωση</li>
+              <li><a href="">Facebook</a></li>
+              <li><a href="">Twitter</a></li>
+            </ul>
+            <ul class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+              <li>Ο Λογαριασμός μου</li>
+              <li><a href="">Εγγραφή</a></li>
+              <li><a href="">Σύνδεση</a></li>
+            </ul>
+          </div>
         </div>
       </div>
       <hr>
       <div class="row">
-        <div class="col-md-8 copyright"><span>© <span id="copyright"></span> mastori.gr, All rights reserved</span></div>
-        <div class="col-md-3 pull-right">
-          <ul class="list-unstyled social pull-right">
-            <li ><a href="https://www.facebook.com/" alt="Facebook" title="Facebook"  target="_blank"><i class="zmdi zmdi-facebook"></i></a></li>
-            <li><a href="https://twitter.com" alt="Twitter" title="Twitter"  target="_blank"><i class="zmdi zmdi-twitter"></i></a></li>
-            <li><a href="https://linkedin.com" alt="Linkedin" title="Linkedin"  target="_blank"><i class="zmdi zmdi-linkedin-box"></i></a></li>
-          </ul>
+        <div class="col-md-10 col-md-offset-1 copyright">
+          <div class="col-md-8"><span>© <span id="copyright"></span> mastori.gr, All rights reserved</span></div>
+          <div class="col-md-3 pull-right">
+            <ul class="list-unstyled social pull-right">
+              <li ><a href="https://www.facebook.com/" alt="Facebook" title="Facebook"  target="_blank"><i class="zmdi zmdi-facebook"></i></a></li>
+              <li><a href="https://twitter.com" alt="Twitter" title="Twitter"  target="_blank"><i class="zmdi zmdi-twitter"></i></a></li>
+              <li><a href="https://linkedin.com" alt="Linkedin" title="Linkedin"  target="_blank"><i class="zmdi zmdi-linkedin-box"></i></a></li>
+            </ul>
+          </div>
         </div>
       </div>
   </footer>
