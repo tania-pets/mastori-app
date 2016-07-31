@@ -14,12 +14,12 @@
             <li class="nav-item"><a href="#hero">Αρχική</a></li>
             <li class="nav-item"><a href="#map">Περιοχές</a></li>
           </ul>
-          <a href="#" class="navbar-brand pull-left col-md-4  text-center">
-            <img src="images/landing/logo.png" class="center-block"/>
+          <a href="#" class="navbar-brand pull-left col-md-4 col-sm-2 col-xs-2 text-center">
+            <img src="images/landing/logo.png" class="center-block img-responsive"/>
           </a>
           <ul class="nav navbar-nav pull-right col-md-4">
-            <li class="nav-item"><a href="#features">Πώς Λειτουργεί</a></li>
-            <li class="nav-item"><a href="#features">Σύνδεση</a></li>
+            <li class="nav-item"><a href="#features"><i class="zmdi zmdi-settings bg-blue circle-icon" ></i>Πώς Λειτουργεί</a></li>
+            <li class="nav-item"><a ui-sref="app.signin"><i class="zmdi zmdi-account bg-orange circle-icon"></i>Σύνδεση</a></li>
           </ul>
           <div class="pull-right togger-container"><span id="showRight" class="zmdi zmdi-menu navbar-toggler"></span></div>
         </div>
@@ -30,38 +30,106 @@
         <div class="hero-inner">
           <div class="container">
             <div class="col-lg-6 col-lg-offset-3">
-              <h2>Βρες εύκολα το μάστορά σου όπου κι αν βρίσκεσαι</h2>
+              <h2 class='shadow'>Βρες εύκολα το μάστορά σου όπου κι αν βρίσκεσαι</h2>
             </div>
-            <div class="col-lg-8 col-lg-offset-2 alpha80" id="search">
-              <form ng-submit="$event.preventDefault()">
-                <div class="row center-block">
-                  <div class="col-md-4 control" >
-                    <md-autocomplete
-                            md-selected-item="selectedItem"
-                            md-search-text-change="searchTextChange(searchText)"
-                            md-search-text="searchText"
-                            md-selected-item-change="selectedItemChange(item)"
-                            md-items="item in querySearch(searchText)"
-                            md-item-text="item.title"
-                            md-min-length="0"
-                            placeholder="Ειδικότητα">
-                        <md-item-template>
-                            <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.title}}</span>
-                        </md-item-template>
-                        <md-not-found>
-                            Δε βρέθηκαν ειδικότητες για "{{searchText}}".
-                        </md-not-found>
-                    </md-autocomplete>
+            <div class="row">
+              <div class="col-md-8  col-xs-12  col-md-offset-2  alpha80 " id="search">
+                <form ng-submit="$event.preventDefault()">
+                  <div class="row center-block" >
+                    <div class="col-md-5 col-sm-5 col-xs-5 control" >
+                      <md-autocomplete
+                              md-selected-item="selectedItem"
+                              md-search-text-change="searchTextChange(searchText)"
+                              md-search-text="searchText"
+                              md-selected-item-change="selectedItemChange(item)"
+                              md-items="item in querySearch(searchText)"
+                              md-item-text="item.title"
+                              md-min-length="0"
+                              placeholder="Ειδικότητα">
+                          <md-item-template>
+                              <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.title}}</span>
+                          </md-item-template>
+                          <md-not-found>
+                              Δε βρέθηκαν ειδικότητες για "{{searchText}}".
+                          </md-not-found>
+                      </md-autocomplete>
+                    </div>
+                    <div class="col-md-5 col-sm-5  col-xs-5  control">
+                      <input id="address-input" type="text" class="form-control" placeholder="Διεύθυνση">
+                    </div>
+                    <div class="col-md-2 col-sm-2  col-xs-2  col-sm-offset-1  col-md-offset-1 control text-right">
+                      <button class="btn btn-warning" ng-click="search()">
+                        <i class="zmdi zmdi-search text-lg"></i>
+                        <span class="hidden-xs hidden-sm">Βρες τώρα</span>
+                      </button>
+                    </div>
                   </div>
-                  <div class="col-md-4 control">
-                    <input id="address-input" type="text" class="form-control" placeholder="Διεύθυνση">
+                </form>
+              </div>
+            </div>
+            <div class="row m-t-md" >
+              <div class="col-lg-8 col-lg-offset-2" >
+                <div class="row">
+                  <div class="col-xs-6">
+                    <div class="row professions">
+                        <div class="col-xs-3">
+                          <div class="alpha80">
+                            <img src="images/landing/professions/icon1.png" class="img-responsive" />
+                            Ηλεκτρολόγοι
+                          </div>
+                        </div>
+                        <div class="col-xs-3">
+                          <div class="alpha80">
+                            <img src="images/landing/professions/icon2.png" class="img-responsive" />
+                            Υδραυλικοί
+                          </div>
+                        </div>
+                        <div class="col-xs-3">
+                          <div class="alpha80">
+                            <img src="images/landing/professions/icon3.png" class="img-responsive" />
+                            Ψυκτικοί
+                          </div>
+                        </div>
+                        <div class="col-xs-3">
+                          <div class="alpha80">
+                            <img src="images/landing/professions/icon4.png" class="img-responsive" />
+                             Ανελκυστήρες
+                          </div>
+                        </div>
+                    </div>
                   </div>
-                  <div class="col-md-2 col-md-offset-1 control text-right">
-                    <button class="btn btn-warning" ng-click="search()"><i class="zmdi zmdi-search"></i> Βρες τώρα</button>
+                  <div class="col-xs-6">
+                    <div class="row professions last">
+                        <div class="col-xs-3">
+                          <div class="alpha80">
+                            <img src="images/landing/professions/icon5.png" class="img-responsive" />
+                            Ελαιοχ/στές
+                           </div>
+                        </div>
+                        <div class="col-xs-3">
+                          <div class="alpha80">
+                            <img src="images/landing/professions/icon6.png" class="img-responsive" />
+                            Χτίστες
+                          </div>
+                        </div>
+                        <div class="col-xs-3">
+                          <div class="alpha80">
+                            <img src="images/landing/professions/icon7.png" class="img-responsive" />
+                            Σιδεράδες
+                          </div>
+                        </div>
+                        <div class="col-xs-3">
+                          <div class="alpha80">
+                            <img src="images/landing/professions/icon8.png" class="img-responsive" />
+                            Πατωματζήδες
+                          </div>
+                        </div>
+                    </div>
                   </div>
                 </div>
-              </form>
-            </div>
+               </div>
+              </div>
+           </div>
           </div>
         </div>
       </div>
@@ -102,7 +170,7 @@
           <div class="row">
             <div class="col-md-12 separator"></div>
           </div>
-          <div class="row">
+          <div class="row feature_icons">
             <div class="feature-item col-md-4 text-center wow fadeInUp">
               <div class="icon-container  col-md-1"><span class="zmdi zmdi-check"></span></div>
               <div class="col-md-2 desc_sm">
@@ -253,7 +321,7 @@
             <ul class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
               <li>Ο Λογαριασμός μου</li>
               <li><a href="">Εγγραφή</a></li>
-              <li><a href="">Σύνδεση</a></li>
+              <li><a ui-sref="app.signin">Σύνδεση</a></li>
             </ul>
           </div>
         </div>

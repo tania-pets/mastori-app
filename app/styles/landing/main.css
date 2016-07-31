@@ -382,7 +382,7 @@ h1, h2, h3 {
     padding: 1em 0;
 }
 
-.header.navbar-fixed-top img{width:130px; margin-top:-15px;}
+/*.header.navbar-fixed-top img{width:130px; margin-top:-15px;}*/
 .header.navbar-fixed-top .navbar ul {
     padding: 20px 0;
 }
@@ -402,13 +402,16 @@ h1, h2, h3 {
 .header .brand-txt {
     display: none;
 }
+
 @media (min-width: 34em) {
     .header .brand-txt {
     display: inline-block;
+
 }
 }.header .navbar-nav {
     display: none;
 }
+
 @media (min-width: 62em) {
     .header .navbar-nav {
     display: block;
@@ -566,6 +569,9 @@ h1, h2, h3 {
     overflow: hidden;
 }
 
+.shadow{
+  text-shadow: 0 0 80px rgba(0,0,0,0.95);
+}
 .hero {
     position: relative;
     border: 0;
@@ -573,7 +579,7 @@ h1, h2, h3 {
     text-align: center;
     padding: 200px 0 150px;
     background-color: #263237;
-    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);
+
 }
 .hero .hero-inner {
     position: absolute;
@@ -625,6 +631,9 @@ h1, h2, h3 {
 .features .feature-item {
     margin-bottom: 50px;
 }
+
+
+.row.feature_icons .feature-item .icon-container{margin-left:60px; }
 .features .feature-item:after {
     /*content: "";
     width: 100px;
@@ -676,7 +685,7 @@ h1, h2, h3 {
   height:65px;
   margin:0 auto;
   vertical-align:middle;
-  font-size:15px;
+  font-size:18px;
   color:#fff;
   margin-top:20px;
 }
@@ -820,6 +829,7 @@ ul[rn-carousel] {
 .footer .copyright{font-size:14px;}
 
 .alpha80 {
+  /*border:1px solid red;*/
     /* Fallback for web browsers that don't support RGBa */
     background-color: rgb(36, 50, 56);
     /* RGBa with 0.6 opacity */
@@ -934,11 +944,11 @@ input{color:#000;}
   padding:0;
 }
 #search .control:last-child{
-  margin-left:15px;
+  /*margin-left:15px;*/
 }
 
 /*Address search*/
-#address-input {
+#address-input, md-autocomplete input {
     background-color: #fff;
     font-size: 15px;
     font-weight: 300;
@@ -959,3 +969,35 @@ input{color:#000;}
   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
 }*/
+
+
+.circle-icon {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 25px;
+    vertical-align: middle;
+}
+
+.nav-item i{margin-right:10px; font-size:22px; color:#fff;}
+
+.text-blue {color:#0398B8;}
+.text-orange {color:#D24918;}
+.bg-blue {background-color:#0398B8;}
+.bg-orange {background-color:#D24918;}
+
+.professions {font-size:14px;}
+.professions div.col-xs-3{position:relative;text-align:center; padding-left:0; padding-right:1px;}
+.professions.last div.col-xs-3:last-child{padding-right:0;}
+
+
+.professions div.alpha80{
+   padding:12px 0;
+   min-height:80px;
+   border-radius: 2px;
+}
+
+.professions .img-responsive {
+    margin: 0 auto 10px auto;
+}
