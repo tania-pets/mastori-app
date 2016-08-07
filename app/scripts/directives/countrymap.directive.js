@@ -53,6 +53,11 @@
                          dragMap: false,
                       });
                     $scope.map.addListener( "positionChanged", updateCustomMarkers);
+
+                    //added to update customers when coming back to landig page from another state withou position changed
+                    $scope.map.addListener( "rendered", updateCustomMarkers);
+                    $scope.map.validateNow();
+
                   }
 
                 mapInit();

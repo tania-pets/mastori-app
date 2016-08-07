@@ -570,7 +570,8 @@ h1, h2, h3 {
 }
 
 .shadow{
-  text-shadow: 0 0 80px rgba(0,0,0,0.95);
+  /*text-shadow: 0 0 120px rgba(0,0,0,0.99);*/
+  text-shadow:4px 4px 10px rgba(22,22,22,0.93);
 }
 .hero {
     position: relative;
@@ -594,7 +595,7 @@ h1, h2, h3 {
 }
 @media (min-width: 34em) {
     .hero h2 {
-    font-size: 35px;
+    font-size: 38px;
     line-height: 40px;
     margin-bottom: 32px;
 }
@@ -937,7 +938,8 @@ input{color:#000;}
 
 
 #search {
-  padding:10px 15px;
+  padding:15px 20px;
+  border-radius:3px;
 }
 #search .control{
   margin:0;
@@ -948,17 +950,25 @@ input{color:#000;}
 }
 
 /*Address search*/
-#address-input, md-autocomplete input {
+
+#search button{width:80%;}
+
+#address-input, md-autocomplete input, md-autocomplete input:not(.md-input) {
     background-color: #fff;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 300;
-    margin-left: 12px;
+    /*margin-left: 12px;*/
     padding: 0 11px 0 13px;
     text-overflow: ellipsis;
+    color:#7e7e7e;
+    border-radius: 2px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    border: 1px solid #CBD5DD;
     /*width: 300px;*/
 }
 
-
+#address-input{margin-left: 5%;}
 
 /*.header .navbar ul li:hover{
   background-color: rgb(3,  182,  205,  0.4)
@@ -994,8 +1004,8 @@ input{color:#000;}
 
 .professions div.alpha80{
    padding:12px 0;
-   min-height:80px;
-   border-radius: 2px;
+   min-height:87px;
+   border-radius: 3px;
 }
 
 .professions .img-responsive {

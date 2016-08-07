@@ -29,11 +29,11 @@
       <div id="hero" class="hero">
         <div class="hero-inner">
           <div class="container">
-            <div class="col-lg-6 col-lg-offset-3">
+            <div class="col-lg-6 col-lg-offset-3  col-xs-12">
               <h2 class='shadow'>Βρες εύκολα το μάστορά σου όπου κι αν βρίσκεσαι</h2>
             </div>
             <div class="row">
-              <div class="col-md-8  col-xs-12  col-md-offset-2  alpha80 " id="search">
+              <div class="col-md-10  col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12    alpha80 " id="search">
                 <form ng-submit="$event.preventDefault()">
                   <div class="row center-block" >
                     <div class="col-md-5 col-sm-5 col-xs-5 control" >
@@ -58,7 +58,7 @@
                       <input id="address-input" type="text" class="form-control" placeholder="Διεύθυνση">
                     </div>
                     <div class="col-md-2 col-sm-2  col-xs-2  col-sm-offset-1  col-md-offset-1 control text-right">
-                      <button class="btn btn-warning" ng-click="search()">
+                      <button class="btn btn-warning" ng-click="search()" >
                         <i class="zmdi zmdi-search text-lg"></i>
                         <span class="hidden-xs hidden-sm">Βρες τώρα</span>
                       </button>
@@ -67,8 +67,8 @@
                 </form>
               </div>
             </div>
-            <div class="row m-t-md" >
-              <div class="col-lg-8 col-lg-offset-2" >
+            <div class="row m-t-md hidden-xs" >
+              <div class="col-lg-10 col-lg-offset-1 col-sm-10 col-sm-offset-1  col-xs-12" >
                 <div class="row">
                   <div class="col-xs-6">
                     <div class="row professions">
@@ -236,10 +236,10 @@
       <div id="map" class="map">
         <div class="container">
           <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8  col-xs-8">
               <country-map markers="mapMarkers" zoomable="false" lines="mapLines"></country-map >
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-xs-4">
                 <h2 class="section-heading-underline">Περιοχές που εξυπηρετούμε</h2>
             </div>
           </div>

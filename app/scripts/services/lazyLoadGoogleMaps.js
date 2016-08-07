@@ -1,7 +1,8 @@
 angular.module('app').service('lazyLoadGoogleMaps', function lazyLoadApi($window, $q) {
+
   function loadScript() {
-    //console.log('loadScript')
       // use global document since Angular's $document is weak
+    // console.log('loadscript');
     var s = document.createElement('script')
     s.src = '//maps.googleapis.com/maps/api/js?sensor=false&language=el&callback=initMap&libraries=places'
     document.body.appendChild(s)
@@ -12,13 +13,15 @@ angular.module('app').service('lazyLoadGoogleMaps', function lazyLoadApi($window
     deferred.resolve()
   }
 
+  //
   // if ($window.attachEvent) {
-  //   $window.attachEvent('onload', loadScript)
+  //   console.log('1');
+  //   $window.attachEvent('onload', loadScript);
   // } else {
   //   $window.addEventListener('load', loadScript, false)
+  //   //loadScript();
   // }
-
-  angular.element($window).bind('load', loadScript());
+  loadScript();
 
   return deferred.promise
 });
