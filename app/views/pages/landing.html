@@ -36,7 +36,7 @@
               <div class="col-md-10  col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12    alpha80 " id="search">
                 <form ng-submit="$event.preventDefault()">
                   <div class="row center-block" >
-                    <div class="col-md-5 col-sm-5 col-xs-5 control" >
+                    <div class="col-md-5 col-sm-5 col-xs-5 control bg-white" >
                       <md-autocomplete
                               md-selected-item="selectedItem"
                               md-search-text-change="searchTextChange(searchText)"
@@ -170,23 +170,29 @@
           <div class="row">
             <div class="col-md-12 separator"></div>
           </div>
-          <div class="row feature_icons">
-            <div class="feature-item col-md-4 text-center wow fadeInUp">
-              <div class="icon-container  col-md-1"><span class="zmdi zmdi-check"></span></div>
-              <div class="col-md-2 desc_sm">
-                Καταπληκτικό
+          <div class="row feature_icons center-block">
+            <div class="feature-item col-md-4 col-sm-4 col-xs-12 text-center wow fadeInUp">
+              <div class="row center-block">
+                <div class="icon-container  col-md-6 col-sm-6 col-xs-6 text-center-sm"><span class="zmdi zmdi-check"></span></div>
+                <div class="col-md-6  col-sm-6 desc_sm text-center-sm col-xs-6">
+                  Καταπληκτικό
+                </div>
               </div>
             </div>
-            <div data-wow-delay="0.3s" class="feature-item col-md-4 text-center wow fadeInUp">
-              <div class="icon-container  col-md-1"><span class="zmdi zmdi-check"></span></div>
-              <div class="col-md-2 desc_sm">
-                Καταπληκτικό
+            <div data-wow-delay="0.3s" class="feature-item col-md-4  col-xs-12 col-sm-4  text-center wow fadeInUp">
+              <div class="row center-block">
+                <div class="icon-container  col-md-6 col-sm-6 col-xs-6  text-center-sm"><span class="zmdi zmdi-check"></span></div>
+                <div class="col-md-6  col-sm-6 desc_sm text-center-sm col-xs-6 ">
+                  Καταπληκτικό
+                </div>
               </div>
             </div>
-            <div data-wow-delay="0.6s" class="feature-item col-md-4 text-center wow fadeInUp">
-              <div class="icon-container  col-md-1"><span class="zmdi zmdi-check"></span></div>
-              <div class="col-md-2 desc_sm">
-                Καταπληκτικό
+            <div data-wow-delay="0.6s" class="feature-item col-md-4 col-xs-12  col-sm-4  text-center wow fadeInUp">
+              <div class="row center-block">
+                <div class="icon-container  col-md-6 col-sm-6 text-center-sm col-xs-6 "><span class="zmdi zmdi-check"></span></div>
+                <div class="col-md-6  col-sm-6 desc_sm text-center-sm col-xs-6 ">
+                  Καταπληκτικό
+                </div>
               </div>
             </div>
           </div>
@@ -236,10 +242,12 @@
       <div id="map" class="map">
         <div class="container">
           <div class="row">
-            <div class="col-md-8  col-xs-8">
+            <h2 class="section-heading-underline hidden-sm hidden-md hidden-lg">Περιοχές που εξυπηρετούμε</h2>
+
+            <div class="col-md-8 col-sm-8 col-xs-12">
               <country-map markers="mapMarkers" zoomable="false" lines="mapLines"></country-map >
             </div>
-            <div class="col-md-4 col-xs-4">
+            <div class="col-md-4 col-sm-4 col-xs-4 hidden-xs">
                 <h2 class="section-heading-underline">Περιοχές που εξυπηρετούμε</h2>
             </div>
           </div>

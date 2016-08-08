@@ -126,3 +126,72 @@ md-datepicker.md-default-theme, md-datepicker {
 .required {
 	color: rgb(213,0,0)!important;
 }
+
+
+/*phones*/
+@media (max-width: 767px) {
+  .w-auto-xs {
+    width: auto;
+  }
+  .shift {
+    display: none !important;
+  }
+  .shift.in {
+    display: block !important;
+  }
+  .row-2 [class*="col"] {
+    float: left;
+    width: 50%;
+  }
+  .row-2 .col-0 {
+    clear: none;
+  }
+  .row-2 li:nth-child(odd) {
+    margin-left: 0;
+    clear: left;
+  }
+  .text-center-xs {
+    text-align: center;
+  }
+  .text-left-xs {
+    text-align: left;
+  }
+  .text-right-xs {
+    text-align: right;
+  }
+  .no-border-xs {
+    border-width: 0;
+  }
+  .pull-none-xs {
+    float: none !important;
+  }
+  .pull-right-xs {
+    float: right !important;
+  }
+  .pull-left-xs {
+    float: left !important;
+  }
+  .dropdown-menu.pull-none-xs {
+    left: 0;
+  }
+  .hidden-xs.show {
+    display: inherit !important;
+  }
+  .wrapper-lg,
+  .wrapper-md {
+    padding: 15px;
+  }
+  .padder-lg,
+  .padder-md {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .no-m-xs {
+    margin: 0 !important;
+  }
+}
+
+/*tablets*/
+@media (min-width: 768px) {
+	.text-center-sm{text-align: center;}
+}
