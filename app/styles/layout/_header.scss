@@ -5,11 +5,11 @@
         .logo {
             @media (min-width: $screen-sm) {
                 width: 60px; // 59 + 1 (border)
-            } 
+            }
 
             .logo-text {
                 display: none;
-            }           
+            }
         }
 
         .top-nav {
@@ -18,7 +18,7 @@
     }
 }
 
-// 
+//
 .header-container {
     // height:( $header_height * 2);
     // @media (min-width:$screen-sm) {
@@ -73,6 +73,8 @@
                 font-size: 20px;
             }
 
+            img{height:85px;}
+
             > a {
                 font-size: 24px;
                 vertical-align: middle;
@@ -80,7 +82,7 @@
             }
         }
 
-        // 
+        //
         .menu-button {
             display: block;
             position: absolute;
@@ -110,7 +112,7 @@
             }
         }
 
-        // 
+        //
         .admin-options {
             z-index: 20;
             line-height: 20px;
@@ -123,11 +125,11 @@
             }
         }
 
-        // 
+        //
         .dropdown-menu.panel {
             padding: 0;
             white-space: nowrap;
-            
+
             .panel-heading,
             .panel-footer {
                 padding: 10px 15px;
@@ -154,7 +156,7 @@
         }
 
 
-        // 
+        //
         .top-nav {
             width: 100%;
             height: $header_height;
@@ -168,7 +170,7 @@
                 margin-bottom: 0;
             }
 
-            // 
+            //
             .nav-left,
             .nav-right {
                 font-size: 16px;
@@ -188,7 +190,7 @@
                             font-size: 18px;
                             margin-right: 5px;
                             line-height: $line-height-computed;
-                        } 
+                        }
                     }
 
                     > .toggle-min {
@@ -263,9 +265,9 @@
                     background: transparent;
                 }
 
-                .input-bar { 
-                    position: absolute; 
-                    display: block; 
+                .input-bar {
+                    position: absolute;
+                    display: block;
                     width: 90%;
                     bottom: 0;
                     left: 5%;
@@ -274,27 +276,27 @@
                 .input-bar:after {
                     position: absolute;
                     content: '';
-                    height: 1px; 
+                    height: 1px;
                     width: 0;
-                    bottom: 1px; 
-                    // background: $text-color; 
+                    bottom: 1px;
+                    // background: $text-color;
                     @include transition (all .35s $material_animation);
                 }
                 .input-bar:before {
                     left: 50%;
                 }
                 .input-bar:after {
-                    right: 50%; 
-                }  
+                    right: 50%;
+                }
                 input {
                     &:focus ~ .input-bar:before,
                     &:focus ~ .input-bar:after {
                         width: 50%;
-                    }                    
-                }          
+                    }
+                }
             }
 
-            // 
+            //
             .nav-left {
                 float: left;
                 padding: 0;
@@ -303,7 +305,7 @@
                 }
             }
 
-            // 
+            //
             .nav-right {
                 padding: 0;
                 > li {
@@ -321,7 +323,7 @@
             }
         }
 
-        // 
+        //
         .langs {
             .active-flag {
                 .flag {
@@ -348,7 +350,7 @@
 
 }
 
-// 
+//
 .skin-check {
     position: relative;
     display: block;
@@ -359,7 +361,7 @@
     input[type="radio"] + span:hover {
         cursor: pointer;
     }
-    
+
     input[type="radio"] + span {
         position: relative;
         > .overlay {
@@ -373,8 +375,8 @@
             height: 100%;
             background-color: rgba(0,0,0,.3);
             text-align: center;
-            line-height: 30px; 
-            color: #fff;           
+            line-height: 30px;
+            color: #fff;
         }
     }
 
@@ -415,7 +417,7 @@
             &:hover {
                 color: $text-color;
             }
-        }        
+        }
     }
 
     &.bg-white {
@@ -476,14 +478,14 @@
                 &:hover {
                     color: $text-color;
                 }
-            }        
+            }
         }
 
         .input-group-addon { color: $gray-lighter; }
         ::-webkit-input-placeholder { color: #eaeaea; }
         :-moz-placeholder { color: #eaeaea; } // Firefox 18-
         ::-moz-placeholder {  color: #eaeaea; } // Firefox 19+
-        :-ms-input-placeholder {color: #eaeaea; }   
+        :-ms-input-placeholder {color: #eaeaea; }
 
         .top-nav .nav-left > li > a .badge {
             color: #eaeaea;
@@ -500,7 +502,7 @@
         }
     }
 
-    // 
+    //
     > .top-header {
         .logo {
             border: 1px solid rgba(0,0,0,.1);
@@ -524,7 +526,7 @@
                     &:hover {
                         .icon-bar {
                             background-color: $reverse;
-                        }                        
+                        }
                     }
                 }
             }
@@ -543,7 +545,7 @@
                         color: $bright;
                     }
                 }
-            }        
+            }
         }
 
     }
@@ -621,4 +623,3 @@
         background-color: $brand-danger;
     }
 }
-

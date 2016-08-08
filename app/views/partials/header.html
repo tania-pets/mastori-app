@@ -11,8 +11,9 @@
                      'bg-warning': ['15','25','35'].indexOf(main.skin) >= 0,
                      'bg-danger': ['16','26','36'].indexOf(main.skin) >= 0 }">
         <a ui-sref="landing({reload: true})" >
-            <span class="logo-icon zmdi zmdi-view-dashboard"></span>
-            <span class="logo-text">{{main.brand}}</span>
+            <!-- <span class="logo-icon zmdi zmdi-view-dashboard"></span>
+            <span class="logo-text">{{main.brand}}</span> -->
+            <img src="images/logo.png">
         </a>
     </div>
 
@@ -25,11 +26,11 @@
 
     <div class="top-nav">
         <ul class="nav-left list-unstyled">
-            <li>
+            <!-- <li>
                 <a href="#/" data-toggle-nav-collapsed-min
                    md-button aria-label="toggle-nav-collapsed-min"
                    class="toggle-min"><i class="zmdi zmdi-menu"></i></a>
-            </li>
+            </li> -->
             <li class="dropdown hidden-xs" uib-dropdown is-open="status.isopenSettings">
                 <a href="javascript:;" class="dropdown-toggle" uib-dropdown-toggle ng-disabled="disabled" md-button aria-label="email" aria-label="settings" aria-label="settings"><i class="zmdi zmdi-settings"></i></a>
                 <div class="uib-dropdown-menu dropdown-menu-scaleIn with-arrow panel panel-default admin-options" ui-not-close-on-click>

@@ -36,7 +36,7 @@
             brand: 'Mastori',
             name: 'Lisa',
             year: year,
-            layout: 'wide',                                 // 'boxed', 'wide'
+            layout: 'boxed',                                 // 'boxed', 'wide'
             menu: 'horizontal',                               // 'horizontal', 'vertical', 'collapsed'
             fixedHeader: true,                              // true, false
             fixedSidebar: true,                             // true, false
