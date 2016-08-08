@@ -82,6 +82,7 @@ angular.module('app')
             })
             .state('app.profile', {
                 url: '/profile',
+                controller:'ProfileCtrl',
                 templateUrl: 'views/user/profile.html',
             })
             .state('app.forgot-password', {
