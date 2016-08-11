@@ -4,7 +4,7 @@
           <uib-tab heading="Λογαριασμός">
             {{me.name}}
           </uib-tab>
-          <uib-tab heading="Διευθύνσεις">
+          <uib-tab heading="Διευθύνσεις" ng-if="me.endUser">
               <div data-ng-include=" 'views/endusers/partials/_addresses.html' "></div>
           </uib-tab>
       </uib-tabset>

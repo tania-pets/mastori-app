@@ -195,3 +195,9 @@ md-datepicker.md-default-theme, md-datepicker {
 @media (min-width: 768px) {
 	.text-center-sm{text-align: center;}
 }
+
+
+/*google address seacrh in a modal*/
+.pac-container {
+    z-index: 1051 !important;
+}

@@ -737,7 +737,7 @@ h1, h2, h3 {
     padding: 4em 2em 5em;
 }
 
-#map{
+#landing #map{
   background-color: #22435D ;
   background-image:url("../../images/landing/background-map.png") ;
   background-repeat: no-repeat;
@@ -1028,11 +1028,11 @@ md-autocomplete{display: inline;}
 
 /*tablets*/
 @media (max-width: 979px) {
-  #map{background-image:none;}
+  #landing #map{background-image:none;}
 }
 
 
 /*phones*/
 @media (max-width: 767px) {
-  #map{background-image:none;}
+  #landing #map{background-image:none;}
 }

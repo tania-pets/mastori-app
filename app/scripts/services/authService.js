@@ -85,6 +85,12 @@
               }
             );
           },
+          isMastori: function isMastori() {
+            return (this.user().type == 'mastori');
+          },
+          isEndUser: function isEndUser() {
+            return (this.user().type == 'enduser');
+          },
           /**
            * The backend doesn't care about actual user logout, just delete the token
            * and you're good to go.
