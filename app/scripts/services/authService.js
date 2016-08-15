@@ -99,7 +99,7 @@
           logout: function logout() {
             console.log('logout');
             $localStorage.$reset();
-            $state.go('app.home');
+            $state.go('app.signin');
           }
         };
       }

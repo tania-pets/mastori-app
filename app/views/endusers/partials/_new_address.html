@@ -1,17 +1,54 @@
 
-<div class="col-md-12" ng-controller="newAddressController">
+<div class="col-md-12" ng-controller="AddressController">
     <section class="panel panel-default">
       <div class="modal-header">
           <h3>Προσθήκη νέας διεύθυνσης</h3>
       </div>
       <div class="modal-body">
-          <div class="callout callout-info">
-            <input id="address-input" type="text" class="form-control" placeholder="Διεύθυνση">
-          </div>
+        <div class="row">
+            <div class="col-md-12">
+              <input id="address-input"  ng-model="addressText" type="text" class="form-control" placeholder="Διεύθυνση">
+            <div>
+            <span class="col-md-12" us-spinner="{radius:30, width:8, length: 16}" ng-if="locating"></span>
+            <div class="col-md-12" ng-show="address && !locating">
+              <div class="row">
+                <div class="col-md-5" id="map">
+                  <!-- <div id="map" style="width:400px; height:300px; border:1px solid red"></div> -->
+                </div>
+                <div class="col-md-7">
+                  <form name="addressForm"  ng-submit="!(addressForm).$valid || saveAddres()">
+                      <div layout layout-sm="column">
+                        <md-input-container flex>
+                            <label>Οδός</label>
+                            <input ng-model="address.streetName" required ng-blur="updateAddress()">
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label>Αριθμός</label>
+                            <input ng-model="address.streetNumber" required ng-blur="updateAddress()">
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label>TK</label>
+                            <input ng-model="address.postal" required ng-blur="updateAddress()">
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label>Πόλη</label>
+                            <input ng-model="address.city" required ng-blur="updateAddress()">
+                        </md-input-container>
+                          <md-input-container flex>
+                              <label>Χώρα</label>
+                              <input ng-model="address.country" required ng-blur="updateAddress()">
+                          </md-input-container>
+
+                      </div>
+                  </form>
+                </div>
+            </div>
+
+        </div>
       </div>
       <div class="modal-footer">
           <button ui-wave class="btn btn-flat btn-default" ng-click="cancel()">Cancel</button>
-          <button ui-wave class="btn btn-flat btn-primary" ng-click="ok()">OK</button>
+          <button ui-wave class="btn btn-flat btn-primary" type="submit" form="addressForm" ng-disabled="!(addressForm).$valid">OK</button>
       </div>
    </section>
 </div>
