@@ -5,13 +5,10 @@
                 <span class="card-title">{{address.address}}</span>
                 <p>{{address.city}}, {{address.country}}</p>
             </div>
-            <div class="card-action">
-                <a href="javascript:;"> <i class="zmdi zmdi-edit"></i> Αλλαγή</a>
-                <a href="javascript:;"><i class="zmdi zmdi-delete"></i>  Διαγραφή</a>
+            <div class="card-action" >
+               <a ng-click="deleteAddress(address)" href><i class="zmdi zmdi-delete"></i>  Διαγραφή</a>
             </div>
         </div>
     </div>
-
-    <md-button class="md-raised" ng-click="openModal('lg', 'views/endusers/partials/_new_address.html' )">Προσθήκη</md-button>
-
 </div>
+<md-button class="md-raised" ng-click="openModal('lg', 'views/endusers/partials/_new_address.html' )">Προσθήκη</md-button>

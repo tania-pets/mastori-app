@@ -15,8 +15,8 @@
                 <div class="col-md-5" id="map">
                   <!-- <div id="map" style="width:400px; height:300px; border:1px solid red"></div> -->
                 </div>
-                <div class="col-md-7">
-                  <form name="addressForm"  ng-submit="!(addressForm).$valid || saveAddres()">
+                <div class="col-md-7">{{(addressForm).$valid}}
+                  <form name="addressForm"  >
                       <div layout layout-sm="column">
                         <md-input-container flex>
                             <label>Οδός</label>
@@ -36,7 +36,7 @@
                         </md-input-container>
                           <md-input-container flex>
                               <label>Χώρα</label>
-                              <input ng-model="address.country" required ng-blur="updateAddress()">
+                              <input ng-model="address.country"  ng-blur="updateAddress()">
                           </md-input-container>
 
                       </div>
@@ -48,7 +48,7 @@
       </div>
       <div class="modal-footer">
           <button ui-wave class="btn btn-flat btn-default" ng-click="cancel()">Cancel</button>
-          <button ui-wave class="btn btn-flat btn-primary" type="submit" form="addressForm" ng-disabled="!(addressForm).$valid">OK</button>
+          <button ui-wave class="btn btn-flat btn-primary" ng-click="saveAddres()" type="submit" form="addressForm" ng-disabled="!(addressForm).$valid">OK</button>
       </div>
    </section>
 </div>

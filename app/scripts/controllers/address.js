@@ -8,7 +8,7 @@
       var lng;
       var selectedLocation;
       var geocoder;
-      var map;
+      var map, marker;
 
       /*Address search, load google maps*/
       lazyLoadGoogleMaps.then(loadGoogleSearch);
@@ -21,11 +21,15 @@
         });
       }
 
+      //specify address in inputs
       $scope.updateAddress = function() {
         var address = $scope.address.streetName + ' ' + $scope.address.streetNumber + ' ' + $scope.address.city + ' ' + $scope.address.country + ' ' + $scope.address.postal;
         $scope.addressText = address;
-        // google.maps.event.trigger( document.getElementById('address-input'), 'focus', {} );
-        //selectPlace({formatted_address: address,  geometry:1});
+        getAddresFromText(address, function(streetNumber, streetName, postal, city, country, location){
+            map.panTo(location);
+            marker.setPosition(location);
+            $scope.address = {address: address,lat:location.lat(), lng:location.lng(), streetName:streetName, streetNumber: streetNumber, city:city, country:country, postal: postal };
+        });
       }
 
 
@@ -41,20 +45,18 @@
              return;
          } else {
            getAddresFromText(place.formatted_address, function(streetNumber, streetName, postal, city, country, location){
-             console.log(place.formatted_address);
-             console.log(streetName);
              var lat = location.lat();
              var lng = location.lng();
              //init address obj
-            $scope.address = {lat:lat, lng:lat, streetName:streetName, streetNumber: streetNumber, city:city, country:country, postal: postal, };
-            //load map
-            var mapDiv = document.getElementById('map');
-            map = new google.maps.Map(mapDiv, {
+             $scope.address = {address:place.formatted_address,  lat:lat, lng:lat, streetName:streetName, streetNumber: streetNumber, city:city, country:country, postal: postal, };
+             //load map
+             var mapDiv = document.getElementById('map');
+             map = new google.maps.Map(mapDiv, {
               center: {lat: lat, lng: lng},
               zoom: 16
             });
             //load marker
-            var marker = new google.maps.Marker({
+            marker = new google.maps.Marker({
               position: location,
               map: map
             });
@@ -75,6 +77,8 @@
             user.addresses.push($scope.address);
             $uibModalStack.dismissAll();
           })
+        } else  {
+          //console.log($scope);
         }
       }
 
@@ -111,5 +115,10 @@
           callback(streetNumber, streetName, postal, city, country, location);
         });
       }
+
+      $scope.deleteAddress = function(address) {
+        //alert('ddddd');
+        console.log(address);
+      };
 
     });
