@@ -75,16 +75,28 @@ angular.module('app')
             .state('app.signup', {
                 url: '/signup',
                 templateUrl: 'views/user/signup.html',
+                ncyBreadcrumb: {
+                  label: 'Sign up',
+                  parent: 'app.home'
+                }
             })
             .state('app.signin', {
                 url: '/signin',
                 templateUrl: 'views/user/signin.html',
+                ncyBreadcrumb: {
+                  label: 'Log in',
+                  parent: 'app.home'
+                }
             })
             .state('app.profile', {
                 url: '/profile',
                 controller:'ProfileCtrl',
                 cache: false,
                 templateUrl: 'views/user/profile.html',
+                ncyBreadcrumb: {
+                  label: 'Profile',
+                  parent: 'app.home'
+                }
             })
             .state('app.forgot-password', {
                 url: '/forgot-password',

@@ -127,6 +127,11 @@ md-datepicker.md-default-theme, md-datepicker {
 	color: rgb(213,0,0)!important;
 }
 
+// login modal
+.signin-modal .additional-info .divider-h {
+    border-right: 1px solid #fafafa;
+    margin: 0 15px;
+}
 
 /*phones*/
 @media (max-width: 767px) {

@@ -20,7 +20,7 @@
       'infinite-scroll',
       'geolocation',
       'oc.lazyLoad',
-      'ngTouch',
+      // 'ngTouch', material already offers touch support
       'angular-carousel',
       'ncy-angular-breadcrumb',
       'toaster',

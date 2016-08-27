@@ -329,7 +329,7 @@
                 </ul>
             </li>
             <li ng-if="!AuthService.isAuthenticated()">
-                <a ui-sref="app.signin">Sign In</a>
+                <a href ng-click="login()">Sign In</a>
             </li>
         </ul>
     </div>

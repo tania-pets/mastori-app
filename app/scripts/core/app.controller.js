@@ -2,10 +2,10 @@
     'use strict';
 
     angular.module('app')
-    .controller('AppCtrl', [ '$scope', '$rootScope', '$state', '$document', 'appConfig', '$translate', 'AuthService', 'geolocation',
+    .controller('AppCtrl', [ '$scope', '$rootScope', '$state', '$document', 'appConfig', '$translate', 'AuthService', 'geolocation', '$uibModal',
      AppCtrl]) // overall control
 
-    function AppCtrl($scope, $rootScope, $state, $document, appConfig, $translate, AuthService, geolocation) {
+    function AppCtrl($scope, $rootScope, $state, $document, appConfig, $translate, AuthService, geolocation, $uibModal) {
         $scope.pageTransitionOpts = appConfig.pageTransitionOpts;
         $scope.main = appConfig.main;
         $scope.color = appConfig.color;
@@ -50,6 +50,20 @@
             $rootScope.preloader = false;
             $document.scrollTo(0, 0);
         });
+
+        $scope.login = function () {
+
+            var modalInstance = $uibModal.open({
+                templateUrl: 'views/user/signin-modal.html',
+                controller: 'authCtrl',
+                size: 'lg'
+            });
+
+            modalInstance.opened.then(function () {
+                $rootScope.loginModalOpen = true;
+            });
+
+        };
 
     }
 
