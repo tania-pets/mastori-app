@@ -19,7 +19,7 @@
           </a>
           <ul class="nav navbar-nav pull-right col-md-4">
             <li class="nav-item"><a href="#features"><i class="zmdi zmdi-settings bg-blue circle-icon" ></i>Πώς Λειτουργεί</a></li>
-            <li ng-if="!AuthService.isAuthenticated()" class="nav-item"><a href ng-click="login()"><i class="zmdi zmdi-account bg-orange circle-icon"></i>Σύνδεση</a></li>
+            <li ng-if="!AuthService.isAuthenticated()" class="nav-item"><a href ng-click="openLoginModal()"><i class="zmdi zmdi-account bg-orange circle-icon"></i>Σύνδεση</a></li>
             <li ng-if="AuthService.isAuthenticated()" class="nav-item"><a href ui-sref="app.profile"><i class="zmdi zmdi-account bg-orange circle-icon"></i>Προφιλ</a></li>
           </ul>
           <div class="pull-right togger-container"><span id="showRight" class="zmdi zmdi-menu navbar-toggler"></span></div>

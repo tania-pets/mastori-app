@@ -1,42 +1,30 @@
 'use strict';
 
 angular.module('app')
-.run(
-  ['$rootScope', '$state', '$stateParams', '$location', '$uibModal',
-    function ($rootScope,   $state,   $stateParams, $location, $uibModal) {
-        $rootScope.$on('$stateChangeStart', function stateChangeStart(event, toState) {
-          });
-          var history = [];
-          $rootScope.$on('$stateChangeSuccess', function() {
-              history.push($location.$$path);
-          });
-          $rootScope.back = function () {
-              var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
-              $location.path(prevUrl);
-          }
-
-          $rootScope.openModal = function (size, template, data) {
-              var modalInstance = $uibModal.open({
-                  animation: true,
-                  templateUrl:  template,
-                  controller: 'ModalInstanceCtrl',
-                  size: size,
-                  resolve: {
-                      data: function () {
-                          return data;
-                      }
-                  }
-              });
-              modalInstance.result.then(function (selectedItem) {
-                }, function () {
-                });
-          };
-    }
-  ]
-)
-
 .config(['$stateProvider', '$urlRouterProvider',
     function ($stateProvider,   $urlRouterProvider) {
+
+        function loginRequired($q, $location, $rootScope, AuthService) {
+          var deferred = $q.defer();
+          if (AuthService.isAuthenticated()) {
+            deferred.resolve();
+          } else {
+            $rootScope.redirectAfterLogin = $location.path();
+            $location.path('/app/signin');
+          }
+          return deferred.promise;
+        }
+
+        function skipIfLoggedIn($q, $location, AuthService) {
+          var deferred = $q.defer();
+          if (AuthService.isAuthenticated()) {
+            $location.path('/');
+          } else {
+            deferred.resolve();
+          }
+          return deferred.promise;
+        }
+
         var main_layout = "views/layouts/main.html";
         $stateProvider
             .state('app', {
@@ -75,6 +63,9 @@ angular.module('app')
             .state('app.signup', {
                 url: '/signup',
                 templateUrl: 'views/user/signup.html',
+                resolve: {
+                  skipIfLoggedIn: skipIfLoggedIn,
+                },
                 ncyBreadcrumb: {
                   label: 'Sign up',
                   parent: 'app.home'
@@ -83,6 +74,9 @@ angular.module('app')
             .state('app.signin', {
                 url: '/signin',
                 templateUrl: 'views/user/signin.html',
+                resolve: {
+                  skipIfLoggedIn: skipIfLoggedIn,
+                },
                 ncyBreadcrumb: {
                   label: 'Log in',
                   parent: 'app.home'
@@ -93,6 +87,9 @@ angular.module('app')
                 controller:'ProfileCtrl',
                 cache: false,
                 templateUrl: 'views/user/profile.html',
+                resolve: {
+                  loginRequired: loginRequired,
+                },
                 ncyBreadcrumb: {
                   label: 'Profile',
                   parent: 'app.home'
@@ -101,6 +98,9 @@ angular.module('app')
             .state('app.forgot-password', {
                 url: '/forgot-password',
                 templateUrl: 'views/user/forgot-password.html',
+                resolve: {
+                  skipIfLoggedIn: skipIfLoggedIn,
+                }
             })
             .state('app.404', {
                 url: '/404',

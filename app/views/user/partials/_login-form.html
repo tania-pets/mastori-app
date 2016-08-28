@@ -1,4 +1,4 @@
-<form class="form-horizontal" novalidate name="login_form" ng-submit="!login_form.$valid || login()">
+<form ng-controller="authCtrl" class="form-horizontal" novalidate name="login_form" ng-submit="!login_form.$valid || login()">
     <fieldset>
         <md-input-container class="md-block">
             <label>Email</label>

@@ -46,23 +46,35 @@
             $rootScope.preloader = true;
         });
 
-        $rootScope.$on("$stateChangeSuccess", function (event, currentRoute, previousRoute) {
+        $rootScope.$on("$stateChangeSuccess", function (event, toState, toParams, fromState) {
             $rootScope.preloader = false;
             $document.scrollTo(0, 0);
         });
 
-        $scope.login = function () {
+        $rootScope.openModal = function (size, template, data) {
+          var modalInstance = $uibModal.open({
+              animation: true,
+              templateUrl:  template,
+              controller: 'ModalInstanceCtrl',
+              size: size,
+              resolve: {
+                  data: function () {
+                      return data;
+                  }
+              }
+          });
+          modalInstance.result.then(function (selectedItem) {
+            }, function () {
+            });
+        };
+
+        $scope.openLoginModal = function () {
 
             var modalInstance = $uibModal.open({
                 templateUrl: 'views/user/signin-modal.html',
                 controller: 'authCtrl',
                 size: 'lg'
             });
-
-            modalInstance.opened.then(function () {
-                $rootScope.loginModalOpen = true;
-            });
-
         };
 
     }
