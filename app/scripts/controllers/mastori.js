@@ -109,10 +109,19 @@ angular.module('app')
         });
     }
 
+    var initloggedInActions = function() {
+        appointmentInit();
+        $scope.appointments = AppointmentModel.query(appointmentQueryParams);
+    }
+
     // If user is logged in init appointment, fetch past appointments
     if ($scope.user) {
-    	appointmentInit();
-    	$scope.appointments = AppointmentModel.query(appointmentQueryParams);
+    	initloggedInActions();
     }
+
+    $scope.$on('user:logedin', function(event,data) {
+     $scope.user = AuthService.user();
+     initloggedInActions();
+   });
 
 }]);

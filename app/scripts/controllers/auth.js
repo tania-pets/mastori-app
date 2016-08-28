@@ -18,6 +18,8 @@ angular.module('app')
           // add support for login modal
           if (typeof $scope.$close === 'function') {
             $scope.$close();
+            // emit event
+            $rootScope.$broadcast('user:logedin');
             // redirect only if current state applies only to guests
             if ($state.current.resolve && typeof $state.current.resolve.skipIfLoggedIn === 'function') {
               $state.go('app.home');
