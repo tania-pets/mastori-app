@@ -53,6 +53,7 @@ module.exports = function(config) {
       'bower_components/angular-validation-match/dist/angular-validation-match.min.js',
       'bower_components/angular-ui-tree/dist/angular-ui-tree.js',
       'bower_components/jquery.slimscroll/jquery.slimscroll.js',
+      'bower_components/jquery.slimscroll/jquery.slimscroll.min.js',
       'bower_components/jquery-steps/build/jquery.steps.js',
       'bower_components/angular-busy/dist/angular-busy.js',
       'bower_components/spin.js/spin.js',
@@ -68,6 +69,7 @@ module.exports = function(config) {
       'bower_components/AngularJS-Toaster/toaster.js',
       'bower_components/moment/moment.js',
       'bower_components/angular-moment/angular-moment.js',
+      'bower_components/angular-password/angular-password.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
       // endbower

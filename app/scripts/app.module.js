@@ -24,7 +24,8 @@
       'angular-carousel',
       'ncy-angular-breadcrumb',
       'toaster',
-      'angularMoment'
+      'angularMoment',
+      'ngPassword',
      // Custom modules
     //  ,'app.layout'
     //  ,'app.i18n'
