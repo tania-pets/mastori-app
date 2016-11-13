@@ -484,6 +484,7 @@ module.exports = function (grunt) {
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*',
             'l18n/*.*',
+            'svg/*.*'
           ]
         }, {
           expand: true,
@@ -526,6 +527,24 @@ module.exports = function (grunt) {
          dest: '<%= yeoman.dist %>/images',
          src: '**/*'
        },
+       {
+        expand: true,
+        cwd: '<%= yeoman.app %>/scripts/landing',
+        dest: '<%= yeoman.dist %>/scripts/landing',
+        src: '**/*'
+      },
+      {
+       expand: true,
+       cwd: '<%= yeoman.app %>/styles/landing',
+       dest: '<%= yeoman.dist %>/styles/landing',
+       src: '**/*'
+     },
+     {
+      expand: true,
+      cwd: '<%= yeoman.app %>/images/landing',
+      dest: '<%= yeoman.dist %>/images/landing',
+      src: '**/*'
+     },
        {
         expand: true,
         cwd: '<%= yeoman.app %>',
