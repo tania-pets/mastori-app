@@ -8,8 +8,8 @@
  * Controller for user auth functions
  */
 angular.module('app')
-  .controller('authCtrl', ['$scope', '$rootScope', 'AuthService', '$state', '$location', 'toaster', 'UserModel',
-    function ($scope, $rootScope, AuthService, $state, $location, toaster, UserModel) {
+  .controller('authCtrl', ['$scope', '$rootScope', 'AuthService', '$state', '$location', 'toaster',
+    function ($scope, $rootScope, AuthService, $state, $location, toaster) {
 
     $scope.login = function() {
 
@@ -26,7 +26,7 @@ angular.module('app')
             }
           } else {
             // redirect to previous state if it applies only to authenticated users
-            if ($rootScope.redirectAfterLogin !== 'undefined') {
+            if ($rootScope.redirectAfterLogin !== undefined) {
 
               $location.path($rootScope.redirectAfterLogin);
               $rootScope.redirectAfterLogin = null;
@@ -42,15 +42,15 @@ angular.module('app')
       });
     }
 
-    $scope.signup = function() {
-        $location.url('/')
+    $scope.goTo = function(state) {
+      // close modal
+      if (typeof $scope.$close === 'function') {
+        $scope.$close();
+      }
+      $state.go(state);
     }
 
     $scope.reset =    function() {
-        $location.url('/')
-    }
-
-    $scope.unlock =    function() {
         $location.url('/')
     }
 

@@ -1,6 +1,6 @@
 
   angular.module('app')
-    .controller('AddressController', function ($scope,lazyLoadGoogleMaps, UserModel, AuthService, $uibModalStack, $filter) {
+    .controller('AddressCtrl', function ($scope, lazyLoadGoogleMaps) {
       $scope.address = null;
       $scope.locating = false;
       var autocomplete;
@@ -67,21 +67,6 @@
          };
       }
 
-      //save and close mo
-      $scope.saveAddres = function() {
-        if($scope.address && $scope.address.city && $scope.address.country && $scope.address.address) {
-          var user = AuthService.user();
-          UserModel.get({id:user.id}, function(userResource) {
-            userResource.addresses.push($scope.address);
-            userResource.$save();
-            user.addresses.push($scope.address);
-            $uibModalStack.dismissAll();
-          })
-        } else  {
-          //console.log($scope);
-        }
-      }
-
       /*gets city and country from give location*/
       var getAddresFromText = function(address, callback) {
         geocoder.geocode({address: address}, function (results, status) {
@@ -119,6 +104,14 @@
       $scope.deleteAddress = function(address) {
         //alert('ddddd');
         console.log(address);
+      };
+
+      $scope.ok = function() {
+        $scope.$close($scope.address);
+      };
+
+      $scope.cancel = function() {
+        $scope.$close();
       };
 
     });
