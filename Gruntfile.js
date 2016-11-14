@@ -491,35 +491,6 @@ module.exports = function (grunt) {
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
-        },{
-          expand: true,
-          cwd: '.tmp/styles',
-          dest: '<%= yeoman.dist %>/styles',
-          src: 'overwrite.css'
-        },
-        {
-          expand: true,
-          cwd: '.tmp/styles',
-          dest: '<%= yeoman.dist %>/styles',
-          src: 'ui.css'
-        },
-        {
-          expand: true,
-          cwd: '<%= yeoman.app %>/styles',
-          dest: '<%= yeoman.dist %>/styles',
-          src: 'nv.d3.css'
-        },
-        {
-          expand: true,
-          cwd: '<%= yeoman.app %>/styles',
-          dest: '<%= yeoman.dist %>/styles',
-          src: 'loader.css'
-        },
-        {
-          expand: true,
-          cwd: '.tmp/styles',
-          dest: '<%= yeoman.dist %>/styles',
-          src: 'bootstrap.css'
         },
         {
          expand: true,

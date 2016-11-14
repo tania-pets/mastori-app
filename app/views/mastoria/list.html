@@ -18,7 +18,7 @@
                                 <li>
                                     <small>EΙΔΙΚΟΤΗΤΑ:</small>
                                     <span ng-if="params['profession[]']">
-                                        <to-string-only-selected values="professions" key="title" selected="params['profession[]']"></to-string-only-selected>
+                                        <to-string-only-selected values="professions" key="title" selectedval="params['profession[]']"></to-string-only-selected>
                                     </span>
                                     <span ng-hide="params['profession[]'].length > 0">
                                         ΟΛΕΣ ΟΙ ΕΙΔΙΚΟΤΗΤΕΣ
@@ -27,7 +27,7 @@
                                 <li>
                                     <small>ΠΕΡΙΟΧΗ:</small>
                                     <span ng-if="params['area[]']">
-                                        <to-string-only-selected values="areas" key="name" selected="params['area[]']"></to-string-only-selected>
+                                        <to-string-only-selected values="areas" key="name" selectedval="params['area[]']"></to-string-only-selected>
                                     </span>
                                     <span ng-hide="params['area[]'].length > 0">
                                         ΟΛΕΣ ΟΙ ΠΕΡΙΟΧΕΣ
@@ -66,7 +66,7 @@
                             <div class="panel panel-default panel-labeled panel-collapse">
                                 <md-subheader class="bg-primary">Χαρτης</md-subheader>
                                 <p class="p-xs">Επιλέξτε περιοχή</p>
-                                <drill-down-map ng-if="areas.$resolved" selected="params['area[]']" areas="areas"></drill-down-map>
+                                <drill-down-map ng-if="areas.$resolved" selectedarea="params['area[]']" areas="areas"></drill-down-map>
                                 <!--md-subheader class="md-warn">ΠΕΡΙΟΧΕΣ</md-subheader>
                                 <div ng-show="!showMap">
                                     <md-progress-circular md-mode="indeterminate" class="md-warn md-hue-3 m-auto" md-diameter="96"></md-progress-circular>

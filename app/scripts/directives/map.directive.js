@@ -9,7 +9,7 @@
             restrict: 'E',
             replace: true,
             scope: {
-              selected: '=',
+              selectedarea: '=',
               areas: '=',
               color: '=',
               selectedColor: '='
@@ -20,7 +20,7 @@
 
                 $scope.mapAreas = {};
                 $scope.areas = $scope.areas || [];
-                $scope.selected = $scope.selected || [];
+                $scope.selectedarea = $scope.selectedarea || [];
                 $scope.defaultDataProvider = {};
                 $scope.color = $scope.color || "#f89932";
                 $scope.selectedColor = $scope.selectedColor || "#c14e1a";
@@ -51,7 +51,7 @@
                 } ];
 
                 var prepareAreas = function() {
-                    var groupAreas, prefecture, selected, selectedPrefecture;
+                    var groupAreas, prefecture, selectedarea, selectedPrefecture;
 
                     angular.forEach($scope.areas, function(area) {
 
@@ -60,10 +60,10 @@
                         } else {
                             prefecture = $filter('filter')($scope.areas, { id: area.parent_id }, true)[0];
                             groupAreas = $scope.mapAreas[prefecture.name] = $scope.mapAreas[prefecture.name] || [];
-                            selected = $scope.selected.indexOf(area.id) >= 0;
+                            selectedarea = $scope.selectedarea.indexOf(area.id) >= 0;
                         }
 
-                        if (selected) {
+                        if (selectedarea) {
                             selectedPrefecture = prefecture.name;
                         }
 
@@ -73,7 +73,7 @@
                                 _id: area.id,
                                 parent_id: area.parent_id,
                                 color: "#f89932",
-                                showAsSelected: selected
+                                showAsSelected: selectedarea
                             }
                         );
 

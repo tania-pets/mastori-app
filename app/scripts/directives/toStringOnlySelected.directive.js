@@ -9,11 +9,11 @@
             restrict: 'E',
             scope: {
                 values: "=",
-                selected: "=",
+                selectedval: "=",
                 key: "@",
             },
             template:
-            '<span class="m-r-xs" ng-repeat="value in values | orderBy:key | myFilter:selected as filtered">'+
+            '<span class="m-r-xs" ng-repeat="value in values | orderBy:key | myFilter:selectedval as filtered">'+
               '{{ value[key] }}' +
               '<span ng-if="$index < filtered.length-1">,</span>' +
             '</span>'
