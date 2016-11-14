@@ -4,7 +4,7 @@ angular.module('app').service('lazyLoadGoogleMaps', function lazyLoadApi($window
       // use global document since Angular's $document is weak
     // console.log('loadscript');
     var s = document.createElement('script')
-    s.src = '//maps.googleapis.com/maps/api/js?sensor=false&language=el&callback=initMap&libraries=places'
+    s.src = '//maps.googleapis.com/maps/api/js?sensor=false&language=el&callback=initMap&libraries=places&key=AIzaSyDj8fnidV2ikQ1_zeY1CBfGlD-XtsL0KPM'
     document.body.appendChild(s)
   }
   var deferred = $q.defer()
