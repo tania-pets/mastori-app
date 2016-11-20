@@ -15,7 +15,6 @@ angular.module('app')
                 loadPageFeatures();
               })
 
-
     /*Map*/
 
     //markers and texts for cities that we serve
@@ -175,6 +174,11 @@ angular.module('app')
     angular.element(document).ready(function () {
       $('#loader-container').fadeOut('slow');
     });
+
+    //testimorials slides
+    $scope.slides = [{id: 0, active: true,  img: 'images/g1.jpg', text: 'Εύγε! Είστε απίθανοι. Τέτοιο πράγμα δεν ξανάδα. Αγαπώ όλους τους μάστορές σας. Μόνο με το μαστόρι κάνω δουλειά.', name: 'Φωτεινή Μ.', date: 'Θεσσαλονίκη, Ιούνιος 2016'},
+                    {id: 1, active: false, img: 'images/landing/person.jpg', text: 'Εύγε! Είστε απίθανοι. Τέτοιο πράγμα δεν ξανάδα. Αγαπώ όλους τους μάστορές σας. Μόνο με το μαστόρι κάνω δουλειά.', name: 'Μανώλης Κ.', date: 'Θεσσαλονίκη, Ιούνιος 2016'}
+                  ];
 
 
   });

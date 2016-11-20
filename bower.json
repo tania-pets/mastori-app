@@ -7,7 +7,6 @@
     "angular-cookies": "1.4.8",
     "angular-resource": "1.4.8",
     "angular-sanitize": "1.4.8",
-    "angular-touch": "~1.5.7",
     "angular-aria": "~1.4.0",
     "angular-messages": "~1.4.0",
     "angular-material": "1.0.1",
@@ -35,7 +34,6 @@
     "angularjs-geolocation": "^0.1.1",
     "oclazyload": "~1.0.9",
     "lodash": "3.X",
-    "angular-carousel": "~1.0.1",
     "ammap3": "^3.20.9",
     "angular-breadcrumb": "^0.4.1",
     "AngularJS-Toaster": "angularjs-toaster#^2.0.0",
@@ -59,12 +57,11 @@
     }
   },
   "resolutions": {
-    "angular": "1.5.7",
+    "angular": "1.5.8",
     "angular-cookies": "1.4.8",
     "angular-sanitize": "1.4.8",
     "moment": "~2.9.0",
     "fullcalendar": "2.3.1",
-    "angular-touch": "~1.5.7",
     "angular-animate": "1.4.8",
     "lodash": "3.X"
   }
