@@ -203,25 +203,27 @@
         <div class="container">
           <header>
             <h2 class="section-heading-underline">Σχόλια χρηστών</h2>
-          </header>  
-            <uib-carousel interval="5000" no-wrap="false">
-              <uib-slide ng-repeat="slide in slides"  active="slide.active" >
-                <div class="row text-center">
-                  <div class="col-md-12">
-                    <div class="profile-img">
-                      <!-- <img alt="" src="{{slide.img}}" class="img-circle img80_80"> -->
-                    </div>
-                    <h3>{{slide.name}}</h3>
-                    <small>{{slide.date}}</small>
-                  </div>
-                  <div class="col-md-8 col-md-offset-2 quote">
-                     <i>
-                       {{slide.text}}
-                     </i>
-                  </div>
+          </header>
+          <slick infinite="true" >
+            <div class="row text-center" ng-repeat="slide in slides">
+              <div class="col-md-12">
+                <div class="profile-img">
+                  <!-- <img alt="" src="{{slide.img}}" class="img-circle img80_80"> -->
                 </div>
-              </uib-slide>
-            </uib-carousel>
+                <h3>{{slide.name}}</h3>
+                <small>{{slide.date}}</small>
+              </div>
+              <div class="col-md-8 col-md-offset-2 quote">
+                 <i>
+                   {{slide.text}}
+                 </i>
+              </div>
+            </div>
+
+
+          </slick>
+
+
         </div>
       </div>
       <div id="map" class="map">

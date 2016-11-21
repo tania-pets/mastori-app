@@ -227,6 +227,9 @@ module.exports = function (grunt) {
         overrides: {
         'ammap3': {
           'main': ['ammap/ammap.js', 'ammap/maps/js/greeceLow.js']
+        },
+        'slick-carousel': {
+          'main': ['slick/slick.js', 'slick/slick.css', 'slick/slick-theme.css']
         }
        }
       },

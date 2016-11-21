@@ -209,3 +209,8 @@ md-datepicker.md-default-theme, md-datepicker {
 
 //temp
 .breadcrumb.bg-primary{background-color: #009688;}
+
+.slick-prev:before, .slick-next:before {
+	color:#D24918 !important;
+	font-size:40px !important;
+}
