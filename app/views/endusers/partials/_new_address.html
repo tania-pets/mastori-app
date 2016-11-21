@@ -15,20 +15,20 @@
                 <div class="col-md-5" id="map">
                   <!-- <div id="map" style="width:400px; height:300px; border:1px solid red"></div> -->
                 </div>
-                <div class="col-md-7">{{(addressForm).$valid}}
+                <div class="col-md-7">
                   <form name="addressForm"  >
                       <div layout layout-sm="column">
                         <md-input-container flex>
                             <label>Οδός</label>
-                            <input ng-model="address.streetName" required ng-blur="updateAddress()">
+                            <input ng-model="address.streetname" required ng-blur="updateAddress()">
                         </md-input-container>
                         <md-input-container flex>
                             <label>Αριθμός</label>
-                            <input ng-model="address.streetNumber" required ng-blur="updateAddress()">
+                            <input ng-model="address.streetnumber" required ng-change="updateAddress()">
                         </md-input-container>
                         <md-input-container flex>
                             <label>TK</label>
-                            <input ng-model="address.postal" required ng-blur="updateAddress()">
+                            <input ng-model="address.zipcode" required ng-change="updateAddress()">
                         </md-input-container>
                         <md-input-container flex>
                             <label>Πόλη</label>

@@ -1,7 +1,6 @@
 
   angular.module('app')
     .controller('AddressCtrl', function ($scope, lazyLoadGoogleMaps) {
-      $scope.address = null;
       $scope.locating = false;
       var autocomplete;
       var lat;
@@ -9,6 +8,7 @@
       var selectedLocation;
       var geocoder;
       var map, marker;
+
 
       /*Address search, load google maps*/
       lazyLoadGoogleMaps.then(loadGoogleSearch);
@@ -19,19 +19,31 @@
         autocomplete.addListener('place_changed', function () {
             selectPlace();
         });
+        //edit mode
+        if($scope.address) {
+           $scope.addressText = $scope.address.address;
+          getAddresFromText($scope.address.address, function(streetNumber, streetName, postal, city, country, location, place){
+            selectPlace(place);
+          });
+        }
+
       }
 
       //specify address in inputs
       $scope.updateAddress = function() {
-        var address = $scope.address.streetName + ' ' + $scope.address.streetNumber + ' ' + $scope.address.city + ' ' + $scope.address.country + ' ' + $scope.address.postal;
-        $scope.addressText = address;
-        getAddresFromText(address, function(streetNumber, streetName, postal, city, country, location){
+        var addressText = '';
+        var addresKeys = ['streetname', 'streetnumber', 'city', 'country', 'zipcode'];
+        angular.forEach(addresKeys, function(key, index){
+          if($scope.address[key]) {
+            addressText += ' ' + $scope.address[key];
+          }
+        });
+        getAddresFromText(addressText, function(streetNumber, streetName, postal, city, country, location, place){
             map.panTo(location);
             marker.setPosition(location);
-            $scope.address = {address: address,lat:location.lat(), lng:location.lng(), streetName:streetName, streetNumber: streetNumber, city:city, country:country, postal: postal };
+            angular.merge($scope.address,{address: addressText,lat:location.lat(), lng:location.lng(), streetname:streetName, streetnumber: streetNumber, city:city, country:country, zipcode: postal });
         });
       }
-
 
 
       /*user selects a place from autocomplete*/
@@ -44,11 +56,11 @@
              window.alert("Autocomplete's returned place contains no geometry");
              return;
          } else {
-           getAddresFromText(place.formatted_address, function(streetNumber, streetName, postal, city, country, location){
+           getAddresFromText(place.formatted_address, function(streetNumber, streetName, postal, city, country, location, place){
              var lat = location.lat();
              var lng = location.lng();
              //init address obj
-             $scope.address = {address:place.formatted_address,  lat:lat, lng:lat, streetName:streetName, streetNumber: streetNumber, city:city, country:country, postal: postal, };
+             angular.merge($scope.address, {address:place.formatted_address,  lat:lat, lng:lat, streetname:streetName, streetnumber: streetNumber, city:city, country:country, zipcode: postal });
              //load map
              var mapDiv = document.getElementById('map');
              map = new google.maps.Map(mapDiv, {
@@ -70,9 +82,10 @@
       /*gets city and country from give location*/
       var getAddresFromText = function(address, callback) {
         geocoder.geocode({address: address}, function (results, status) {
-          var city, country, streetName, streetNumber, postal, location;
+          var city, country, streetName, streetNumber, postal, location, place;
           angular.forEach(results, function(result){
             location = result.geometry.location;
+            place = result;
             angular.forEach(result.address_components, function(r){
               angular.forEach(r.types, function(z){
                 //find city
@@ -97,14 +110,9 @@
               });
             })
           })
-          callback(streetNumber, streetName, postal, city, country, location);
+          callback(streetNumber, streetName, postal, city, country, location, place);
         });
       }
-
-      $scope.deleteAddress = function(address) {
-        //alert('ddddd');
-        console.log(address);
-      };
 
       $scope.ok = function() {
         $scope.$close($scope.address);
