@@ -1,12 +1,12 @@
 <div class="row">
-    <div class="col-md-6" ng-repeat="address in me.addresses">
+    <div class="col-md-6" ng-repeat="address in me.addresses track by address.id">
         <div class="card">
             <div class="card-content">
                 <span class="card-title">{{address.address}}</span>
                 <p>{{address.city}}, {{address.country}}</p>
             </div>
             <div class="card-action" >
-               <!-- <a ng-click="deleteAddress(address)" href><i class="zmdi zmdi-delete"></i>  Διαγραφή</a> -->
+               <a ng-click="deleteAddress(address)" href><i class="zmdi zmdi-delete"></i>  Διαγραφή</a>
                <a ng-click="editAddress(address)" href><i class="zmdi zmdi-edit"></i>Επεξεργασία</a>
 
             </div>
