@@ -1,6 +1,6 @@
 
   angular.module('app')
-    .controller('AddressCtrl', function ($scope, lazyLoadGoogleMaps) {
+    .controller('AddressAddEditCtrl', function ($scope, lazyLoadGoogleMaps, $uibModal, AuthService, UserModel) {
       $scope.locating = false;
       var autocomplete;
       var lat;
@@ -10,17 +10,15 @@
       var map, marker;
       if (!$scope.address) $scope.address = null;
 
-
-
       /*Address search, load google maps*/
       lazyLoadGoogleMaps.then(loadGoogleSearch);
       function loadGoogleSearch() {
-        geocoder =  new google.maps.Geocoder();
         var input = document.getElementById('address-input');
         autocomplete = new google.maps.places.Autocomplete(input);
         autocomplete.addListener('place_changed', function () {
             selectPlace();
         });
+        geocoder =  new google.maps.Geocoder();
         //edit mode
         if($scope.address) {
            $scope.addressText = $scope.address.address;
@@ -128,3 +126,88 @@
       };
 
     });
+
+
+    //View - add edit address actions controller
+    angular.module('app')
+      .controller('AddressCtrl', function ($scope, $uibModal, AuthService, UserModel) {
+
+        //open modal for add/edit address
+        $scope.openAddressModal = function (address) {
+          var modalInstance = $uibModal.open({
+              animation: true,
+              templateUrl: 'views/endusers/partials/_new_address.html',
+              scope: $scope,
+              size: 'lg'
+          });
+          modalInstance.result.then(function (address) {
+            var user = AuthService.user();
+            //on sign up
+            if (!user) {
+              //first address
+              if (!$scope.user.addresses) {
+                $scope.user.addresses = [address];
+              }  else {
+                var index = $scope.user.addresses.indexOf(address);
+                //edit mode
+                if (index >=0 ) {
+                  $scope.user.addresses[index] = address;
+                } else {
+                  $scope.user.addresses.push(address);
+                }
+              }
+              // $scope.user.addresses.push(address);
+            } else {
+            UserModel.get({id:user.id}, function(userResource) {
+              if(address) {
+                if(address.id) { //edit address
+                  angular.forEach(userResource.addresses, function(current_adderess, i){
+                    if(current_adderess.id == address.id) {
+                      userResource.addresses[i] = address;
+                    }
+                  })
+                }
+                else if(address.city && address.country && address.address) { //add address
+                    userResource.addresses.push(address);
+                  }
+                  saveAndpdateAddressList(userResource);
+               }
+              })
+            }
+              $scope.address = null;
+          });
+        }
+
+        //open modal on edit mode
+        $scope.editAddress = function(address) {
+          $scope.address = address;
+          $scope.openAddressModal(address);
+        }
+
+        //delete the address
+        $scope.deleteAddress = function(address) {
+          var user = AuthService.user();
+          //on sign up
+          if (!user) {
+            var index = $scope.user.addresses.indexOf(address);
+            $$scope.user.addresses.splice(index, 1);
+          } else {
+            UserModel.get({id:user.id}, function(userResource) {
+              angular.forEach(userResource.addresses, function(current_adderess, i){
+                if(address.id == current_adderess.id) {
+                  userResource.addresses.splice(i, 1);
+                  //break;
+                }
+              });
+              saveAndpdateAddressList(userResource);
+            });
+          }
+        }
+        //save user with updated addresses and update dom
+        var saveAndpdateAddressList = function(userObj) {
+          userObj.$save(function(userUpDated){
+            $scope.me.addresses = userUpDated.addresses;
+          });
+        }
+
+  });

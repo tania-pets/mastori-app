@@ -34,22 +34,6 @@ angular.module('app')
       });
     }
 
-    $scope.openAddressModal = function() {
-      var modalInstance = $uibModal.open({
-          animation: true,
-          templateUrl: 'views/endusers/partials/_new_address.html',
-          size: 'lg'
-      });
-      modalInstance.result.then(function (address) {
-        if(address && address.city && address.country && address.address) {
-          if (!$scope.user.addresses) {
-            $scope.user.addresses = [];
-          }
-          $scope.user.addresses.push(address);
-        }
-      });
-    }
-
     $scope.step = 1;
 
     $scope.nextStep = function() {
