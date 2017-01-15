@@ -1,0 +1,25 @@
+
+<div class="col-md-12" ng-controller="phoneValidateCtrl">
+    <section class="panel panel-default">
+      <div class="modal-header">
+          <h3>Θέλεις να επιβεβαιώσεις το τηλέφωνό σου τώρα;</h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            Στείλε μου τον κωδικό επιβεβαίωσης τώρα στο {{data.user.phone}}
+            <button ui-wave class="btn btn-flat btn-primary" ng-click="sendCodeToUser()" form="addressForm">OK</button>
+            <span class="col-md-12" us-spinner="{radius:30, width:8, length: 16}" ng-if="we_send"></span>
+
+            <div ng-show="code_sent">
+              <small>Γράψε τον κωδικό που έλαβες</small>
+              <input ng-model="vcode" type="text" class="form-control" placeholder="Γράψε τον κωδικό που έλαβες">
+              {{resultText}}
+              <button ui-wave class="btn btn-flat btn-primary" ng-click="verifyCode()">Επιβεβαίωση</button>
+           </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+          <button ui-wave class="btn btn-flat btn-default" ng-click="cancel()">Όχι τώρα</button>
+      </div>
+   </section>
+</div>

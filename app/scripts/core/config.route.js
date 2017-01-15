@@ -33,7 +33,7 @@ angular.module('app')
                 templateUrl: main_layout
             })
             .state('app.home', {
-                url: '/home',
+                url: '/home/{referrer}',
                 templateUrl: 'views/home.html',
                 controller:'HomeCtrl',
                 ncyBreadcrumb: {

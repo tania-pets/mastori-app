@@ -5,7 +5,20 @@
     .service('UserModel', [
       'DataModel','Config',
       function(DataModel, Config) {
-        return DataModel('/users/:id', {id: '@id'}, {});
+        return DataModel('/users/:id', {id: '@id'}, {
+          sendverificationcode: {
+            url: Config.api.url + '/users/sendverificationcode',
+            method:'GET'
+          },
+          verifycode: {
+            url: Config.api.url + '/users/verifycode',
+            params: {code: '@code'},
+            method:'GET'
+          }
+
+        });
+
+
       }
     ])
   ;
