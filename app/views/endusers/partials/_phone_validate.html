@@ -5,21 +5,23 @@
           <h3>Θέλεις να επιβεβαιώσεις το τηλέφωνό σου τώρα;</h3>
       </div>
       <div class="modal-body">
-        <div class="row">
+        <div class="row"  ng-show="!validated">
             Στείλε μου τον κωδικό επιβεβαίωσης τώρα στο {{data.user.phone}}
             <button ui-wave class="btn btn-flat btn-primary" ng-click="sendCodeToUser()" form="addressForm">OK</button>
             <span class="col-md-12" us-spinner="{radius:30, width:8, length: 16}" ng-if="we_send"></span>
-
             <div ng-show="code_sent">
               <small>Γράψε τον κωδικό που έλαβες</small>
               <input ng-model="vcode" type="text" class="form-control" placeholder="Γράψε τον κωδικό που έλαβες">
-              {{resultText}}
+               <span class="text-danger">{{resultText}}</span>
               <button ui-wave class="btn btn-flat btn-primary" ng-click="verifyCode()">Επιβεβαίωση</button>
            </div>
         </div>
+        <div class="row"  ng-show="validated">
+          {{resultText}}
+        </div>
       </div>
-      <div class="modal-footer">
-          <button ui-wave class="btn btn-flat btn-default" ng-click="cancel()">Όχι τώρα</button>
+      <div class="modal-footer" >
+          <button ui-wave class="btn btn-flat btn-default" ng-click="cancel()" ng-show="!validated">Όχι τώρα</button>
       </div>
    </section>
 </div>

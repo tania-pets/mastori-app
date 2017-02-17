@@ -16,7 +16,9 @@ angular.module('app')
       //if comes from sign up, let user validate his phone now
       if(referrer == 'signup') {
         var user = AuthService.user();
-        $rootScope.openModal('lg', 'views/endusers/partials/_phone_validate.html', {user:user});
+        if(!user.mobile_verified) {
+          $rootScope.openModal('lg', 'views/endusers/partials/_phone_validate.html', {user:user});
+        }
       }
     }
 

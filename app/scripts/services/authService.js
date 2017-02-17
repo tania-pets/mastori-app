@@ -64,6 +64,9 @@
           user: function user() {
             return ($localStorage.credentials && $localStorage.credentials.user) ? $localStorage.credentials.user : null;
           },
+          updateUserData: function updateUserData(user){
+            $localStorage.credentials.user = user;
+          },
           /**
            * Method make login request to backend server. Successfully response from
            * server contains user data and JWT token as in JSON object. After successful

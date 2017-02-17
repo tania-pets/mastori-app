@@ -63,6 +63,9 @@
                   }
               }
           });
+          $rootScope.closeModal = function() {
+            modalInstance.close();
+          };
           modalInstance.result.then(function (selectedItem) {
             }, function () {
             });

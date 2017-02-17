@@ -8,11 +8,11 @@
  * Controller for phone validation
  */
 angular.module('app')
-  .controller('phoneValidateCtrl', ['$scope', 'UserModel',
-    function ($scope, UserModel) {
+  .controller('phoneValidateCtrl', ['$scope', '$rootScope', '$timeout', 'UserModel', 'AuthService',
+    function ($scope, $rootScope, $timeout, UserModel, AuthService) {
     $scope.code_sent = false;
     $scope.resultText = '';
-
+    $scope.validated = false;
 
     $scope.sendCodeToUser = function() {
       $scope.we_send = true;
@@ -28,11 +28,16 @@ angular.module('app')
       var code = $scope.vcode;
       if(code) {
         UserModel.verifycode({code:code}, function(res) {
-          if (res.error) {
+          $scope.validated = true;
+          var user = AuthService.user();
+          user.mobile_verified =  1;
+          AuthService.updateUserData(user);
+          $scope.resultText = 'Οk. Eπιβεβαιώθηκες.';
+          $timeout(function() {
+            $rootScope.closeModal();
+          }, 2000);
+        }, function(error){
             $scope.resultText = 'Ο κωδικός δεν είναι σωστός';
-          } else {
-            $scope.resultText = 'Οk. Eπιβεβαιώθηκες.';
-          }
         });
       }
     }
