@@ -2,25 +2,34 @@
 <div class="page page-profile">
 
     <header class="profile-header">
-        <div class="profile-img">
-            <img alt="" src="images/g1.jpg" class="img-circle">
-        </div>
+        <div class="row">
 
-        <div class="profile-social">
-            <h3 class="text-white">
-                {{ ::mastori.last_name }} {{ ::mastori.first_name }}
-                <i class="size-h4" ng-if="mastori.paratsoukli"> {{ ::mastori.paratsoukli }}</i>
-            </h3>
-            <to-string values="mastori.professions" key="title"></to-string>
-            <br />
-            <uib-rating class="ui-rating size-h4 ui-rating-warning" ng-model="mastori.avg_rating" max="5" data-readonly="true"></uib-rating>
-        </div>
+          <div class="col-md-2 col-xs-4">
+            <div class="profile-img">
+                <img alt="" src="images/g1.jpg" class="img-circle img-responsive">
+            </div>
+         </div>
 
-        <div class="profile-info">
-            <ul class="list-unstyled list-inline">
-                <li><i class="fa fa-video-camera"></i> σσΚριτικές <span class="text-muted">({{ ::mastori.ratings_count }})</span></li>
-                <li ng-if="user"><i class="fa fa-image"></i> Προηγούμενα Ραντεβού <span class="text-muted">({{ appointments.data.length }})</span></li>
-            </ul>
+         <div class="col-md-10 col-xs-8">
+            <div class="profile-social">
+                <h3 class="text-white">
+                    {{ ::mastori.last_name }} {{ ::mastori.first_name }}
+                    <i class="size-h4" ng-if="mastori.paratsoukli"> {{ ::mastori.paratsoukli }}</i>
+                </h3>
+                <to-string values="mastori.professions" key="title" class="text-white"></to-string>
+                <br />
+                <uib-rating class="ui-rating size-h4 ui-rating-warning" ng-model="mastori.avg_rating" max="5" data-readonly="true"></uib-rating>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="profile-info col-md-12">
+              <ul class="list-unstyled list-inline">
+                  <li><i class="fa fa-video-camera"></i>Κριτικές <span class="text-muted">({{ ::mastori.ratings_count }})</span></li>
+                  <li ng-if="user"><i class="fa fa-image"></i> Προηγούμενα Ραντεβού <span class="text-muted">({{ appointments.data.length }})</span></li>
+              </ul>
+          </div>
         </div>
     </header>
 

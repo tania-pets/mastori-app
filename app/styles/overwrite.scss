@@ -90,7 +90,7 @@
 
 // mastori
 .box-info-mastori {
-	max-width: 130px;
+	max-width: 160px;
 	vertical-align: middle;
 	display: inline-block;
 }
@@ -214,3 +214,23 @@ md-datepicker.md-default-theme, md-datepicker {
 	color:#D24918 !important;
 	font-size:40px !important;
 }
+
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #f00;
+}
+
+
+.ui-tab .nav-tabs{background: #fff;margin-bottom: 25px;padding-top:40px;}
+.ui-tab .nav-tabs > li > a{background:#fff; border-top-left-radius: 4px; border-top-right-radius: 4px;}
+.ui-tab .nav-tabs > li.active > a{background:#EBEFF2;color:#1998B7;}
+
+.panel-arrow .panel-heading{background: #fff;padding-top:30px;color:#1998B7;}
+.panel-arrow {border:0;}
+.panel-arrow .panel-title{position: relative;display: inline;}
+.panel-arrow .panel-title .arrow-down{position: absolute; left:50%;right:50%; bottom:-20px; border-top-color:green;}
+.panel-arrow .panel-body{background: #FAFAFA;}

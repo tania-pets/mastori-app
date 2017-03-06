@@ -61,7 +61,7 @@ html {
         min-height: 100%; // important!
         padding-bottom: 0;
         &:before { // content container background for boxed layout
-            content: " ";
+            // content: " ";
             line-height: 0;
             z-index: -2; // so that it is beneath sidebar
             position: absolute;
@@ -71,7 +71,7 @@ html {
             top: 0;
             bottom: 0;
             background-color: $main_container_bg;
-            box-shadow: 0 -2px 2px rgba(0,0,0,.2);
+            // box-shadow: 0 -2px 2px rgba(0,0,0,.2);
         }
 
         > .nav-vertical {
@@ -134,5 +134,3 @@ html {
     }
 
 }
-
-
