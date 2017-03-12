@@ -1,6 +1,20 @@
 <uib-alert type="warning" close="bCloseAlert=1" ng-hide="bCloseAlert">Πσσστ! Μπορείς να προσθέσεις κ εσύ κριτικές κλείνοντας online ραντεβού με τα μαστόρια!</uib-alert>
+<section  class="panel panel-default" ng-if="ratings.data.length">
+  <h2>Κριτικές και Αξιολογήσεις Χρηστών</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <uib-rating class="ui-rating size-h4 ui-rating-warning" ng-model="ratingAvg" max="5" data-readonly="true"></uib-rating> {{ratings.data.length}} αξιολογήσεις
+    </div>
+    <div class="col-md-6">
+      <div ng-repeat="n in range(1,5)">
+        {{n}} αστέρια {{(ratings.data | filter:{rating:n}:true).length}}
+      </div>
+    </div>
+  </div>
 
-<section class="panel panel-default" infinite-scroll="loadMoreRatings()" infinite-scroll-disabled="busyRat || ratings.data.length === ratings.total" infinite-scroll-distance="1">
+
+</section>
+<section  class="panel panel-default" infinite-scroll="loadMoreRatings()" infinite-scroll-disabled="busyRat || ratings.data.length === ratings.total" infinite-scroll-distance="1">
     <md-list layout-padding="">
         <md-list-item class="md-3-line" ng-repeat="rating in ratings.data">
             <img ng-src="images/g1.jpg" class="md-avatar" alt="{{ ::rating.user.name }}">
@@ -15,7 +29,7 @@
     </md-list>
 </section>
 
-<div ng-show="mastoria.total === 0">
+<div ng-show="ratings.data.length === 0">
     <span class="text-primary">Πίκρα! Καμία κριτική ως τώρα! Κλείσε ραντεβού για να γίνεις ο πρώτος!</span>
 </div>
 

@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-xs-12 col-md-4">
-        <div class="panel mini-box">
+        <div class="panel mini-box panel-trans">
         <img src="images/icons/phone.png" />
         <div class="box-info-mastori">
             <p class="text-muted">{{ ::mastori.phone }}</p>
@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="col-xs-12 col-md-4" ng-repeat="address in mastori.addresses">
-        <div class="panel mini-box">
+        <div class="panel mini-box panel-trans">
         <img src="images/icons/address.png" />
         <div class="box-info-mastori">
             <p class="text-muted">{{ ::address.address }}</p>
@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="col-xs-12 col-md-4">
-        <div class="panel mini-box">
+        <div class="panel mini-box panel-trans">
         <img src="images/icons/route.png" />
         <div class="box-info-mastori">
             <p class="text-muted"><to-string values="mastori.areas" key="name"></to-string></p>
@@ -25,19 +25,19 @@
     </div>
 </div>
 
-<div class="divider divider-lg"></div>
+<!-- <div class="divider divider-lg"></div> -->
 <div class="row ui-section">
     <div class="col-md-12">
         <div class="panel panel-primary panel-arrow">
             <div class="panel-heading">
-                <h3 class="panel-title"><span class="arrow-down"></span> Λιγα λογια..</h3>
+                <h3 class="panel-title"><span class="arrow-down"></span> Λίγα λόγια..</h3>
             </div>
             <div class="panel-body">
                 {{ ::mastori.description }}
             </div>
         </div>
 
-        <div class="panel panel-primary">
+        <!-- <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title">Τιμοκαταλογος</h3>
             </div>
@@ -53,11 +53,11 @@
             <div class="panel-body">
                 {{ ::mastori.offers }}
             </div>
-        </div>
+        </div> -->
 
     </div>
 </div>
 
-<div class="divider divider-lg"></div>
+<!-- <div class="divider divider-lg"></div>
 
-<div data-ng-include=" 'views/appointments/form.html' "></div>
+<div data-ng-include=" 'views/appointments/form.html' "></div> -->

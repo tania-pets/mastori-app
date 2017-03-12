@@ -19,7 +19,10 @@ angular.module('app')
 
     var today = new Date();
 
-    $scope.ratings = RatingModel.query(ratingQueryParams);
+    RatingModel.query(ratingQueryParams, function(ratings){
+      $scope.ratings = ratings;
+      $scope.ratingAvg = ratings.data.length ==0 ? 0 : calculateAverage(ratings);
+    });
 
     var appointmentInit = function() {
     	$scope.appointment = new AppointmentModel();
@@ -109,6 +112,16 @@ angular.module('app')
         });
     }
 
+    //calculates the average rating
+    var calculateAverage = function(ratings){
+      var sum = 0;
+      for(var i = 0; i < ratings.data.length; i++){
+        sum += parseInt(ratings.data[i].rating);
+      }
+      var avg = sum/ratings.data.length;
+      return avg;
+    };
+
     var initloggedInActions = function() {
         appointmentInit();
         $scope.appointments = AppointmentModel.query(appointmentQueryParams);
@@ -123,5 +136,16 @@ angular.module('app')
      $scope.user = AuthService.user();
      initloggedInActions();
    });
+
+
+   //makes a range array
+   $scope.range = function(min, max, step) {
+      step = step || 1;
+      var input = [];
+      for (var i = min; i <= max; i += step) {
+          input.push(i);
+      }
+      return input;
+   };
 
 }]);
