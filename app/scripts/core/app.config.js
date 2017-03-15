@@ -3,7 +3,7 @@
 
     angular.module('app')
     .factory('appConfig', [appConfig])
-    .config(['$httpProvider', mdConfig]);
+    .config(['$mdThemingProvider', '$httpProvider', mdConfig]);
 
     // Google Maps SDK Async Loader
     // .config(function(uiGmapGoogleMapApiProvider) {
@@ -62,8 +62,52 @@
         }
     }
 
-    function mdConfig($httpProvider) {
+    function mdConfig($mdThemingProvider, $httpProvider) {
         $httpProvider.interceptors.push('AuthInterceptor');
+        var cyanAlt = $mdThemingProvider.extendPalette('cyan', {
+            'contrastLightColors': '500 600 700 800 900',
+            'contrastStrongLightColors': '500 600 700 800 900'
+        })
+        var lightGreenAlt = $mdThemingProvider.extendPalette('light-green', {
+            'contrastLightColors': '500 600 700 800 900',
+            'contrastStrongLightColors': '500 600 700 800 900'
+        })
+
+        $mdThemingProvider
+            .definePalette('cyanAlt', cyanAlt)
+            .definePalette('lightGreenAlt', lightGreenAlt);
+
+
+
+            $mdThemingProvider.definePalette('black', {
+          '50': '#a6aebc',
+          '100': '#7a879c',
+          '200': '#5f6b7f',
+          '300': '#404956',
+          '400': '#333a45',
+          '500': '#0198B6',
+          '600': '#191c21',
+          '700': '#0c0d10',
+          '800': '#000000',
+          '900': '#000000',
+          'A100': '#a6aebc',
+          'A200': '#7a879c',
+          'A400': '#333a45',
+          'A700': '#0c0d10',
+          'contrastDefaultColor': 'light',
+          'contrastDarkColors': '50 100 A100 A200'
+        });
+        $mdThemingProvider.theme('default')
+            .primaryPalette('black', {
+                'default': '500'
+            })
+            .accentPalette('grey', {
+                'default': '500'
+            })
+            .warnPalette('red', {
+                'default': '500'
+            })
+            .backgroundPalette('grey');
     }
 
 })();

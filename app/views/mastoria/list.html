@@ -8,7 +8,7 @@
                         <div layout="row" class="col-sm-3" layout-padding layout-wrap layout-fill style="padding-top:0">
                             <md-whiteframe class="md-whiteframe-1dp bg-primary" flex-sm="25" flex-gt-sm="25" flex-gt-md="25" layout layout-align="center center">
                                 <span ng-if="mastoria.$resolved">{{ mastoria.total }}</span>
-                                <span ng-hide="mastoria.$resolved"><md-progress-circular md-mode="indeterminate" class="md-warn md-hue-3 m-auto" md-diameter="20px"></md-progress-circular></span>
+                                <span ng-hide="mastoria.$resolved"><md-progress-circular md-mode="indeterminate" class="md-primary md-hue-3 m-auto" md-diameter="20px"></md-progress-circular></span>
                             </md-whiteframe>
                             <span>ΜΑΣΤΟΡΙΑ</span>
                         </div>
@@ -58,7 +58,7 @@
                                 <md-list ng-show="professions.$resolved">
                                     <md-list-item ng-repeat="profession in professions | orderBy:'title'">
                                         <p>{{ ::profession.title }}</p>
-                                        <md-checkbox md-no-ink class="md-warn" ng-checked="params['profession[]'].indexOf(profession.id) >= 0" ng-click="toggleItem(profession.id, 'profession[]')"></md-checkbox>
+                                        <md-checkbox md-no-ink class="md-primary" ng-checked="params['profession[]'].indexOf(profession.id) >= 0" ng-click="toggleItem(profession.id, 'profession[]')"></md-checkbox>
                                     </md-list-item>
                                 </md-list>
                             </div>
@@ -106,10 +106,10 @@
                                     <button class="btn btn-xs btn-flat hidden-xs" ng-class="{'btn-primary': params.order == 'desc' && params.orderby == 'last_name'}"  ng-click="setParams({orderby: 'last_name', order: 'desc'})">Z-A</button>
                                     <button class="btn btn-xs btn-flat" ng-class="{'btn-primary': params.order == 'desc' && params.orderby == 'avg_rating'}" ng-click="setParams({orderby: 'avg_rating', order: 'desc'})">Αξιολογησεις</button>
                                     <button class="btn btn-xs btn-flat hidden-xs" ng-class="{'btn-primary': params.order == 'asc' && params.orderby == 'avg_response_time'}" ng-click="setParams({orderby: 'avg_response_time', order: 'asc'})">Χρονος</button>
-                                    <md-checkbox class="md-warn m-l-md" ng-false-value="null" ng-true-value="'yes'" ng-model="params.only_offers" ng-change="setParams({only_offers: params.only_offers})">
+                                    <md-checkbox class="md-primary m-l-md" ng-false-value="null" ng-true-value="'yes'" ng-model="params.only_offers" ng-change="setParams({only_offers: params.only_offers})">
                                         Deals
                                     </md-checkbox>
-                                    <md-checkbox ng-if="near" class="md-warn" ng-false-value="null" ng-true-value="'{{near}}'" ng-model="params.near" ng-change="setParams({near: params.near})">
+                                    <md-checkbox ng-if="near" class="md-primary" ng-false-value="null" ng-true-value="'{{near}}'" ng-model="params.near" ng-change="setParams({near: params.near})">
                                         Κοντά μου
                                     </md-checkbox>
                                 </div>
