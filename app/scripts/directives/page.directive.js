@@ -31,7 +31,8 @@
                     case '/app/signin':
                     case '/app/signup':
                     case '/app/forgot-password':
-                        return $element.addClass('body-wide body-auth');
+                        // return $element.addClass('body-wide body-auth');
+                        return $element.addClass('body-auth');
                     case '/app/lock-screen':
                         return $element.addClass('body-wide body-lock');
                 }

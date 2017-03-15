@@ -63,6 +63,10 @@ body {
     background-size: cover;
 }
 
+.body-auth .breadcrumb {
+  display:none;
+}
+
 // nav
 .header-container.bg-dark {
   border-bottom: 1px solid #000;
