@@ -58,12 +58,53 @@
 	color: #fff!important;
 }
 
+body {
+    background: url("../../images/landing/main_bg.jpg") repeat-y 0 0 fixed;
+    background-size: cover;
+}
+
+// nav
+.header-container.bg-dark {
+  border-bottom: 1px solid #000;
+}
+
+.app > .header-container.header-fixed + .main-container {
+    padding-top: 97px;
+}
+
+.header-container > .top-header .logo > a {
+  display: block;
+  font-size:inherit;
+}
+
+.header-container > .top-header .logo img {
+  height: 60px;
+}
+
+@media (max-width: 767px) {
+  .on-canvas #nav-container {
+      top: 97px;
+  }
+  .header-container > .top-header .logo {
+    display: inline-block;
+    width: 150px;
+    top: 0px;
+  }
+}
+
+@media (min-width: 768px) {
+  .app > .main-container > .nav-container.nav-horizontal.nav-fixed + .content-container {
+      margin: 0;
+  }
+}
+
 .panel-filters .btn, .panel-filters md-checkbox, .panel-filers span {
 	vertical-align: baseline;
 	margin-bottom: 0;
 }
 .breadcrumb {
-	margin-bottom: 0px;
+	margin: 5px 0;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .breadcrumb > .active {
@@ -100,12 +141,16 @@
 }
 
 // mastoria
+.mastoria-page {
+  background-color: #fff;
+}
+
 .mastoria-page header {
 	position: relative;
   margin: 0 -30px 15px;
   padding: 50px 30px 90px;
-	background: url("../images/background/1.jpg") no-repeat center center fixed;
-	background-size: cover;
+	background: url(../images/background/2.png) no-repeat center center #1898b8;
+	background-size: contain;
 }
 
 // forms
@@ -227,7 +272,7 @@ md-datepicker.md-default-theme, md-datepicker {
 }
 
 //temp
-.breadcrumb.bg-primary{background-color: #009688;}
+.breadcrumb.bg-primary{background-color: #0198B6;}
 
 .slick-prev:before, .slick-next:before {
 	color:#D24918 !important;

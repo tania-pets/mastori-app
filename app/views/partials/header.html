@@ -2,21 +2,13 @@
     <div ui-preloader></div>
 
     <!-- Logo -->
-    <div class="logo"
-         ng-class="{ 'bg-dark': ['11','31'].indexOf(main.skin) >= 0,
-                     'bg-white': main.skin === '21',
-                     'bg-primary': ['12','22','32'].indexOf(main.skin) >= 0,
-                     'bg-success': ['13','23','33'].indexOf(main.skin) >= 0,
-                     'bg-info': ['14','24','34'].indexOf(main.skin) >= 0,
-                     'bg-warning': ['15','25','35'].indexOf(main.skin) >= 0,
-                     'bg-danger': ['16','26','36'].indexOf(main.skin) >= 0 }">
+    <div class="logo bg-dark">
         <a ui-sref="landing({reload: true})" >
             <!-- <span class="logo-icon zmdi zmdi-view-dashboard"></span>
             <span class="logo-text">{{main.brand}}</span> -->
-            <img src="images/logo.png">
+            <img src="images/logo.png" height="70">
         </a>
     </div>
-
     <!-- needs to be put after logo to make it work -->
     <div class="menu-button" toggle-off-canvas>
         <span class="icon-bar"></span>
@@ -25,13 +17,17 @@
     </div>
 
     <div class="top-nav">
-        <ul class="nav-left list-unstyled">
+
+
+        <ul class="nav-left list-unstyled hidden-xs">
+            <li><a ui-sref="landing"><span data-translate="HΟΜΕ"></span></a></li>
+            <li><a  ui-sref="app.mastoria"><span data-translate="MASTORIA"></span></a></li>
             <!-- <li>
                 <a href="#/" data-toggle-nav-collapsed-min
                    md-button aria-label="toggle-nav-collapsed-min"
                    class="toggle-min"><i class="zmdi zmdi-menu"></i></a>
             </li> -->
-            <li class="dropdown hidden-xs" uib-dropdown is-open="status.isopenSettings">
+            <!-- <li class="dropdown hidden-xs" uib-dropdown is-open="status.isopenSettings">
                 <a href="javascript:;" class="dropdown-toggle" uib-dropdown-toggle ng-disabled="disabled" md-button aria-label="email" aria-label="settings" aria-label="settings"><i class="zmdi zmdi-settings"></i></a>
                 <div class="uib-dropdown-menu dropdown-menu-scaleIn with-arrow panel panel-default admin-options" ui-not-close-on-click>
                     <div class="panel-heading"> <span data-translate="ADMIN_OPTIONS"></span> </div>
@@ -67,8 +63,8 @@
                         </li>
                     </ul>
                 </div>
-            </li>
-            <li class="dropdown hidden-xs" uib-dropdown is-open="status.isopenPalette">
+            </li> -->
+            <!-- <li class="dropdown hidden-xs" uib-dropdown is-open="status.isopenPalette">
                 <a href="javascript:;" class="dropdown-toggle" uib-dropdown-toggle ng-disabled="disabled" md-button aria-label="email" aria-label="palette" aria-label="palette"><i class="zmdi zmdi-palette"></i></a>
                 <div class="uib-dropdown-menu with-arrow panel panel-default skin-options dropdown-menu-scaleIn" ui-not-close-on-click>
                     <div class="panel-heading"><span data-translate="COLOR_OPTIONS"></span></div>
@@ -246,16 +242,15 @@
                         </div>
                     </div>
                 </div>
-
-            </li>
-            <li class="search-box visible-md visible-lg">
+            </li> -->
+            <!-- <li class="search-box visible-md visible-lg">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="zmdi zmdi-search"></i></span>
                     <input type="text" class="form-control" placeholder="{{ 'SEARCH' | translate }}">
                     <span class="input-bar"></span>
                 </div>
-            </li>
-            <li class="dropdown" uib-dropdown is-open="status.isopenEmail">
+            </li> -->
+            <!-- <li class="dropdown" uib-dropdown is-open="status.isopenEmail">
                 <a href="javascript:;" class="dropdown-toggle" uib-dropdown-toggle ng-disabled="disabled" md-button aria-label="email" aria-label="email" aria-label="email">
                     <i class="zmdi zmdi-email"></i>
                     <span class="badge badge-danger">3</span>
@@ -301,10 +296,10 @@
                         <a href="#/mail/inbox">Show all mails.</a>
                     </div>
                 </div>
-            </li>
+            </li> -->
         </ul>
 
-        <ul class="nav-right pull-right list-unstyled" >
+        <ul class="nav-right pull-right list-unstyled hidden-xs" >
 
             <li ng-if="AuthService.isAuthenticated()" class="dropdown text-normal nav-profile"    uib-dropdown is-open="status.isopenProfile">
                 <a href="javascript:;" class="dropdown-toggle" uib-dropdown-toggle ng-disabled="disabled" md-button aria-label="email" aria-label="profile">

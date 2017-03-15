@@ -581,7 +581,6 @@ h1, h2, h3 {
     color: #fff;
     text-align: center;
     padding: 200px 0 150px;
-    background-color: #263237;
 
 }
 .hero .hero-inner {
@@ -619,10 +618,7 @@ h1, h2, h3 {
     max-width: 800px;
     margin: 0 auto;
 }
-#hero {
-    background: url("../../images/landing/main_bg.jpg") repeat-y 0 0 fixed;
-    background-size: cover;
-}
+
 .features {
     padding: 40px 0 30px;
     border-bottom: 1px solid #ddd;
@@ -714,6 +710,7 @@ h1, h2, h3 {
 
 
 .whatis {
+  background-color: #fff;
   position: relative;
   padding: 50px 0;
   color: #515151;

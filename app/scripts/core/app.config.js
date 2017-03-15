@@ -3,7 +3,7 @@
 
     angular.module('app')
     .factory('appConfig', [appConfig])
-    .config(['$mdThemingProvider', '$httpProvider', mdConfig]);
+    .config(['$httpProvider', mdConfig]);
 
     // Google Maps SDK Async Loader
     // .config(function(uiGmapGoogleMapApiProvider) {
@@ -44,7 +44,7 @@
             skin: '31'                                      // 11,12,13,14,15,16; 21,22,23,24,25,26; 31,32,33,34,35,36
         };
         var color = {
-            primary:    '#0198b6',//'#262B33',//'#009688',
+            primary:    '#0198B6',//'#262B33',//'#009688',
             success:    '#8BC34A',
             info:       '#00BCD4',
             infoAlt:    '#7E57C2',
@@ -62,52 +62,8 @@
         }
     }
 
-    function mdConfig($mdThemingProvider, $httpProvider) {
+    function mdConfig($httpProvider) {
         $httpProvider.interceptors.push('AuthInterceptor');
-        var cyanAlt = $mdThemingProvider.extendPalette('cyan', {
-            'contrastLightColors': '500 600 700 800 900',
-            'contrastStrongLightColors': '500 600 700 800 900'
-        })
-        var lightGreenAlt = $mdThemingProvider.extendPalette('light-green', {
-            'contrastLightColors': '500 600 700 800 900',
-            'contrastStrongLightColors': '500 600 700 800 900'
-        })
-
-        $mdThemingProvider
-            .definePalette('cyanAlt', cyanAlt)
-            .definePalette('lightGreenAlt', lightGreenAlt);
-
-
-
-            $mdThemingProvider.definePalette('black', {
-          '50': '#a6aebc',
-          '100': '#7a879c',
-          '200': '#5f6b7f',
-          '300': '#404956',
-          '400': '#333a45',
-          '500': '#262b33',
-          '600': '#191c21',
-          '700': '#0c0d10',
-          '800': '#000000',
-          '900': '#000000',
-          'A100': '#a6aebc',
-          'A200': '#7a879c',
-          'A400': '#333a45',
-          'A700': '#0c0d10',
-          'contrastDefaultColor': 'light',
-          'contrastDarkColors': '50 100 A100 A200'
-        });
-        $mdThemingProvider.theme('default')
-            .primaryPalette('teal', {
-                'default': '500'
-            })
-            .accentPalette('grey', {
-                'default': '500'
-            })
-            .warnPalette('red', {
-                'default': '500'
-            })
-            .backgroundPalette('grey');
     }
 
 })();
