@@ -20,7 +20,7 @@ angular.module('app')
       user.$save(function(saved){
         AuthService.login({email: $scope.user.email, password: $scope.user.password}, function(response){
         if (response.token) {
-          $state.go('app.home', {referrer:'signup'});
+          $state.go('landing', {referrer:'signup'});
         } else {
            $state.go('app.signin');
         }

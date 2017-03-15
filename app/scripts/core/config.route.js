@@ -32,14 +32,6 @@ angular.module('app')
                 url: '/app',
                 templateUrl: main_layout
             })
-            .state('app.home', {
-                url: '/home/{referrer}',
-                templateUrl: 'views/home.html',
-                controller:'HomeCtrl',
-                ncyBreadcrumb: {
-                  label: 'Home'
-                }
-            })
             .state('app.mastoria', {
                 url: '/mastoria?order&orderby&only_offers&{profession[]:int}&{area[]:int}&near&q&{userlocation}',
                 reloadOnSearch : false,
@@ -47,7 +39,7 @@ angular.module('app')
                 controller:'MastoriaCtrl',
                 ncyBreadcrumb: {
                   label: 'Mastoria',
-                  parent: 'app.home'
+                  parent: 'landing'
                 }
             })
             .state('app.mastori', {
@@ -68,7 +60,7 @@ angular.module('app')
                 },
                 ncyBreadcrumb: {
                   label: 'Sign up',
-                  parent: 'app.home'
+                  parent: 'landing'
                 }
             })
             .state('app.signin', {
@@ -79,7 +71,7 @@ angular.module('app')
                 },
                 ncyBreadcrumb: {
                   label: 'Log in',
-                  parent: 'app.home'
+                  parent: 'landing'
                 }
             })
             .state('app.profile', {
@@ -92,7 +84,7 @@ angular.module('app')
                 },
                 ncyBreadcrumb: {
                   label: 'Profile',
-                  parent: 'app.home'
+                  parent: 'landing'
                 }
             })
             .state('app.forgot-password', {
@@ -115,9 +107,12 @@ angular.module('app')
                 templateUrl: 'views/pages/blank.html',
             })
             .state('landing', {
-                url: '/',
+                url: '/{referrer}',
                 templateUrl: 'views/pages/landing.html',
-                controller:'LandingCtrl'
+                controller:'LandingCtrl',
+                ncyBreadcrumb: {
+                  label: 'Home',
+                }
             })
 
              $urlRouterProvider

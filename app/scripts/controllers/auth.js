@@ -22,7 +22,7 @@ angular.module('app')
             $rootScope.$broadcast('user:logedin');
             // redirect only if current state applies only to guests
             if ($state.current.resolve && typeof $state.current.resolve.skipIfLoggedIn === 'function') {
-              $state.go('app.home');
+              $state.go('landing');
             }
           } else {
             // redirect to previous state if it applies only to authenticated users
@@ -31,7 +31,7 @@ angular.module('app')
               $location.path($rootScope.redirectAfterLogin);
               $rootScope.redirectAfterLogin = null;
             } else {
-              $state.go('app.home');
+              $state.go('landing');
             }
           }
         } else if (response.status == 401) {
