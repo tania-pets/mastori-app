@@ -1,11 +1,11 @@
 
 <div class="mastoria-page">
-            <header class="mastoria-header"></header>
+            <header class="mastoria-header hidden-xs"></header>
             <div class="card">
                 <div class="card-content">
                     <div class="row">
                         <!-- MASTORIA TOTAL COUNT AND INFO -->
-                        <div layout="row" class="col-sm-3" layout-padding layout-wrap layout-fill>
+                        <div layout="row" class="col-sm-3" layout-padding layout-wrap layout-fill style="padding-top:0">
                             <md-whiteframe class="md-whiteframe-1dp bg-primary" flex-sm="25" flex-gt-sm="25" flex-gt-md="25" layout layout-align="center center">
                                 <span ng-if="mastoria.$resolved">{{ mastoria.total }}</span>
                                 <span ng-hide="mastoria.$resolved"><md-progress-circular md-mode="indeterminate" class="md-warn md-hue-3 m-auto" md-diameter="20px"></md-progress-circular></span>
@@ -13,7 +13,7 @@
                             <span>ΜΑΣΤΟΡΙΑ</span>
                         </div>
                         <!-- SEARCH OVERVIEW -->
-                        <div class="col-sm-6">
+                        <!-- <div class="col-sm-6">
                             <ol class="breadcrumb bg-primary">
                                 <li>
                                     <small>EΙΔΙΚΟΤΗΤΑ:</small>
@@ -37,9 +37,9 @@
                                     <small>ΛΕΞΗ ΚΛΕΙΔΙ:</small> <span>{{ params['q'] }}</span>
                                 </li>
                             </ol>
-                        </div>
+                        </div> -->
                         <!-- SEARCH FORM -->
-                        <div class="col-sm-3">
+                        <div class="col-sm-9">
                             <div class="input-group">
                               <input type="text" ng-keyup="$event.keyCode == 13 && setParams({q: params.q})" ng-model="params.q" class="form-control" placeholder="Ψάχνω τον/την...">
                               <span class="input-group-btn">
@@ -51,14 +51,14 @@
 
                     <div class="row">
                         <!-- PROFESSION AND AREA FILTERS -->
-                        <div class="col-sm-3">
+                        <div class="col-sm-3 hidden-xs">
                             <!-- Professions -->
                             <div class="panel panel-default panel-labeled">
                                 <md-subheader class="bg-primary">Ειδικότητα</md-subheader>
                                 <md-list ng-show="professions.$resolved">
                                     <md-list-item ng-repeat="profession in professions | orderBy:'title'">
                                         <p>{{ ::profession.title }}</p>
-                                        <md-checkbox md-no-ink class="md-primary" ng-checked="params['profession[]'].indexOf(profession.id) >= 0" ng-click="toggleItem(profession.id, 'profession[]')"></md-checkbox>
+                                        <md-checkbox md-no-ink class="md-warn" ng-checked="params['profession[]'].indexOf(profession.id) >= 0" ng-click="toggleItem(profession.id, 'profession[]')"></md-checkbox>
                                     </md-list-item>
                                 </md-list>
                             </div>
@@ -99,15 +99,15 @@
                         <!-- RESULTS -->
                         <div class="col-sm-9">
                             <!-- SORTING AND OFFERS/NEAR ME FILTERS -->
-                            <div class="panel panel-default">
+                            <div class="panel panel-default m-t-xs p-xs">
                                 <div class="panel-filters">
-                                    <span class="m-l-md"><strong>ΤΑΞΙΝΟΜΗΣΗ ΑΝΑ</strong></span>
-                                    <button class="btn btn-flat" ng-class="{'btn-primary': params.order == 'asc' && params.orderby == 'last_name'}"  ng-click="setParams({orderby: 'last_name', order: 'asc'})">A-Z</button>
-                                    <button class="btn btn-flat" ng-class="{'btn-primary': params.order == 'desc' && params.orderby == 'last_name'}"  ng-click="setParams({orderby: 'last_name', order: 'desc'})">Z-A</button>
-                                    <button class="btn btn-flat" ng-class="{'btn-primary': params.order == 'desc' && params.orderby == 'avg_rating'}" ng-click="setParams({orderby: 'avg_rating', order: 'desc'})">Αξιολογησεις</button>
-                                    <button class="btn btn-flat" ng-class="{'btn-primary': params.order == 'asc' && params.orderby == 'avg_response_time'}" ng-click="setParams({orderby: 'avg_response_time', order: 'asc'})">Χρονος</button>
+                                    <span class="m-l-md hidden-xs"><strong>ΤΑΞΙΝΟΜΗΣΗ ΑΝΑ</strong></span>
+                                    <button class="btn btn-xs btn-flat hidden-xs" ng-class="{'btn-primary': params.order == 'asc' && params.orderby == 'last_name'}"  ng-click="setParams({orderby: 'last_name', order: 'asc'})">A-Z</button>
+                                    <button class="btn btn-xs btn-flat hidden-xs" ng-class="{'btn-primary': params.order == 'desc' && params.orderby == 'last_name'}"  ng-click="setParams({orderby: 'last_name', order: 'desc'})">Z-A</button>
+                                    <button class="btn btn-xs btn-flat" ng-class="{'btn-primary': params.order == 'desc' && params.orderby == 'avg_rating'}" ng-click="setParams({orderby: 'avg_rating', order: 'desc'})">Αξιολογησεις</button>
+                                    <button class="btn btn-xs btn-flat hidden-xs" ng-class="{'btn-primary': params.order == 'asc' && params.orderby == 'avg_response_time'}" ng-click="setParams({orderby: 'avg_response_time', order: 'asc'})">Χρονος</button>
                                     <md-checkbox class="md-warn m-l-md" ng-false-value="null" ng-true-value="'yes'" ng-model="params.only_offers" ng-change="setParams({only_offers: params.only_offers})">
-                                        Προσφορές
+                                        Deals
                                     </md-checkbox>
                                     <md-checkbox ng-if="near" class="md-warn" ng-false-value="null" ng-true-value="'{{near}}'" ng-model="params.near" ng-change="setParams({near: params.near})">
                                         Κοντά μου
@@ -129,7 +129,7 @@
                                         <div class="media" ng-repeat="mastori in mastoria.data" ng-class="{'ui-ribbon-container ui-ribbon-warning' : mastori.offers}">
                                             <div class="ui-ribbon-wrapper" ng-if="mastori.offers">
                                                 <div class="ui-ribbon">
-                                                    <small>ΠΡΟΣΦΟΡΑ</small>
+                                                    <small>DEAL</small>
                                                 </div>
                                             </div>
                                             <a ng-href="#/app/mastoria/{{ mastori.id }}" class="media-left p-b-sm">
@@ -145,20 +145,24 @@
                                                                 </a>
                                                             </strong>
                                                             <small ng-if="mastori.paratsoukli" class="text-muted"><i> {{ ::mastori.paratsoukli }}</i></small>
+                                                            <br/>
                                                             <small class="text-danger"> ({{ ::mastori.ratings_count }} κριτικές)</small>
                                                         </p>
                                                         <div>
                                                             <uib-rating class="ui-rating size-h4 ui-rating-warning" ng-model="mastori.avg_rating" max="5" data-readonly="true"></uib-rating>
-
-                                                            <p class="text-muted"><i class="text-danger zmdi zmdi-pin"></i> {{ ::mastori.addresses[0].address }}</p>
-                                                            <p class="text-muted"><i class="text-danger zmdi zmdi-smartphone-iphone"></i> {{ ::mastori.phone }}</p>
+                                                            <br/>
+                                                            <!-- <p class="text-muted"><i class="text-danger zmdi zmdi-pin"></i> {{ ::mastori.addresses[0].address }}</p> -->
+                                                            <small class="m-t-xs professions">
+                                                                <to-string values="mastori.professions" key="title"></to-string>
+                                                            </small>
+                                                            <!-- <p class="text-muted"><i class="text-danger zmdi zmdi-smartphone-iphone"></i> {{ ::mastori.phone }}</p> -->
                                                             <!--p class="m-t-xs">
                                                                 ΕΞΥΠΗΡΕΤΕΙ: <to-string values="mastori.areas" key="name"></to-string>
                                                             </p-->
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
-                                                        <a ng-href="#/app/mastoria/{{ mastori.id }}" class="btn btn-primary btn-md m-t-md">ΚΛΕΙΣΕ ΡΑΝΤΕΒΟΥ</a>
+                                                        <a ng-href="#/app/mastoria/{{ mastori.id }}" class="btn btn-primary btn-md m-t-md m-b-xs">ΚΛΕΙΣΕ ΡΑΝΤΕΒΟΥ</a>
                                                     </div>
                                                 </div>
                                                 <!-- <p>{{ ::mastori.description }}</p> -->
