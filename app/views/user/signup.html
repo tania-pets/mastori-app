@@ -7,13 +7,13 @@
                 <div class="card bg-white">
                     <div class="card-content">
                         <section class="logo text-center">
-                            <h1><a href="#/">{{main.brand}}</a></h1>
+                            <a href="#/"><img alt="logo" src="images/logo.png" width="80"></a>
                         </section>
 
                         <form ng-controller="authCtrl" class="form-horizontal" novalidate name="signup_form" ng-submit="!signup_form.$valid || signup()">
                             <fieldset ng-show="step == 1">
                                 <md-input-container class="md-block">
-                                    <label>Email</label>
+                                    <label>Email *</label>
                                     <md-icon class="zmdi zmdi-account-o"></md-icon>
                                     <input required
                                            type="email"
@@ -29,7 +29,7 @@
                                 <div class="divider divider-md"></div>
 
                                 <md-input-container class="md-block">
-                                    <label>Password</label>
+                                    <label>Password *</label>
                                     <md-icon class="zmdi zmdi-lock-outline"></md-icon>
                                     <input required
                                            type="password"
@@ -43,7 +43,7 @@
                                 </md-input-container>
 
                                 <md-input-container class="md-block">
-                                    <label>Password (Again)</label>
+                                    <label>Password (Again) *</label>
                                     <md-icon class="zmdi zmdi-lock-outline"></md-icon>
                                     <input required
                                            type="password"
@@ -57,7 +57,7 @@
                                 </md-input-container>
 
                                 <md-input-container class="md-block">
-                                    <label>Fullname</label>
+                                    <label>Fullname *</label>
                                     <md-icon class="zmdi zmdi-lock-outline"></md-icon>
                                     <input required
                                            type="text"
@@ -69,7 +69,7 @@
                                 </md-input-container>
 
                                 <md-input-container class="md-block">
-                                    <label>Mobile</label>
+                                    <label>Mobile *</label>
                                     <md-icon class="zmdi zmdi-lock-outline"></md-icon>
                                     <input required
                                            type="text"
@@ -91,24 +91,24 @@
                             </fieldset>
                             <fieldset ng-show="step == 2">
                               <div class="form-group">
-                                <p class="text-info">Σε αυτό το βήμα μπορείς να προσθέσεις μία η περισσότερες διευθύνσεις. Θα επισπεύσει την αναζήτηση μαστοριού. Απ την άλλη αν βαριέσαι, απλά σκιπαρέ το.. Αλλά να ξέρεις πριν κλείσεις ραντεβού θα χρειαστεί να έχεις βάλει τουλάχιστον μία διεύθυνση (αλλιώς το μαστόρι θα πάει για καφέ αντί για το σπίτι σου)!</p>
-                                <div data-ng-include=" 'views/endusers/partials/_addresses.html' "></div>
+                                <small class="text-info">Σε αυτό το βήμα μπορείς να προσθέσεις μία η περισσότερες διευθύνσεις. Θα επισπεύσει την αναζήτηση μαστοριού. Απ την άλλη αν βαριέσαι, απλά σκιπαρέ το.. Αλλά να ξέρεις πριν κλείσεις ραντεβού θα χρειαστεί να έχεις βάλει τουλάχιστον μία διεύθυνση (αλλιώς το μαστόρι θα πάει για καφέ αντί για το σπίτι σου)!</small>
+                                <div class="signup-addresses" data-ng-include=" 'views/endusers/partials/_addresses.html' "></div>
                                 <div class="divider"></div>
-                                <p class="text-small">By clicking on sign up, you agree to <a href="javascript:;"><i>terms</i></a> and <a href="javascript:;"><i>privacy policy</i></a></p>
+                                <p class="text-small m-b-xs">By clicking on sign up, you agree to <a href="javascript:;"><i>terms</i></a> and <a href="javascript:;"><i>privacy policy</i></a></p>
                               </div>
-                              <md-button type="button" class="md-raised btn-w-md md-primary" ng-click="prevStep()">Previous</md-button>
+                              <md-button type="button" class="md-raised btn-w-xs" ng-click="prevStep()">ΠΙΣΩ</md-button>
                               <md-button type="submit"
-                                 class="md-raised btn-w-md md-primary"
-                                 data-ng-disabled="!signup_form.$valid">SIGNUP</md-button>
+                                 class="md-raised btn-w-md md-primary pull-right"
+                                 data-ng-disabled="!signup_form.$valid">ΕΓΓΡΑΦΗ</md-button>
                             </fieldset>
                         </form>
 
                     </div>
-                    <div ng-show="step == 1" class="card-action no-border text-right">
-                        <a href ng-click="openLoginModal()">Login</a>
-                    </div>
                 </div>
 
+                <div ng-show="step == 1" class="additional-info">
+                    <a href ng-click="openLoginModal()">Login</a>
+                </div>
             </div>
         </div>
     </div>

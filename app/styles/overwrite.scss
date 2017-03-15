@@ -113,6 +113,25 @@ md-datepicker.md-default-theme, md-datepicker {
     background: transparent;
 }
 
+// addresses in signup form
+.signup-addresses .card .card-title {
+  line-height: inherit;
+  font-size: inherit;
+}
+
+.signup-addresses .card .card-action, .signup-addresses .card .card-content{
+  padding: 5px;
+}
+
+.signup-addresses .card .card-action > a {
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+#address-input {
+  margin-left: 0%;
+}
+
 .has-datepicker {
   margin-bottom: 34px;
   margin-top: -15px;
@@ -129,7 +148,7 @@ md-datepicker.md-default-theme, md-datepicker {
 
 // login modal
 .signin-modal .additional-info .divider-h {
-    border-right: 1px solid #fafafa;
+    border-right: 1px solid #009688;
     margin: 0 15px;
 }
 
