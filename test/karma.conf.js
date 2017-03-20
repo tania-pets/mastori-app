@@ -69,7 +69,7 @@ module.exports = function(config) {
       'bower_components/angular-moment/angular-moment.js',
       'bower_components/angular-password/angular-password.js',
       'bower_components/slick-carousel/slick/slick.js',
-      'bower_components/angular-slick/dist/slick.js',
+      'bower_components/angular-slick-carousel/dist/angular-slick.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
       // endbower

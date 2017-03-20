@@ -39,10 +39,8 @@
         id="app"
         class="app"
         data-custom-page
-        data-ng-controller="AppCtrl"
-        data-ng-class=" { 'layout-boxed': main.layout === 'boxed',
-                          'nav-collapsed-min': main.menu === 'collapsed'
-        } " ui-view>
+        data-ng-controller="AppCtrl">
+        <ui-view  data-ng-class=" { 'layout-boxed': main.layout === 'boxed','nav-collapsed-min': main.menu === 'collapsed'} "></ui-view>
 
 
 
@@ -57,9 +55,8 @@
        ga('send', 'pageview');
     </script> -->
 
-
-    <script src="libs/angular/angular.js"></script>
     <script src="libs/jquery/dist/jquery.js"></script>
+    <script src="libs/angular/angular.js"></script>
 
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -107,7 +104,7 @@
     <script src="bower_components/angular-moment/angular-moment.js"></script>
     <script src="bower_components/angular-password/angular-password.js"></script>
     <script src="bower_components/slick-carousel/slick/slick.js"></script>
-    <script src="bower_components/angular-slick/dist/slick.js"></script>
+    <script src="bower_components/angular-slick-carousel/dist/angular-slick.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

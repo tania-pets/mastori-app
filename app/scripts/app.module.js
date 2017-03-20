@@ -24,7 +24,7 @@
       'toaster',
       'angularMoment',
       'ngPassword',
-      'slick'
+      "slickCarousel"
      // Custom modules
     //  ,'app.layout'
     //  ,'app.i18n'
