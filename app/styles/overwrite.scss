@@ -10,8 +10,20 @@
 	margin-top: 5px !important;
 }
 
+.m-t-n {
+	margin-top: 0px !important;
+}
+
 .m-l-xs {
 	margin-left: 5px !important;
+}
+
+.m-l-lg {
+	margin-left: 30px !important;
+}
+
+.m-l-xl {
+	margin-left: 60px !important;
 }
 
 .m-b-xs {
@@ -332,7 +344,7 @@ md-datepicker.md-default-theme, md-datepicker {
 	 border-width: 8px;
 	}
 	md-slider .md-track.md-track-fill{
-		padding:8px 0 0 0;
+		padding:9px 0 2px 0;
 		border-radius: 4px;
 		margin-top:-2px;
 	}
@@ -345,5 +357,25 @@ md-datepicker.md-default-theme, md-datepicker {
 
 	md-slider.md-empty .md-thumb:after{
 		display:none;
+	}
+	md-slider .md-track{
+		background-color: rgba(0,0,0,0.0);
+	}
+	md-slider .md-thumb {
+		width:45px;
+		height:45px;
+		border-radius: 45px;
+	}
+	md-slider .md-thumb:after {
+		width:40px;
+		height:40px;
+		border-width: 9px;
+	}
+	// md-slider.md-default-theme.md-primary .md-focus-ring, md-slider.md-primary .md-focus-ring {
+	// 	display: none;
+	// }
+	.md-focus-ring, .md-focus-thumb{
+		opacity:0 !important;
+		display:none !important;
 	}
 }

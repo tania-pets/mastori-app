@@ -3,14 +3,16 @@
       <uib-alert type="warning" close="bCloseAlert=1" ng-hide="bCloseAlert">Πσσστ! Μπορείς να προσθέσεις κ εσύ κριτικές κλείνοντας online ραντεβού με τα μαστόρια!</uib-alert>
       <section  class="panel panel-trans m-t-md" ng-if="ratings.data.length">
         <h2>Κριτικές και Αξιολογήσεις Χρηστών</h2>
-        <div class="row">
-          <div class="col-md-6">
+        <div class="row m-t-lg">
+          <div class="col-md-3">
             <uib-rating class="ui-rating size-h2 ui-rating-warning" ng-model="ratingAvg" max="5" data-readonly="true"></uib-rating>
-              {{ratings.data.length}} αξιολογήσεις
+          </div>
+          <div class="col-md-3">
+            <h4 style="margin-left:-70px;">{{ratings.data.length}} αξιολογήσεις</h4>
           </div>
           <div class="col-md-6">
             <div ng-repeat="n in range(1,5)" class="row">
-              <div class="col-md-2">
+              <div class="col-md-2 m-t-md">
                 {{n}} αστέρια
               </div>
               <div class="col-md-8">
@@ -23,22 +25,25 @@
                           }"
                 ></md-slider>
               </div>
-              <div class="col-md-2">
+              <div class="col-md-2 m-t-md">
                 {{(ratings.data | filter:{rating:n}:true).length}}
               </div>
             </div>
           </div>
         </div>
-
-
       </section>
       <section  class="panel panel-trans" infinite-scroll="loadMoreRatings()" infinite-scroll-disabled="busyRat || ratings.data.length === ratings.total" infinite-scroll-distance="1">
+        <h3 class="md-headline md-primary">Αξιολογήσεις ({{ratings.data.length}})</h3>
+          <md-divider></md-divider>
           <md-list layout-padding="">
               <md-list-item class="md-3-line" ng-repeat="rating in ratings.data">
+                  <!-- <md-divider ng-if="$index!=0"></md-divider> -->
+                   <md-divider ng-if="$index!=0"></md-divider>
+
                   <img ng-src="images/g1.jpg" class="md-avatar" alt="{{ ::rating.user.name }}">
                   <div class="md-list-item-text">
-                      <uib-rating class="ui-rating size-h4 ui-rating-alert" ng-model="rating.rating" max="5" data-readonly="true"></uib-rating>
-                      <h4>{{ ::rating.user.name }}</h4>
+                      <uib-rating class="ui-rating size-h4 ui-rating-warning" ng-model="rating.rating" max="5" data-readonly="true"></uib-rating>
+                      {{ ::rating.user.name }}
                       <p>
                           {{ ::rating.body }}
                       </p>
