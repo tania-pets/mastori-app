@@ -13,6 +13,7 @@ angular.module('app')
 
     $scope.mastori = MastoriModel.query({id: $state.params.id});
     $scope.user = AuthService.user();
+    $scope.hide_appointment_form = true;
 
     var appointmentQueryParams = {orderby: 'created_at', order: 'desc', mastori_id: $state.params.id};
     var ratingQueryParams = {orderby: 'created_at', order: 'desc', mastori_id: $state.params.id};

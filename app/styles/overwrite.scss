@@ -80,6 +80,10 @@
 	color: #fff!important;
 }
 
+.md-orange{
+	background-color: #F57C00 !important;
+}
+
 body {
     background: url("../../images/landing/main_bg.jpg") repeat-y 0 0 fixed;
     background-size: cover;
@@ -390,13 +394,12 @@ md-datepicker.md-default-theme, md-datepicker {
 	}
 }
 
+//appointmet div sticky right
 .appontment_container {
-	background: #fff;
-	height:300px;
+	height:auto;
 	margin-top:-80px;
-	// position:fixed;
-	// top:150px;
-	// right:0;
-	// width: 100%;
-	// width:400px;
+
+	#appointment_form {
+		display: inline-block;
+	}
 }

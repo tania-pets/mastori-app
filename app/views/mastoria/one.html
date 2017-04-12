@@ -53,8 +53,11 @@
       </div>
     </div>
     <div class="col-md-3">
-      <div class="appontment_container" sticky>
-        Apointment form
+      <div class="appontment_container text-center" sticky >
+        <md-button class="md-raised btn-w-md md-orange text-white" ng-click="hide_appointment_form = !hide_appointment_form">ΚΛΕΙΣΕ ΡΑΝΤΕΒΟΥ</md-button>
+        <div uib-collapse="hide_appointment_form" class="bg-white">
+          <div ng-include="'views/appointments/form.html'"></div>
+        </div>
       </div>
     </div>
 
