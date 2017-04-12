@@ -1,9 +1,9 @@
-<form role="form" method="post" novalidate name="appointment_form" id="appointment_form" ng-submit="!appointment_form.$valid || submitAppointment(appointment_form)" ng-show="user && mastori">
-    <md-input-container class="md-block" style="margin-bottom: 43px;">
+<form role="form" method="post" novalidate name="appointment_form" id="appointment_form" ng-submit="!appointment_form.$valid || submitAppointment(appointment_form)" ng-show="user && mastori" class="text-left">
+    <md-input-container class="md-block">
         <label>Διεύθυνση <span class="required">*</span></label>
-        <md-select name="address_id" ng-model="appointment.address_id" required>
+        <md-select name="address_id" ng-model="appointment.address_id" required >
             <md-option ng-repeat="address in user.addresses" value="{{ address.id }}">
-                {{ address.address }}
+                {{ address.friendly_name ? address.friendly_name :  address.streetname + ' ' + address.streetnumber }}
             </md-option>
         </md-select>
         <div ng-messages="appointment_form.address_id.$error">
@@ -13,7 +13,10 @@
 
     <md-input-container class="md-block">
         <label>Τί θέμα έχω <span class="required">*</span></label>
-        <input name="issue" ng-model="appointment.issue" placeholder="πχ Στάζει η βρύση" required>
+        <!-- <input name="issue" ng-model="appointment.issue" placeholder="πχ Στάζει η βρύση" required> -->
+
+        <textarea name="issue" ng-model="appointment.issue" columns="1" placeholder="πχ Στάζει η βρύση" required></textarea>
+
         <div ng-messages="appointment_form.issue.$error">
             <div ng-message="required">Required</div>
         </div>
@@ -34,7 +37,7 @@
 
     <md-input-container class="md-block">
         <label>Επιπλέον σχόλια</label>
-        <textarea name="additional_comments" ng-model="appointment.additional_comments" columns="1" md-maxlength="150" placeholder="πχ Το κουδούνι γράφει Παπαδόπουλος"></textarea>
+        <textarea name="additional_comments" ng-model="appointment.additional_comments" columns="1"  placeholder="πχ Το κουδούνι γράφει Παπαδόπουλος"></textarea>
     </md-input-container>
 
     <div class="divider"></div>
