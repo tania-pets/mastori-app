@@ -19,10 +19,12 @@
                                            type="email"
                                            name="email"
                                            ng-model="user.email"
-                                           ng-pattern="/^.+@.+\..+$/" />
+                                           ng-pattern="/^.+@.+\..+$/"
+                                           ng-unique='email'/>
                                     <div ng-messages="signup_form.email.$error" multiple ng-if='signup_form.email.$dirty'>
                                         <div ng-message="required">This is required.</div>
                                         <div ng-message="pattern">It must be an e-mail address.</div>
+                                        <div ng-message="unique">This email already exists.</div>
                                     </div>
                                 </md-input-container>
 

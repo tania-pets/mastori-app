@@ -36,18 +36,30 @@
           </div>
         </div>
     </header>
-
-    <div class="m-t-xl bg-white">
-      <uib-tabset  class="ui-tab">
-          <uib-tab heading="Πληροφορίες">
-              <div data-ng-include=" 'views/mastoria/partials/_info.html' "></div>
-          </uib-tab>
-          <uib-tab heading="Κριτικές ({{ ::ratings.data.length }})">
-              <div data-ng-include=" 'views/mastoria/partials/_reviews.html' "></div>
-          </uib-tab>
-          <uib-tab  heading="Προηγούμενα Ραντεβού" disable="!user || appointments.data.length == 0">
-              <div data-ng-include=" 'views/mastoria/partials/_pastappointments.html' "></div>
-          </uib-tab>
-      </uib-tabset>
+    <div class="row">
+      <div class="col-md-9">
+      <div class="m-t-xl bg-white">
+        <uib-tabset  class="ui-tab">
+            <uib-tab heading="Πληροφορίες">
+                <div data-ng-include=" 'views/mastoria/partials/_info.html' "></div>
+            </uib-tab>
+            <uib-tab heading="Κριτικές ({{ ::ratings.data.length }})">
+                <div data-ng-include=" 'views/mastoria/partials/_reviews.html' "></div>
+            </uib-tab>
+            <uib-tab  heading="Προηγούμενα Ραντεβού" disable="!user || appointments.data.length == 0">
+                <div data-ng-include=" 'views/mastoria/partials/_pastappointments.html' "></div>
+            </uib-tab>
+        </uib-tabset>
+      </div>
     </div>
+    <div class="col-md-3">
+      <div class="appontment_container text-center" sticky >
+        <md-button class="md-raised btn-w-md md-orange text-white" ng-click="hide_appointment_form = !hide_appointment_form">ΚΛΕΙΣΕ ΡΑΝΤΕΒΟΥ</md-button>
+        <div uib-collapse="hide_appointment_form" class="bg-white">
+          <div ng-include="'views/appointments/form.html'"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
