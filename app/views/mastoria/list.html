@@ -1,16 +1,19 @@
-
 <div class="mastoria-page">
             <header class="mastoria-header hidden-xs"></header>
             <div class="card">
                 <div class="card-content">
                     <div class="row">
                         <!-- MASTORIA TOTAL COUNT AND INFO -->
-                        <div layout="row" class="col-sm-3" layout-padding layout-wrap layout-fill style="padding-top:0">
+                        <div layout="row" class="col-sm-3 col-xs-6" layout-padding layout-wrap layout-fill style="padding-top:0">
                             <md-whiteframe class="md-whiteframe-1dp bg-primary" flex-sm="25" flex-gt-sm="25" flex-gt-md="25" layout layout-align="center center">
                                 <span ng-if="mastoria.$resolved">{{ mastoria.total }}</span>
                                 <span ng-hide="mastoria.$resolved"><md-progress-circular md-mode="indeterminate" class="md-primary md-hue-3 m-auto" md-diameter="20px"></md-progress-circular></span>
                             </md-whiteframe>
                             <span>ΜΑΣΤΟΡΙΑ</span>
+                        </div>
+
+                        <div class="col-xs-6 visible-xs">
+                            <button class="btn btn-warning pull-right" ng-click="displayFilters()">ΦΙΛΤΡΑ</button>
                         </div>
                         <!-- SEARCH OVERVIEW -->
                         <!-- <div class="col-sm-6">
@@ -39,7 +42,7 @@
                             </ol>
                         </div> -->
                         <!-- SEARCH FORM -->
-                        <div class="col-sm-9">
+                        <div class="col-sm-9 col-xs-12">
                             <div class="input-group">
                               <input type="text" ng-keyup="$event.keyCode == 13 && setParams({q: params.q})" ng-model="params.q" class="form-control" placeholder="Ψάχνω τον/την...">
                               <span class="input-group-btn">
@@ -51,51 +54,7 @@
 
                     <div class="row">
                         <!-- PROFESSION AND AREA FILTERS -->
-                        <div class="col-sm-3 hidden-xs">
-                            <!-- Professions -->
-                            <div class="panel panel-default panel-labeled">
-                                <md-subheader class="bg-primary">Ειδικότητα</md-subheader>
-                                <md-list ng-show="professions.$resolved">
-                                    <md-list-item ng-repeat="profession in professions | orderBy:'title'">
-                                        <p>{{ ::profession.title }}</p>
-                                        <md-checkbox md-no-ink class="md-primary" ng-checked="params['profession[]'].indexOf(profession.id) >= 0" ng-click="toggleItem(profession.id, 'profession[]')"></md-checkbox>
-                                    </md-list-item>
-                                </md-list>
-                            </div>
-                            <!-- Areas -->
-                            <div class="panel panel-default panel-labeled panel-collapse">
-                                <md-subheader class="bg-primary">Χαρτης</md-subheader>
-                                <p class="p-xs">Επιλέξτε περιοχή</p>
-                                <drill-down-map ng-if="areas.$resolved" selectedarea="params['area[]']" areas="areas"></drill-down-map>
-                                <!--md-subheader class="md-warn">ΠΕΡΙΟΧΕΣ</md-subheader>
-                                <div ng-show="!showMap">
-                                    <md-progress-circular md-mode="indeterminate" class="md-warn md-hue-3 m-auto" md-diameter="96"></md-progress-circular>
-                                </div>
-                                <ui-gmap-google-map ng-if="showMap" id="map"
-                                               center="map.center"
-                                               pan="map.pan"
-                                               zoom="map.zoom"
-                                               draggable="true"
-                                               refresh="map.refresh"
-                                               options="map.options"
-                                               events="map.events"
-                                               bounds="map.bounds">
-
-                                    <ui-gmap-polygons models="areas" idKey="'id'" path='"geo_json"' fill="map.getPolyFill"
-                                                 stroke="{ color: '#2c8aa7', weight: 1, opacity: '1.0' }" visible="map.getVisible" geodesic="true" fit="map.getFit"
-                                                 editable="false" static="true" ng-cloak="" events="map.polyEvents">
-
-                                    </ui-gmap-polygons>
-
-                                </ui-gmap-google-map-->
-                                <!--md-list ng-show="areas.$resolved">
-                                    <md-list-item ng-repeat="area in areas | orderBy:'name'">
-                                        <p>{{ ::area.name }}</p>
-                                        <md-checkbox class="md-warn" ng-checked="params['area[]'].indexOf(area.id) >= 0" ng-click="toggleItem(area.id, 'area[]')"></md-checkbox>
-                                    </md-list-item>
-                                </md-list-->
-                            </div>
-                        </div>
+                        <div class="col-sm-3" ng-class="{ 'hidden-xs': !showFilters }" data-ng-include=" 'views/mastoria/partials/_filters.html' "></div>
                         <!-- RESULTS -->
                         <div class="col-sm-9">
                             <!-- SORTING AND OFFERS/NEAR ME FILTERS -->
