@@ -62,6 +62,7 @@
     "angular": "1.5.8",
     "moment": "~2.9.0",
     "fullcalendar": "2.3.1",
-    "lodash": "3.X"
+    "lodash": "3.X",
+    "slick-carousel": "~1.6.0"
   }
 }
