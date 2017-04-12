@@ -8,8 +8,8 @@
  * Controller of the app
  */
 angular.module('app')
-  .controller('MastoriaCtrl', ['$scope', '$state', '$rootScope', '$stateParams', '$filter', '$anchorScroll', 'MastoriModel', 'ProfessionModel', 'AreaModel',
-    function ($scope, $state, $rootScope, $stateParams, $filter, $anchorScroll, MastoriModel, ProfessionModel, AreaModel) {
+  .controller('MastoriaCtrl', ['$scope', '$state', '$rootScope', '$stateParams', '$filter', '$anchorScroll', '$timeout', 'MastoriModel', 'ProfessionModel', 'AreaModel',
+    function ($scope, $state, $rootScope, $stateParams, $filter, $anchorScroll, $timeout, MastoriModel, ProfessionModel, AreaModel) {
 
     $scope.professions = ProfessionModel.query();
     $scope.areas = AreaModel.query();
@@ -77,9 +77,11 @@ angular.module('app')
 
     $scope.displayFilters = function () {
         $scope.showFilters = true;
-        // scroll to filters
-        $anchorScroll.yOffset = 100;
-        $anchorScroll('filters');
+        // wait a bit so that filters are displayed and then scroll to filters
+        $timeout( function(){
+            $anchorScroll.yOffset = 100;
+            $anchorScroll('filters');
+        }, 100 );
     }
 
     $scope.hideFilters = function () {

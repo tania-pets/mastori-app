@@ -181,6 +181,13 @@ body {
 }
 
 // mastoria
+#filters-btn {
+  position: fixed;
+  z-index: 9999999;
+  right: 70px;
+  top: 30px;
+}
+
 .mastoria-page {
   background-color: #fff;
 }
