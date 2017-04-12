@@ -93,6 +93,11 @@ body {
   display:none;
 }
 
+// fix styles in landing
+#ip-container .header {
+  position: fixed;
+}
+
 // nav
 .header-container.bg-dark {
   border-bottom: 1px solid #000;
