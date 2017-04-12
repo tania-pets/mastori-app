@@ -4,18 +4,18 @@
       <section  class="panel panel-trans m-t-md" ng-if="ratings.data.length">
         <h2>Κριτικές και Αξιολογήσεις Χρηστών</h2>
         <div class="row m-t-lg">
-          <div class="col-md-3">
+          <div class="col-md-4">
             <uib-rating class="ui-rating size-h2 ui-rating-warning" ng-model="ratingAvg" max="5" data-readonly="true"></uib-rating>
           </div>
-          <div class="col-md-3">
-            <h4 style="margin-left:-70px;">{{ratings.data.length}} αξιολογήσεις</h4>
+          <div class="col-md-2">
+            <h4 style="margin-left:-80px;">{{ratings.data.length}} αξιολογήσεις</h4>
           </div>
           <div class="col-md-6">
             <div ng-repeat="n in range(1,5)" class="row">
-              <div class="col-md-2 m-t-md">
+              <div class="col-md-2 m-t-md p-n">
                 {{n}} αστέρια
               </div>
-              <div class="col-md-8">
+              <div class="col-md-9">
                 <md-slider onclick="return false;" flex min="0" max="{{ratings.data.length}}" ng-model="(ratings.data | filter:{rating:n}:true).length" aria-label="{{ratings.data.length}}"
                 ng-class="{'md-warn': (ratings.data | filter:{rating:n}:true).length / ratings.data.length  >= 0.8 ,
                            'md-orange': (ratings.data | filter:{rating:n}:true).length / ratings.data.length  >= 0.6,
@@ -25,7 +25,7 @@
                           }"
                 ></md-slider>
               </div>
-              <div class="col-md-2 m-t-md">
+              <div class="col-md-1 m-t-md">
                 {{(ratings.data | filter:{rating:n}:true).length}}
               </div>
             </div>

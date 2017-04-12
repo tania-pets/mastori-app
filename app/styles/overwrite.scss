@@ -58,6 +58,13 @@
 	padding: 5px !important;
 }
 
+.p-md {
+	padding: 15px !important;
+}
+.p-lg {
+	padding: 30px !important;
+}
+
 .p-b-xs {
 	padding-bottom: 5px !important;
 }
@@ -66,6 +73,9 @@
 	padding-bottom: 10px !important;
 }
 
+.p-n{
+	padding:0;
+}
 .text-white {
 	color: #fff!important;
 }
@@ -378,4 +388,15 @@ md-datepicker.md-default-theme, md-datepicker {
 		opacity:0 !important;
 		display:none !important;
 	}
+}
+
+.appontment_container {
+	background: #fff;
+	height:300px;
+	margin-top:-80px;
+	// position:fixed;
+	// top:150px;
+	// right:0;
+	// width: 100%;
+	// width:400px;
 }
