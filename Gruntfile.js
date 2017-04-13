@@ -230,6 +230,11 @@ module.exports = function (grunt) {
         },
         'slick-carousel': {
           'main': ['slick/slick.js', 'slick/slick.css', 'slick/slick-theme.css']
+        },
+        "moment": {
+          "main": [
+              "moment.js", "locale/el.js"
+          ]
         }
        }
       },
