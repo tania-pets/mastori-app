@@ -28,11 +28,21 @@
     display: none;
 }
 
+.boxed {
+  width: $boxed_layout_width;
+  margin:0 auto;
+}
 .page {
-    padding: 15px 30px;
 
     > .ui-section:last-child {
         margin-bottom: 0;
+    }
+    .contents {
+      width: $boxed_layout_width;
+      margin:0 auto;
+      padding: 15px 30px;
+      background: #fff;
+
     }
 }
 
