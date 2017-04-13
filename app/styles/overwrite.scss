@@ -142,9 +142,12 @@ body {
 	vertical-align: baseline;
 	margin-bottom: 0;
 }
+.breadcrumb_wrapper {
+  // background-color: rgba(255, 255, 255, 0.9);
+	background-color: #fff;
+}
 .breadcrumb {
-	margin: 5px 0;
-  background-color: rgba(255, 255, 255, 0.9);
+	background-color:transparent;
 }
 
 .breadcrumb > .active {
