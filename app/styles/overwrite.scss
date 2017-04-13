@@ -176,28 +176,24 @@ body {
 	display: inline-block;
 }
 
-.page-profile .profile-social {
-    vertical-align: middle;
-}
-
 // mastoria
-#filters-btn {
-  position: fixed;
-  z-index: 9999999;
-  right: 70px;
-  top: 30px;
-}
-
 .mastoria-page {
   background-color: #fff;
-}
 
-.mastoria-page header {
-	position: relative;
-  // margin: 0 -30px 15px;
-  padding: 50px 30px 90px;
-	background: url(../images/background/2.png) no-repeat center center #1898b8;
-	background-size: contain;
+  header {
+    position: relative;
+    // margin: 0 -30px 15px;
+    padding: 50px 30px 90px;
+    background: url(../images/background/2.png) no-repeat center center #1898b8;
+    background-size: contain;
+  }
+
+  .filters-btn {
+    position: fixed;
+    z-index: 9999999;
+    right: 70px;
+    top: 30px;
+  }
 }
 
 // forms
@@ -343,8 +339,18 @@ md-datepicker.md-default-theme, md-datepicker {
 .panel-arrow .panel-body{background: #1998B6; color:#fff;}
 
 /*Profile page*/
-.page-profile{
-	padding:15px 0;
+.page-profile {
+  background-color: #fff;
+  margin: 0;
+
+  header {
+    position: relative;
+    // margin: 0 -30px 15px;
+    padding: 50px 30px 90px;
+    background: url(../images/background/2.png) no-repeat center center #1898b8;
+    background-size: contain;
+  }
+
 	//tabs
 	.ui-tab .nav-tabs > li a{background:#E2E6E9;color:#253338; margin:0;}
 	.ui-tab .nav-tabs > li.active > a{color:#31A2B9; background: #fff;}
@@ -398,6 +404,9 @@ md-datepicker.md-default-theme, md-datepicker {
 		opacity:0 !important;
 		display:none !important;
 	}
+  .profile-social {
+    vertical-align: middle;
+  }
 }
 
 //appointmet div sticky right
