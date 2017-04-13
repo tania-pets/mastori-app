@@ -83,6 +83,9 @@
 .bg-orange{
 	background-color: #F57C00 !important;
 }
+.bg-yellow{
+	background-color: #f0ad4e !important;
+}
 
 body {
     background: url("../../images/landing/main_bg.jpg") repeat-y 0 0 fixed;
@@ -184,7 +187,7 @@ body {
   header {
     position: relative;
     // margin: 0 -30px 15px;
-    padding: 50px 30px 90px;
+    padding: 50px 30px 110px;
     background: url(../images/background/2.png) no-repeat center center #1898b8;
     background-size: contain;
   }
@@ -346,7 +349,7 @@ md-datepicker.md-default-theme, md-datepicker {
   header {
     position: relative;
     // margin: 0 -30px 15px;
-    padding: 50px 30px 90px;
+    padding: 50px 30px 110px;
     background: url(../images/background/2.png) no-repeat center center #1898b8;
     background-size: contain;
   }
