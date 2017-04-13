@@ -28,26 +28,36 @@
     display: none;
 }
 
-.boxed {
-  width: $boxed_layout_width;
-  margin:0 auto;
-}
+
 .page {
 
     > .ui-section:last-child {
         margin-bottom: 0;
     }
     .contents {
-      width: $boxed_layout_width;
-      margin:0 auto;
-      padding: 15px 30px;
       background: #fff;
-
     }
+
 }
 
 .page-form-ele {
     h3 {
         margin: 0;
     }
+}
+
+
+@media screen and (min-width: 1200px) {
+  .page {
+    .contents {
+    width: $boxed_layout_width;
+    margin:0 auto;
+    padding: 15px 30px;
+
+    }
+  }
+  .boxed {
+    width: $boxed_layout_width;
+    margin:0 auto;
+  }
 }
