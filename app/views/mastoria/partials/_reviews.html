@@ -22,6 +22,8 @@
                            'md-yellow': (ratings.data | filter:{rating:n}:true).length / ratings.data.length  >= 0.4,
                            'md-empty': (ratings.data | filter:{rating:n}:true).length / ratings.data.length  == 0,
                            'md-primary': (ratings.data | filter:{rating:n}:true).length / ratings.data.length  >= 0.2,
+                           'md-grey': (ratings.data | filter:{rating:n}:true).length / ratings.data.length  <= 0.2,
+
                           }"
                 ></md-slider>
               </div>
