@@ -1,13 +1,25 @@
-<div class="page page-profile">
-    <div class="row ui-section">
-      <uib-tabset justified="true" class="ui-tab">
-          <uib-tab heading="Λογαριασμός">
-            {{me.name}}
-          </uib-tab>
-          <uib-tab heading="Διευθύνσεις" ng-if="me.endUser">
-              <div data-ng-include=" 'views/endusers/partials/_addresses.html' "></div>
-          </uib-tab>
-      </uib-tabset>
+<div class="page-profile">
+    <header class="hidden-xs"></header>
+    <div class="card">
+        <div class="card-content">
+            <div class="">
+              <uib-tabset justified="true" class="ui-tab ui-tab-primary">
+                    <uib-tab heading="Λογαριασμός">
+                        <form class="form-horizontal" novalidate name="signup_form" ng-submit="!signup_form.$valid || updateUser(signup_form)">
+                            <div data-ng-include=" 'views/user/partials/_account_form.html' "></div>
+                            <md-button type="submit"
+                                 class="md-raised btn-w-md md-primary pull-right m-b-md"
+                                 data-ng-disabled="!signup_form.$valid">ΑΠΟΘΗΚΕΥΣΗ</md-button>
+                        </form>
+                    </uib-tab>
+                    <uib-tab heading="Διευθύνσεις">
+                      <div data-ng-include=" 'views/endusers/partials/_addresses.html' "></div>
+                    </uib-tab>
+                    <uib-tab heading="Προηγούμενα Ραντεβού">
+                      <div data-ng-include=" 'views/mastoria/partials/_pastappointments.html' "></div>
+                    </uib-tab>
+                </uib-tabset>
+            </div>
+        </div>
     </div>
-
 </div>
