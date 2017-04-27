@@ -40,7 +40,7 @@
     </header>
     <div class="contents">
       <div class="row">
-        <div class="col-md-9">
+      <div ng-class="{'col-md-9': (user && mastori), 'col-md-12': !user}">
         <div class="m-t-xl bg-white">
           <uib-tabset  class="ui-tab">
               <uib-tab heading="Πληροφορίες">
@@ -55,7 +55,18 @@
           </uib-tabset>
         </div>
       </div>
-      <div class="col-md-3 p-n">
+
+      <!--user not logged in-->
+      <div class="appontment_container text-right" sticky ng-show="!user" >
+        <div class="appontment_container text-right" sticky >
+          <md-button style="margin-top:-80px;" class="md-raised btn-lg bg-yellow text-white" ng-click="openLoginModal()">
+            ΚΛΕΙΣΕ ΡΑΝΤΕΒΟΥ
+          </md-button>
+        </div>
+      </div>
+
+      <!--user logged in-->
+      <div class="col-md-3 p-n" ng-show="user && mastori">
         <div class="appontment_container text-center" sticky >
           <md-button class="md-raised btn-lg bg-yellow text-white" ng-click="hide_appointment_form = !hide_appointment_form">ΚΛΕΙΣΕ ΡΑΝΤΕΒΟΥ</md-button>
           <div uib-collapse="hide_appointment_form" class="bg-white fcontainer" >

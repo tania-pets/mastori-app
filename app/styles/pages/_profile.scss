@@ -1,11 +1,9 @@
 .page-mastori-profile {
-    margin: -15px 0 0;
+
 
     .profile-header {
         position: relative;
-        // margin: 0 -30px 0px;
-        padding: 25px 60px  10px 10px;
-        // background: url('../images/background/1.jpg') no-repeat center center fixed;
+        padding: 10px 30px 10px;
         background: url('../images/background/header.png') repeat;
         // -webkit-background-size: cover;
         // -moz-background-size: cover;
@@ -48,4 +46,49 @@
     img.media-object {
         border-radius: $border-radius-base;
     }
+
+
+
+    //ratings slider colors
+     md-slider .md-thumb:after{
+  	 border-color: #359AB7 !important;
+  	 background-color: #fff !important;
+  	 border-width: 8px;
+  	}
+  	md-slider .md-track.md-track-fill{
+  		padding:9px 0 2px 0;
+  		border-radius: 4px;
+  		margin-top:-2px;
+  	}
+  	md-slider.md-yellow .md-track.md-track-fill{
+  		background-color: #FFD54F;
+  	}
+  	md-slider.md-orange .md-track.md-track-fill{
+  		background-color: #F57C00;
+  	}
+
+  	md-slider.md-grey .md-track.md-track-fill{
+  		background-color: #85d5e5;
+  	}
+
+    .card .card-title {
+      font-size: 17px;
+    }
+
+  	md-slider.md-empty .md-thumb:after{
+  		display:none;
+  	}
+  	md-slider .md-track{
+  		background-color: rgba(0,0,0,0.0);
+  	}
+  	md-slider .md-thumb {
+  		width:45px;
+  		height:45px;
+  		border-radius: 45px;
+  	}
+  	md-slider .md-thumb:after {
+  		width:40px;
+  		height:40px;
+  		border-width: 9px;
+  	}
 }
