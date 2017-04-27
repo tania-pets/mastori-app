@@ -362,10 +362,7 @@ md-datepicker.md-default-theme, md-datepicker {
 	// md-slider.md-default-theme.md-primary .md-focus-ring, md-slider.md-primary .md-focus-ring {
 	// 	display: none;
 	// }
-	.md-focus-ring, .md-focus-thumb{
-		opacity:0 !important;
-		display:none !important;
-	}
+
   .profile-social {
     vertical-align: middle;
   }
@@ -396,12 +393,5 @@ md-datepicker.md-default-theme, md-datepicker {
 			font-size: 11px;
 			color: rgba(0,0,0,0.54);
 		}
-	}
-
-	.not_logged_msg{
-		display: inline-block;
-		 width: 300px;
-		 min-height: 200px;
-		 background: #fff;
 	}
 }

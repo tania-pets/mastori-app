@@ -91,4 +91,11 @@
   		height:40px;
   		border-width: 9px;
   	}
+
+    .md-focus-ring, .md-focus-thumb{
+  		opacity:0 !important;
+  		display:none !important;
+  	}
+
+    .card{box-shadow: none;}
 }
