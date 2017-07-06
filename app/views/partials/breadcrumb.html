@@ -1,0 +1,10 @@
+<div class="breadcrumb_wrapper">
+<ol class="breadcrumb boxed">
+    <li ng-repeat="step in steps | limitTo:(steps.length-1)">
+        <a href="{{step.ncyBreadcrumbLink}}"> {{step.ncyBreadcrumbLabel}}</a>
+    </li>
+    <li ng-repeat="step in steps | limitTo:-1" class="active">
+        <span >{{step.ncyBreadcrumbLabel}}</span>
+    </li>
+</ol>
+</div>

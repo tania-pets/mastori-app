@@ -3,7 +3,7 @@
 
     angular.module('app')
     .factory('appConfig', [appConfig])
-    .config(['$mdThemingProvider', '$httpProvider', '$mdDateLocaleProvider', mdConfig]);
+    .config(['$mdThemingProvider', '$httpProvider', '$mdDateLocaleProvider', '$breadcrumbProvider', mdConfig]);
 
     // Google Maps SDK Async Loader
     // .config(function(uiGmapGoogleMapApiProvider) {
@@ -62,7 +62,7 @@
         }
     }
 
-    function mdConfig($mdThemingProvider, $httpProvider, $mdDateLocaleProvider) {
+    function mdConfig($mdThemingProvider, $httpProvider, $mdDateLocaleProvider, $breadcrumbProvider) {
         $httpProvider.interceptors.push('AuthInterceptor');
         var cyanAlt = $mdThemingProvider.extendPalette('cyan', {
             'contrastLightColors': '500 600 700 800 900',
@@ -112,6 +112,10 @@
             //for md-datepicker
             $mdDateLocaleProvider.months = ['Ιανουάριος','Φεβρουάριος','Μάρτιος','Απρίλιος','Μάιος','Ιούνιος','Ιούλιος','Αύγουστος','Σεπτέμβριος','Οκτώβριος','Νοέμβριος','Δεκέμβριος'];
             $mdDateLocaleProvider.shortMonths = ['Ιαν','Φεβ','Μαρ','Απρ','Μαϊ','Ιουν','Ιουλ','Αυγ','Σεπ','Οκτ','Νοε','Δεκ'];
+
+            $breadcrumbProvider.setOptions({
+                templateUrl: 'views/partials/breadcrumb.html'
+              });
 
     }
 

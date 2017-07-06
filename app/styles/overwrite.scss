@@ -83,6 +83,9 @@
 .bg-orange{
 	background-color: #F57C00 !important;
 }
+.bg-yellow{
+	background-color: #f0ad4e !important;
+}
 
 body {
     background: url("../../images/landing/main_bg.jpg") repeat-y 0 0 fixed;
@@ -142,9 +145,12 @@ body {
 	vertical-align: baseline;
 	margin-bottom: 0;
 }
+.breadcrumb_wrapper {
+  // background-color: rgba(255, 255, 255, 0.9);
+	background-color: #fff;
+}
 .breadcrumb {
-	margin: 5px 0;
-  background-color: rgba(255, 255, 255, 0.9);
+	background-color:transparent;
 }
 
 .breadcrumb > .active {
@@ -181,7 +187,7 @@ body {
   header {
     position: relative;
     // margin: 0 -30px 15px;
-    padding: 50px 30px 90px;
+    padding: 50px 30px 110px;
     background: url(../images/background/2.png) no-repeat center center #1898b8;
     background-size: contain;
   }
@@ -343,7 +349,7 @@ md-datepicker.md-default-theme, md-datepicker {
   header {
     position: relative;
     // margin: 0 -30px 15px;
-    padding: 50px 30px 90px;
+    padding: 50px 30px 110px;
     background: url(../images/background/2.png) no-repeat center center #1898b8;
     background-size: contain;
   }
@@ -353,56 +359,10 @@ md-datepicker.md-default-theme, md-datepicker {
 	.ui-tab .nav-tabs > li.active > a{color:#31A2B9; background: #fff;}
 	.ui-tab .nav-tabs > li:not(.disabled) > a:hover{color:#31A2B9; background: #fff;}
 	.ui-tab .nav-tabs{background:#E2E6E9;}
-
-	//ratings slider colors
-   md-slider .md-thumb:after{
-	 border-color: #359AB7 !important;
-	 background-color: #fff !important;
-	 border-width: 8px;
-	}
-	md-slider .md-track.md-track-fill{
-		padding:9px 0 2px 0;
-		border-radius: 4px;
-		margin-top:-2px;
-	}
-	md-slider.md-yellow .md-track.md-track-fill{
-		background-color: #FFD54F;
-	}
-	md-slider.md-orange .md-track.md-track-fill{
-		background-color: #F57C00;
-	}
-
-	md-slider.md-grey .md-track.md-track-fill{
-		background-color: #85d5e5;
-	}
-
-  .card .card-title {
-    font-size: 17px;
-  }
-
-	md-slider.md-empty .md-thumb:after{
-		display:none;
-	}
-	md-slider .md-track{
-		background-color: rgba(0,0,0,0.0);
-	}
-	md-slider .md-thumb {
-		width:45px;
-		height:45px;
-		border-radius: 45px;
-	}
-	md-slider .md-thumb:after {
-		width:40px;
-		height:40px;
-		border-width: 9px;
-	}
 	// md-slider.md-default-theme.md-primary .md-focus-ring, md-slider.md-primary .md-focus-ring {
 	// 	display: none;
 	// }
-	.md-focus-ring, .md-focus-thumb{
-		opacity:0 !important;
-		display:none !important;
-	}
+
   .profile-social {
     vertical-align: middle;
   }
