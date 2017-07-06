@@ -8,8 +8,8 @@
  * Controller for user auth functions
  */
 angular.module('app')
-  .controller('authCtrl', ['$scope', '$rootScope', 'AuthService', '$state', '$location', 'toaster',
-    function ($scope, $rootScope, AuthService, $state, $location, toaster) {
+  .controller('authCtrl', ['$scope', '$rootScope', 'AuthService', 'AutModel', '$state', '$location', 'toaster',
+    function ($scope, $rootScope, AuthService, AutModel, $state, $location, toaster) {
 
     $scope.login = function() {
 
@@ -50,8 +50,16 @@ angular.module('app')
       $state.go(state);
     }
 
-    $scope.reset =    function() {
-        $location.url('/')
+    $scope.reset = function() {
+      AutModel.resetpass({email: $scope.email}, function(response){
+          toaster.pop('success', "Μια χαρά!", "Ο νέος σου κωδικός θα σταλθεί στο email σου!");
+      }, function(response){
+        if (response.status == 401) {
+          toaster.pop('error', "Χμμμ!", "Φαίνεται πως το email που έβαλες δε βρέθηκε!");
+        } else {
+          toaster.pop('error', "Κατάρα!", "Κατί δεν πήγε καλά! Προσπάθησε άλλη μία φορά!");
+        }
+      });
     }
 
   }]);

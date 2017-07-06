@@ -5,7 +5,12 @@
     .service('AutModel', [
       'DataModel','Config',
       function(DataModel, Config) {
-          return DataModel('/auth');
+        return DataModel('/auth', {}, {
+        	resetpass: {
+            url: Config.api.url + '/password/email',
+            method:'POST'
+          }
+        });
       }
     ])
   ;
