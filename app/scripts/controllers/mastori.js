@@ -8,8 +8,8 @@
  * Controller of the app
  */
 angular.module('app')
-  .controller('MastoriCtrl', ['$scope', '$state', 'MastoriModel', 'AppointmentModel', 'RatingModel', 'AuthService', 'toaster',
-    function ($scope, $state, MastoriModel, AppointmentModel, RatingModel, AuthService, toaster) {
+  .controller('MastoriCtrl', ['$scope', '$state', 'MastoriModel', 'AppointmentModel', 'RatingModel', 'AuthService', 'toaster', 'moment',
+    function ($scope, $state, MastoriModel, AppointmentModel, RatingModel, AuthService, toaster, $moment) {
 
     $scope.mastori = MastoriModel.query({id: $state.params.id});
     $scope.user = AuthService.user();
@@ -18,7 +18,7 @@ angular.module('app')
     var appointmentQueryParams = {orderby: 'created_at', order: 'desc', mastori_id: $state.params.id};
     var ratingQueryParams = {orderby: 'created_at', order: 'desc', mastori_id: $state.params.id};
 
-    var today = new Date();
+    var today = $moment();
 
     RatingModel.query(ratingQueryParams, function(ratings){
       $scope.ratings = ratings;
@@ -27,12 +27,8 @@ angular.module('app')
 
     var appointmentInit = function() {
     	$scope.appointment = new AppointmentModel();
-    	$scope.appointment.deadline = new Date(
-			today.getFullYear(),
-			today.getMonth(),
-			today.getDate() + 1
-		);
-		$scope.appointment.address_id = $scope.user.addresses[0].id;
+    	$scope.appointment.deadline = today.clone().add(1, 'day').toDate();
+		  $scope.appointment.address_id = $scope.user.addresses[0].id;
     };
 
     $scope.appoointmentRatingInit = function(appointment) {
@@ -40,12 +36,8 @@ angular.module('app')
     }
 
     $scope.deadline = {
-    	maxDate: new Date(
-			today.getFullYear(),
-			today.getMonth() + 1,
-			today.getDate()
-		),
-    	minDate: today
+    	maxDate: today.clone().add(1, 'month').toDate(),
+    	minDate: today.toDate()
     };
 
     $scope.submitAppointment = function(form) {
@@ -55,13 +47,24 @@ angular.module('app')
     	form.$setPristine(); // clear form
     	form.$setUntouched();
 
-		$scope.appointment.$save(function(saved){
-			appointmentInit(); // reset appointment
+		  $scope.appointment.$save(function(saved){
+        appointmentInit(); // reset appointment
+        $scope.appointments.data = !$scope.appointments ? [] : $scope.appointments.data;
+        $scope.appointments.data.unshift(saved); // add it first to appointments list
 
-			toaster.pop('success', "Ωραίος!", "Το μαστόρι ενημερώθηκε για το ραντεβού! Επιπλέον κέρδισες " + saved.points_rewarded + " μαστοροπόντους!!");
-		}, function(error){
-			toaster.pop('error', "Ουπς!", "Κάτι δεν πήγε καλά.. Ξαναπροσπάθησε παρακαλώ!");
-		});
+        toaster.pop('success', "Ωραίος!", "Το μαστόρι ενημερώθηκε για το ραντεβού! Επιπλέον κέρδισες " + saved.points_rewarded + " μαστοροπόντους!!");
+  		}, function(error){
+  			toaster.pop('error', "Ουπς!", "Κάτι δεν πήγε καλά.. Ξαναπροσπάθησε παρακαλώ!");
+  		});
+    }
+
+    $scope.canSubmitRating = function(appointment) {
+      if (!$scope.user || !appointment) {
+        return false;
+      }
+      var appointmentDeadline = $moment(appointment.deadline, "YYYY-MM-DD HH");
+
+      return appointment && today.diff(appointmentDeadline, 'hours') > 1;
     }
 
     $scope.submitRating = function(form, appointment) {

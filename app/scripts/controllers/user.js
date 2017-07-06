@@ -2,8 +2,8 @@
 
 
 angular.module('app')
-  .controller('ProfileCtrl', ['$scope', 'AuthService', 'AppointmentModel', 'RatingModel', 'UserModel', 'toaster',
-  	function ($scope, AuthService, AppointmentModel, RatingModel, UserModel, toaster) {
+  .controller('ProfileCtrl', ['$scope', 'AuthService', 'AppointmentModel', 'RatingModel', 'UserModel', 'toaster', 'moment',
+  	function ($scope, AuthService, AppointmentModel, RatingModel, UserModel, toaster, $moment) {
 
   		// we dont wont the changes in user model to be directly saved to $localStorage
   		// but only on user save success callback
@@ -35,6 +35,13 @@ angular.module('app')
     	$scope.appoointmentRatingInit = function(appointment) {
         appointment.rating = new RatingModel();
     	}
+
+      $scope.canSubmitRating = function(appointment) {
+        var appointmentDeadline = $moment(appointment.deadline, "YYYY-MM-DD HH");
+        var now = $moment();
+
+        return appointment && now.diff(appointmentDeadline, 'hours') > 1;
+      }
 
     	$scope.submitRating = function(form, appointment) {
         form.$setPristine(); // clear form

@@ -1,4 +1,4 @@
-<form role="form" method="post" novalidate name="ratingForm" id="ratingForm" ng-submit="!(ratingForm).$valid || submitRating(ratingForm,appointment)" ng-show="user && appointment">
+<form role="form" method="post" novalidate name="ratingForm" id="ratingForm" ng-submit="!(ratingForm).$valid || submitRating(ratingForm,appointment)" ng-show="canSubmitRating(appointment)">
 
     <uib-rating class="ui-rating size-h4 ui-rating-danger" required ng-model="appointment.rating.rating" max="5"></uib-rating>
 
