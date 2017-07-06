@@ -1,4 +1,5 @@
-
+  // TODO Handle the google map stuff and address set up in a directive that returns the updated / new address
+  // and separate the sign up logic from the update logic
   angular.module('app')
     .controller('AddressAddEditCtrl', function ($scope, lazyLoadGoogleMaps, $uibModal, AuthService, UserModel) {
       $scope.locating = false;
@@ -52,9 +53,11 @@
         if(!place) {
           var place = autocomplete.getPlace();
         }
-        if (!place.geometry) {
-             window.alert("Autocomplete's returned place contains no geometry");
-             return;
+        if (!place || !place.geometry) {
+          $scope.address = {};
+          $scope.locating = false;
+          window.alert("Invalid address");
+          return;
          } else {
            getAddresFromText(place.formatted_address, function(streetNumber, streetName, postal, city, country, location, place){
              var lat = location.lat();
@@ -190,7 +193,7 @@
           //on sign up
           if (!user) {
             var index = $scope.user.addresses.indexOf(address);
-            $$scope.user.addresses.splice(index, 1);
+            $scope.user.addresses.splice(index, 1);
           } else {
             UserModel.get({id:user.id}, function(userResource) {
               angular.forEach(userResource.addresses, function(current_adderess, i){
@@ -206,7 +209,10 @@
         //save user with updated addresses and update dom
         var saveAndpdateAddressList = function(userObj) {
           userObj.$save(function(userUpDated){
-            $scope.me.addresses = userUpDated.addresses;
+            $scope.user.addresses = userUpDated.addresses;
+            if (AuthService.user()) {
+              AuthService.updateUserData(userUpDated);
+            }
           });
         }
 

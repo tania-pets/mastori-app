@@ -975,7 +975,7 @@ md-autocomplete{display: inline;}
     /*width: 300px;*/
 }
 
-#address-input{margin-left: 5%;}
+.search-address {margin-left: 5%;}
 
 /*.header .navbar ul li:hover{
   background-color: rgb(3,  182,  205,  0.4)
