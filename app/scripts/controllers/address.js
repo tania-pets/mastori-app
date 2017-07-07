@@ -54,7 +54,6 @@
           var place = autocomplete.getPlace();
         }
         if (!place || !place.geometry) {
-          $scope.address = {};
           $scope.locating = false;
           window.alert("Invalid address");
           return;
