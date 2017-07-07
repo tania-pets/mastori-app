@@ -1,8 +1,8 @@
 <form role="form" method="post" novalidate name="appointment_form" id="appointment_form" ng-submit="!appointment_form.$valid || submitAppointment(appointment_form)"  class="text-left">
     <md-input-container class="md-block">
         <label>Διεύθυνση <span class="required">*</span></label>
-        <md-select name="address_id" ng-model="appointment.address_id" required >
-            <md-option ng-repeat="address in user.addresses" value="{{ address.id }}">
+        <md-select ng-if="mastori.$resolved" name="address_id" ng-model="appointment.address_id" required >
+            <md-option ng-selected="$first" ng-repeat="address in user.addresses | matcher:mastori.areas:'area_id'" value="{{ address.id }}">
                 {{ address.friendly_name ? address.friendly_name :  address.streetname + ' ' + address.streetnumber }}
             </md-option>
         </md-select>
