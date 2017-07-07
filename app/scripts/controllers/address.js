@@ -65,7 +65,7 @@
              if (!$scope.address) {
                $scope.address = {};
              }
-             angular.merge($scope.address, {address:place.formatted_address,  lat:lat, lng:lat, streetname:streetName, streetnumber: streetNumber, city:city, country:country, zipcode: postal });
+             angular.merge($scope.address, {address:place.formatted_address,  lat:lat, lng:lng, streetname:streetName, streetnumber: streetNumber, city:city, country:country, zipcode: postal });
              //load map
              var mapDiv = document.getElementById('map');
              map = new google.maps.Map(mapDiv, {
