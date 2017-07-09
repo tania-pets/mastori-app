@@ -9,15 +9,12 @@ angular.module('app').filter('abs', function () {
 // matcher filter
 angular.module('app').filter('matcher', function() {
   return function(arr1, arr2, property1 = 'id', property2 = 'id') {
-  	console.info('paparas');
     var array2Ids = []
     angular.forEach(arr2, function(value, index) {
       array2Ids.push(value[property2]);
     })
-    var lala =  arr1.filter(function(val) {
+    return arr1.filter(function(val) {
       return array2Ids.indexOf(val[property1]) !== -1;
     })
-    debugger;
-    return lala;
   }
 });
