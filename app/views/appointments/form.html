@@ -2,7 +2,7 @@
     <md-input-container class="md-block">
         <label>Διεύθυνση <span class="required">*</span></label>
         <md-select ng-if="mastori.$resolved" name="address_id" ng-model="appointment.address_id" required >
-            <md-option ng-selected="$first" ng-repeat="address in user.addresses | matcher:mastori.areas:'area_id'" value="{{ address.id }}">
+            <md-option ng-selected="$first" ng-repeat="address in allowedAppointmentAddresses" value="{{ address.id }}">
                 {{ address.friendly_name ? address.friendly_name :  address.streetname + ' ' + address.streetnumber }}
             </md-option>
         </md-select>
