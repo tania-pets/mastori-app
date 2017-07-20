@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('app')
+    angular.module('components.drilldownmap')
         .directive('drillDownMap', ['$filter', drillDownMap]);
 
     function drillDownMap($filter) {

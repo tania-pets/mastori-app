@@ -11,7 +11,8 @@
     	'components.ratingform',
         'components.ratings',
         'components.addressautocomplete',
-    	'components.countrymap'
+        'components.countrymap',
+    	'components.drilldownmap'
   	])
 
 })();
