@@ -1,0 +1,77 @@
+
+<div class="page page-mastori-profile">
+
+    <header class="profile-header">
+      <div class="boxed">
+        <div class="row">
+
+          <div class="col-md-2 col-xs-4 col-sm-3">
+            <div class="profile-img">
+                <img alt="" src="images/g1.jpg" class="img-circle img-responsive">
+            </div>
+         </div>
+
+         <div class="col-md-8 col-xs-8 col-sm-9">
+            <div class="profile-social">
+              <div class="row text-white">
+                <div class="col-md-12">
+                  <h3>
+                      {{ vm.mastori.last_name }} {{ vm.mastori.first_name }}
+                      <i class="size-h4" ng-if="vm.mastori.paratsoukli"> {{ vm.mastori.paratsoukli }}</i>
+                  </h3>
+                </div>
+                <div class="col-md-12">
+                  <to-string values="vm.mastori.professions" key="title" class="text-white"></to-string>
+                </div>
+                <div class="col-sm-12 col-md-auto">
+                  <uib-rating class="ui-rating size-h4 ui-rating-warning" ng-model="mastori.avg_rating" max="5" data-readonly="true"></uib-rating>
+                </div>
+                <div class="col-sm-12 col-md-auto">
+                  <i class="fa fa-video-camera"></i>Κριτικές ({{ vm.ratingsTotalCount }})
+                </div>
+                <div class="col-sm-12 col-md-auto" ng-if="user">
+                  <i class="fa fa-image"></i> Προηγούμενα Ραντεβού ({{ vm.appointmentsTotalCount }})
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="contents">
+      <div class="row">
+      <div ng-class="{'col-md-9': (vm.user && vm.mastori), 'col-md-12': !vm.user}">
+        <div class="m-t-xl bg-white">
+          <uib-tabset  class="ui-tab">
+              <uib-tab heading="Πληροφορίες">
+                  <div data-ng-include=" 'src/sections/mastoria/mastori.info.html' "></div>
+              </uib-tab>
+              <uib-tab heading="Κριτικές ({{ vm.ratingsTotalCount }})">
+                  <ratings query-params=vm.ratingQueryParams></ratings>
+              </uib-tab>
+              <uib-tab ng-if="vm.user" heading="Προηγούμενα Ραντεβού ({{ vm.appointmentsTotalCount }})" disable="vm.appointmentsTotalCount == 0">
+                  <appointments ng-if=vm.appointmentQueryParams for=vm.appointmentsListType query-params=vm.appointmentQueryParams></appointments>
+              </uib-tab>
+          </uib-tabset>
+        </div>
+      </div>
+
+      <!--user not logged in-->
+      <div class="appontment_container text-right" sticky ng-show="!vm.user" >
+        <div class="appontment_container text-right" sticky >
+          <login-modal text="'ΚΛΕΙΣΕ ΡΑΝΤΕΒΟΥ'" style="margin-top:-80px;" class="md-button md-raised btn-lg bg-yellow text-white"></login-modal>
+        </div>
+      </div>
+
+      <!--user logged in-->
+      <div class="col-md-3 p-n" ng-show="vm.user">
+        <div class="appontment_container text-center" sticky >
+          <md-button class="md-raised btn-lg bg-yellow text-white" ng-click="hide_appointment_form = !hide_appointment_form">ΚΛΕΙΣΕ ΡΑΝΤΕΒΟΥ</md-button>
+          <div uib-collapse="!hide_appointment_form" class="bg-white fcontainer" >
+            <appointmentform ng-if=vm.mastori.$resolved mastori=vm.mastori></appointmentform>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

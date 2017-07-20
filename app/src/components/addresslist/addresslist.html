@@ -1,0 +1,18 @@
+<div>
+    <div class="row">
+        <div class="col-md-6" ng-repeat="address in vm.user.addresses track by $index">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">{{address.address}}</span>
+                    <p>{{address.city}}, {{address.country}}</p>
+                </div>
+                <div class="card-action" >
+                   <a ng-click="vm.deleteAddress(address)" href><i class="zmdi zmdi-delete"></i>  Διαγραφη</a>
+                   <a ng-click="vm.editAddress(address)" href><i class="zmdi zmdi-edit"></i>  Επεξεργασια</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <md-button class="md-raised md-primary" ng-click="vm.openAddressModal()">Προσθηκη</md-button>
+</div>

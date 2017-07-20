@@ -1,0 +1,39 @@
+<form class="form-horizontal" novalidate name="login_form" ng-submit="!login_form.$valid || vm.login()">
+    <fieldset>
+        <md-input-container class="md-block">
+            <label>Email</label>
+            <md-icon class="zmdi zmdi-account-o"></md-icon>
+            <input required
+                   type="email"
+                   name="email"
+                   ng-model="vm.email"
+                   ng-pattern="/^.+@.+\..+$/" />
+            <div ng-messages="login_form.email.$error" multiple ng-if='login_form.email.$dirty'>
+                <div ng-message="required">This is required.</div>
+                <div ng-message="pattern">It must be an e-mail address.</div>
+            </div>
+        </md-input-container>
+
+        <div class="divider divider-md"></div>
+
+        <md-input-container class="md-block">
+                <label>Password</label>
+                <md-icon class="zmdi zmdi-lock-outline"></md-icon>
+                <input required
+                       type="password"
+                       name="password"
+                       ng-model="vm.password">
+                <div ng-messages="login_form.password.$error" multiple ng-if='login_form.password.$dirty'>
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+            <md-button type="submit"
+                       class="md-raised btn-w-md md-primary"
+                       data-ng-disabled="!login_form.$valid">Login</md-button>
+
+            <div class="divider"></div>
+            <div class="callout callout-info">
+                <p>Login button will be active only when all fields are valid.</p>
+            </div>
+    </fieldset>
+</form>

@@ -1,0 +1,14 @@
+
+<div class="nav-wrapper visible-xs">
+    <ul id="nav"
+    class="nav"
+    data-slim-scroll
+    data-collapse-nav
+    data-highlight-active>
+        <li><a aria-label="meanu" ui-sref="landing"><span data-translate="HOME"></span></a></li>
+        <li><a aria-label="meanu" ui-sref="mastoria"><span data-translate="MASTORIA"></span></a></li>
+        <li ng-if="!AuthService.isAuthenticated()" ><a aria-label="meanu" ui-sref="login"><span data-translate="SIGN_IN"></span></a></li>
+        <li ng-if="!AuthService.isAuthenticated()" ><a aria-label="meanu" ui-sref="signup"><span data-translate="SIGN_UP"></span></a></li>
+        <li ng-if="AuthService.isAuthenticated()"><a aria-label="meanu" ui-sref="profile"><span data-translate="USER_PROFILE"></span></a></li>
+    </ul>
+</div>

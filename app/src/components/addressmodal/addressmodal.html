@@ -1,0 +1,15 @@
+<div class="col-md-12">
+    <section class="panel panel-default">
+      <div class="modal-header">
+          <h3 ng-hide="address">Προσθήκη νέας διεύθυνσης</h3>
+          <h3 ng-show="address">Επεξεργασία διεύθυνσης</h3>
+      </div>
+      <div class="modal-body">
+        <address-autocomplete address=address></address-autocomplete/>
+      </div>
+      <div class="modal-footer">
+          <button ui-wave class="btn btn-flat btn-default" ng-click="cancel()">Cancel</button>
+          <!-- <button ui-wave class="btn btn-flat btn-primary" ng-click="ok()" type="submit" form="addressForm" ng-disabled="!(addressForm).$valid">OK</button> -->
+      </div>
+   </section>
+</div>

@@ -1,0 +1,49 @@
+<form role="form" method="post" novalidate name="appointment_form" id="appointment_form" ng-submit="!appointment_form.$valid || vm.submitAppointment(appointment_form)"  class="text-left">
+    <md-input-container class="md-block">
+        <label>Διεύθυνση <span class="required">*</span></label>
+        <md-select name="address_id" ng-model="vm.appointment.address_id" required >
+            <md-option ng-selected="$first" ng-repeat="address in vm.allowedAppointmentAddresses" value="{{ address.id }}">
+                {{ address.friendly_name ? address.friendly_name :  address.streetname + ' ' + address.streetnumber }}
+            </md-option>
+        </md-select>
+        <div ng-messages="appointment_form.address_id.$error">
+            <div ng-message="required">Required</div>
+        </div>
+    </md-input-container>
+
+    <md-input-container class="md-block">
+        <label>Τί θέμα έχω <span class="required">*</span></label>
+        <!-- <input name="issue" ng-model="vm.appointment.issue" placeholder="πχ Στάζει η βρύση" required> -->
+
+        <textarea name="issue" ng-model="vm.appointment.issue" columns="1" placeholder="πχ Στάζει η βρύση" required></textarea>
+
+        <div ng-messages="appointment_form.issue.$error">
+            <div ng-message="required">Required</div>
+        </div>
+    </md-input-container>
+
+    <md-input-container class="md-block">
+        <label>Πότε μπορώ <span class="required">*</span></label>
+        <input name="available_datetimes" ng-model="vm.appointment.available_datetimes" placeholder="πχ Καθημερινά μετά τις 7 το απόγευμα" required>
+        <div ng-messages="appointment_form.available_datetimes.$error">
+            <div ng-message="required">Required</div>
+        </div>
+    </md-input-container>
+
+    <div class="has-datepicker">
+        <label for="deadline">Επιθυμώ απάντηση το πολύ μέχρι τις <span class="required">*</span></label><br/>
+        <md-datepicker class="md-block" value="vm.deadline.defaultDate" id="deadline" md-min-date="vm.deadline.minDate" md-max-date="vm.deadline.maxDate" name="deadline" ng-model="vm.appointment.deadline" required md-placeholder="Ημερ/νία"></md-datepicker>
+    </div>
+
+    <md-input-container class="md-block">
+        <label>Επιπλέον σχόλια</label>
+        <textarea name="additional_comments" ng-model="vm.appointment.additional_comments" columns="1"  placeholder="πχ Το κουδούνι γράφει Παπαδόπουλος"></textarea>
+    </md-input-container>
+
+    <div class="divider"></div>
+
+    <div class="form-group">
+        <button class="btn btn-primary" ng-disabled="!appointment_form.$valid" type="submit">Κλείσε ραντεβού</button>
+    </div>
+
+</form>

@@ -1,0 +1,139 @@
+<div class="mastoria-page page">
+    <header class="mastoria-header hidden-xs"></header>
+    <div class="contents">
+        <button class="filters-btn btn btn-warning visible-xs" ng-click="vm.displayFilters()">ΦΙΛΤΡΑ</button>
+        <div class="card">
+            <div class="card-content">
+                <div class="row">
+                    <!-- MASTORIA TOTAL COUNT AND INFO -->
+                    <div layout="row" class="col-sm-3 col-xs-6" layout-padding layout-wrap layout-fill style="padding-top:0">
+                        <md-whiteframe class="md-whiteframe-1dp bg-primary" flex-sm="25" flex-gt-sm="25" flex-gt-md="25" layout layout-align="center center">
+                            <span ng-if="vm.mastoria.$resolved">{{ vm.mastoria.total }}</span>
+                            <span ng-hide="vm.mastoria.$resolved"><md-progress-circular md-mode="indeterminate" class="md-primary md-hue-3 m-auto" md-diameter="20px"></md-progress-circular></span>
+                        </md-whiteframe>
+                        <span>ΜΑΣΤΟΡΙΑ</span>
+                    </div>
+                    <!-- SEARCH OVERVIEW -->
+                    <!-- <div class="col-sm-6">
+                      <ol class="breadcrumb bg-primary">
+                          <li>
+                              <small>EΙΔΙΚΟΤΗΤΑ:</small>
+                              <span ng-if="params['profession[]']">
+                                  <to-string-only-selected values="professions" key="title" selectedval="params['profession[]']"></to-string-only-selected>
+                              </span>
+                              <span ng-hide="params['profession[]'].length > 0">
+                                  ΟΛΕΣ ΟΙ ΕΙΔΙΚΟΤΗΤΕΣ
+                              </span>
+                          </li>
+                          <li>
+                              <small>ΠΕΡΙΟΧΗ:</small>
+                              <span ng-if="params['area[]']">
+                                  <to-string-only-selected values="areas" key="name" selectedval="params['area[]']"></to-string-only-selected>
+                              </span>
+                              <span ng-hide="params['area[]'].length > 0">
+                                  ΟΛΕΣ ΟΙ ΠΕΡΙΟΧΕΣ
+                              </span>
+                          </li>
+                          <li ng-if="params['q']">
+                              <small>ΛΕΞΗ ΚΛΕΙΔΙ:</small> <span>{{ params['q'] }}</span>
+                          </li>
+                      </ol>
+                  </div> -->
+                    <!-- SEARCH FORM -->
+                    <div class="col-sm-9 col-xs-12">
+                        <div class="input-group">
+                            <input type="text" ng-keyup="$event.keyCode == 13 && vm.vm.setParams({q: vm.params.q})" ng-model="vm.vm.params.q" class="form-control" placeholder="Ψάχνω τον/την...">
+                            <span class="input-group-btn">
+                          <button class="btn btn-warning" ng-click="vm.vm.setParams({q: vm.params.q})" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                            </span>
+                        </div>
+                        <!-- /input-group -->
+                    </div>
+                    <!-- /.col-lg-6 -->
+                </div>
+                <div class="row">
+                    <!-- PROFESSION AND AREA FILTERS -->
+                    <div class="col-sm-3" ng-class="{ 'hidden-xs': !showFilters }" data-ng-include=" 'src/sections/mastoria/mastoria.filters.html' "></div>
+                    <!-- RESULTS -->
+                    <div class="col-sm-9">
+                        <!-- SORTING AND OFFERS/NEAR ME FILTERS -->
+                        <div class="panel panel-default m-t-xs p-xs">
+                            <div class="panel-filters">
+                                <span class="m-l-md hidden-xs"><strong>ΤΑΞΙΝΟΜΗΣΗ ΑΝΑ</strong></span>
+                                <button class="btn btn-xs btn-flat hidden-xs" ng-class="{'btn-primary': vm.params.order == 'asc' && vm.params.orderby == 'last_name'}" ng-click="vm.setParams({orderby: 'last_name', order: 'asc'})">A-Z</button>
+                                <button class="btn btn-xs btn-flat hidden-xs" ng-class="{'btn-primary': vm.params.order == 'desc' && vm.params.orderby == 'last_name'}" ng-click="vm.setParams({orderby: 'last_name', order: 'desc'})">Z-A</button>
+                                <button class="btn btn-xs btn-flat" ng-class="{'btn-primary': vm.params.order == 'desc' && vm.params.orderby == 'avg_rating'}" ng-click="vm.setParams({orderby: 'avg_rating', order: 'desc'})">Αξιολογησεις</button>
+                                <button class="btn btn-xs btn-flat hidden-xs" ng-class="{'btn-primary': vm.params.order == 'asc' && vm.params.orderby == 'avg_response_time'}" ng-click="vm.setParams({orderby: 'avg_response_time', order: 'asc'})">Χρονος</button>
+                                <md-checkbox class="md-primary m-l-md" ng-false-value="null" ng-true-value="'yes'" ng-model="vm.params.only_offers" ng-change="vm.setParams({only_offers: vm.params.only_offers})">
+                                    Deals
+                                </md-checkbox>
+                                <md-checkbox ng-if="near" class="md-primary" ng-false-value="null" ng-true-value="'{{near}}'" ng-model="vm.params.near" ng-change="vm.setParams({near: vm.params.near})">
+                                    Κοντά μου
+                                </md-checkbox>
+                            </div>
+                        </div>
+                        <div class="panel panel-default panel-labeled">
+                            <div ng-hide="vm.mastoria.$resolved">
+                                <md-progress-circular md-mode="indeterminate" class="md-primary md-hue-3 m-auto" md-diameter="96"></md-progress-circular>
+                            </div>
+                            <div class="panel-body" ng-if="vm.mastoria.$resolved">
+                                <!-- NO MASTORIA -->
+                                <div ng-show="vm.mastoria.total === 0">
+                                    <span class="text-primary">Πίκρα! Δε βρέθηκε κανένα μαστόρι...</span>
+                                </div>
+                                <!-- LIST OF MASTORIA -->
+                                <div infinite-scroll="vm.loadMore()" infinite-scroll-disabled="vm.busy || vm.mastoria.data.length === vm.mastoria.total" infinite-scroll-distance="1" class="media-list media-divider-full">
+                                    <div class="media" ng-repeat="mastori in vm.mastoria.data" ng-class="{'ui-ribbon-container ui-ribbon-warning' : mastori.offers}">
+                                        <div class="ui-ribbon-wrapper" ng-if="mastori.offers">
+                                            <div class="ui-ribbon">
+                                                <small>DEAL</small>
+                                            </div>
+                                        </div>
+                                        <a ui-sref="mastori({id: mastori.id})" class="media-left p-b-sm">
+                                            <img alt="" src="images/g1.jpg" class="img-circle img80_80">
+                                        </a>
+                                        <div class="media-body">
+                                            <div class="row">
+                                                <div class="col-sm-7">
+                                                    <p class="media-heading">
+                                                        <strong>
+                                                          <a ui-sref="mastori({id: mastori.id})">
+                                                              {{ ::mastori.last_name }} {{ ::mastori.first_name }}
+                                                          </a>
+                                                      </strong>
+                                                        <small ng-if="mastori.paratsoukli" class="text-muted"><i> {{ ::mastori.paratsoukli }}</i></small>
+                                                        <br/>
+                                                        <small class="text-danger"> ({{ ::mastori.ratings_count }} κριτικές)</small>
+                                                    </p>
+                                                    <div>
+                                                        <uib-rating class="ui-rating size-h4 ui-rating-warning" ng-model="mastori.avg_rating" max="5" data-readonly="true"></uib-rating>
+                                                        <br/>
+                                                        <!-- <p class="text-muted"><i class="text-danger zmdi zmdi-pin"></i> {{ ::mastori.addresses[0].address }}</p> -->
+                                                        <small class="m-t-xs professions">
+                                                          <to-string values="mastori.professions" key="title"></to-string>
+                                                      </small>
+                                                        <!-- <p class="text-muted"><i class="text-danger zmdi zmdi-smartphone-iphone"></i> {{ ::mastori.phone }}</p> -->
+                                                        <!--p class="m-t-xs">
+                                                          ΕΞΥΠΗΡΕΤΕΙ: <to-string values="mastori.areas" key="name"></to-string>
+                                                      </p-->
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-5">
+                                                    <a ng-href="#/app/mastoria/{{ mastori.id }}" class="btn btn-primary btn-md m-t-md m-b-xs">ΚΛΕΙΣΕ ΡΑΝΤΕΒΟΥ</a>
+                                                </div>
+                                            </div>
+                                            <!-- <p>{{ ::mastori.description }}</p> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div ng-show="busy">
+                                    <md-progress-circular md-mode="indeterminate" class="md-primary md-hue-3 m-auto" md-diameter="96"></md-progress-circular>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

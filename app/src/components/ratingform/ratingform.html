@@ -1,0 +1,16 @@
+<form role="form" method="post" novalidate name="ratingForm" id="ratingForm" ng-submit="!(ratingForm).$valid || vm.submitRating(ratingForm)">
+
+    <uib-rating class="ui-rating size-h4 ui-rating-danger" required ng-model="vm.rating.rating" max="5"></uib-rating>
+
+    <md-input-container class="md-block">
+        <label>Κριτική</label>
+        <textarea name="body" ng-model="vm.rating.body" required columns="1" md-maxlength="150"></textarea>
+    </md-input-container>
+
+    <div class="divider"></div>
+
+    <div class="form-group">
+        <button class="btn btn-warning" ng-disabled="!(ratingForm).$valid" type="submit"><i class="glyphicon glyphicon-pencil"></i>&nbsp;<b>Αξιολόγησε</b></button>
+    </div>
+
+</form>

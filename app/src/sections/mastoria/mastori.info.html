@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-xs-12 col-md-4">
+        <div class="panel mini-box panel-trans">
+        <img src="images/icons/phone.png" />
+        <div class="box-info-mastori">
+            <p class="text-muted">{{ vm.mastori.phone }}</p>
+        </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-4" ng-repeat="address in vm.mastori.addresses">
+        <div class="panel mini-box panel-trans">
+        <img src="images/icons/address.png" />
+        <div class="box-info-mastori">
+            <p class="text-muted">{{ address.address }}</p>
+        </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-4">
+        <div class="panel mini-box panel-trans">
+        <img src="images/icons/route.png" />
+        <div class="box-info-mastori">
+            <p class="text-muted"><to-string values="vm.mastori.areas" key="name"></to-string></p>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <div class="divider divider-lg"></div> -->
+<div class="row ui-section">
+    <div class="col-md-12">
+        <div class="panel panel-primary panel-arrow">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span class="arrow-down"></span> Λίγα λόγια..</h3>
+            </div>
+            <div class="panel-body p-lg">
+                {{ vm.mastori.description }}
+            </div>
+        </div>
+
+        <!-- <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Τιμοκαταλογος</h3>
+            </div>
+            <div class="panel-body">
+                {{ vm.mastori.pricelist }}
+            </div>
+        </div>
+
+        <div class="panel panel-primary" ng-if="mastori.offers">
+            <div class="panel-heading">
+                <h3 class="panel-title">Προσφορες</h3>
+            </div>
+            <div class="panel-body">
+                {{ vm.mastori.offers }}
+            </div>
+        </div> -->
+
+    </div>
+</div>

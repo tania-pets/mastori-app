@@ -1,0 +1,40 @@
+<div class="page-signup">
+
+    <div class="wrapper">
+        <div class="main-body">
+            <div class="body-inner">
+
+                <div class="card bg-white">
+                    <div class="card-content">
+                        <section class="logo text-center">
+                            <a href="#/"><img alt="logo" src="images/logo.png" width="80"></a>
+                        </section>
+
+                        <profileform ng-show="vm.step == 1" user=vm.user></profileform>
+
+                        <form ng-show="vm.step == 2" class="{{vm.step}} form-horizontal" novalidate name="signup_form" ng-submit="!signup_form.$valid || vm.signup()">
+
+                            <fieldset>
+                              <div class="form-group">
+                                <small class="text-info">Σε αυτό το βήμα μπορείς να προσθέσεις μία η περισσότερες διευθύνσεις. Θα επισπεύσει την αναζήτηση μαστοριού. Απ την άλλη αν βαριέσαι, απλά σκιπαρέ το.. Αλλά να ξέρεις πριν κλείσεις ραντεβού θα χρειαστεί να έχεις βάλει τουλάχιστον μία διεύθυνση (αλλιώς το μαστόρι θα πάει για καφέ αντί για το σπίτι σου)!</small>
+                                <addresslist user=vm.user></addresslist>
+                                <div class="divider"></div>
+                                <p class="text-small m-b-xs">By clicking on sign up, you agree to <a href="javascript:;"><i>terms</i></a> and <a href="javascript:;"><i>privacy policy</i></a></p>
+                              </div>
+                              <md-button type="button" class="md-raised btn-w-xs" ng-click="vm.prevStep()">ΠΙΣΩ</md-button>
+                              <md-button type="submit"
+                                 class="md-raised btn-w-md md-primary pull-right"
+                                 data-ng-disabled="!signup_form.$valid">ΕΓΓΡΑΦΗ</md-button>
+                            </fieldset>
+                        </form>
+
+                    </div>
+                </div>
+
+                <div ng-show="vm.step == 1" class="additional-info">
+                    <login-modal text="'Login'"></login-modal>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

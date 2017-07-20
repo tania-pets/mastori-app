@@ -1,0 +1,33 @@
+<div class="ui-timline-container">
+    <section class="ui-timeline" infinite-scroll="vm.loadMoreAppointments()" infinite-scroll-disabled="vm.busyAp || vm.appointments.data.length === vm.appointments.total" infinite-scroll-distance="1" class="media-list media-divider-full">
+      <article class="tl-item">
+            <div class="tl-body">
+                <div class="tl-entry">
+                    <div class="tl-caption">
+                        <a href="javascript:;" class="btn btn-dark text-white btn-block">Σήμερα</a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article class="tl-item" ng-class-even="'alt'" ng-repeat="appointment in vm.appointments.data">
+            <div class="tl-body">
+                <div class="tl-entry">
+                    <div class="tl-time" am-time-ago="appointment.created_at"></div>
+                    <div class="tl-icon btn-icon-round btn-icon btn-icon-thin btn-primary"><i class="zmdi zmdi-time"></i></div>
+                    <div class="tl-content">
+                        <h4 class="tl-tile text-primary">{{ ::appointment.issue }}</h4>
+                        <p class="{{vm.for}}">{{ ::appointment.mastori.name }}</p>
+                        <ratingform ng-if="!appointment.rating.id && vm.for == 'user' && vm.canSubmitRating(appointment)" appointment=appointment></ratingform>
+                        <div ng-show="appointment.rating.id">
+                            <small><i>{{ appointment.rating.body }}</i></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+  </section>
+  <div ng-show="vm.busyAp">
+        <md-progress-circular md-mode="indeterminate" class="md-primary md-hue-3 m-auto" md-diameter="96"></md-progress-circular>
+    </div>
+</div>

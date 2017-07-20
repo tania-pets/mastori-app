@@ -1,0 +1,52 @@
+<div id="filters" class="panel panel-default panel-labeled m-t-md visible-xs">
+    <md-toolbar class="bg-primary">
+        <div class="md-toolbar-tools">
+            <h3 flex md-truncate>ΦΙΛΤΡΑ</h3>
+            <button class="btn btn-flat btn-lg btn-warning" ng-click="vm.hideFilters()"><span class="glyphicon glyphicon-remove"></span></button>
+        </div>
+    </md-toolbar>
+</div>
+
+<!-- Professions -->
+<div class="panel panel-default panel-labeled">
+    <md-subheader class="bg-primary">Ειδικότητα</md-subheader>
+    <md-list ng-show="vm.professions.$resolved">
+        <md-list-item ng-repeat="profession in vm.professions | orderBy:'title'">
+            <p>{{ ::profession.title }}</p>
+            <md-checkbox md-no-ink class="md-primary" ng-checked="vm.params['profession[]'].indexOf(profession.id) >= 0" ng-click="vm.toggleItem(profession.id, 'profession[]')"></md-checkbox>
+        </md-list-item>
+    </md-list>
+</div>
+<!-- Areas -->
+<div class="panel panel-default panel-labeled panel-collapse">
+    <md-subheader class="bg-primary">Χαρτης</md-subheader>
+    <p class="p-xs">Επιλέξτε περιοχή</p>
+    <drill-down-map ng-if="vm.areas.$resolved" selectedarea="vm.params['area[]']" areas="vm.areas"></drill-down-map>
+    <!--md-subheader class="md-warn">ΠΕΡΙΟΧΕΣ</md-subheader>
+    <div ng-show="!showMap">
+        <md-progress-circular md-mode="indeterminate" class="md-warn md-hue-3 m-auto" md-diameter="96"></md-progress-circular>
+    </div>
+    <ui-gmap-google-map ng-if="showMap" id="map"
+                   center="map.center"
+                   pan="map.pan"
+                   zoom="map.zoom"
+                   draggable="true"
+                   refresh="map.refresh"
+                   options="map.options"
+                   events="map.events"
+                   bounds="map.bounds">
+
+        <ui-gmap-polygons models="areas" idKey="'id'" path='"geo_json"' fill="map.getPolyFill"
+                     stroke="{ color: '#2c8aa7', weight: 1, opacity: '1.0' }" visible="map.getVisible" geodesic="true" fit="map.getFit"
+                     editable="false" static="true" ng-cloak="" events="map.polyEvents">
+
+        </ui-gmap-polygons>
+
+    </ui-gmap-google-map-->
+    <!--md-list ng-show="areas.$resolved">
+        <md-list-item ng-repeat="area in areas | orderBy:'name'">
+            <p>{{ ::area.name }}</p>
+            <md-checkbox class="md-warn" ng-checked="params['area[]'].indexOf(area.id) >= 0" ng-click="toggleItem(area.id, 'area[]')"></md-checkbox>
+        </md-list-item>
+    </md-list-->
+</div>

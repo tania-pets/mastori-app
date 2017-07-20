@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-12">
+      <input id="address-input"  ng-model="addressText" type="text" class="form-control" placeholder="Διεύθυνση">
+    <div>
+    <span class="col-md-12" us-spinner="{radius:30, width:8, length: 16}" ng-if="locating"></span>
+    <div class="col-md-12" ng-show="address && !locating">
+      <div class="row">
+        <div class="col-md-5" id="map">
+          <!-- <div id="map" style="width:400px; height:300px; border:1px solid red"></div> -->
+        </div>
+        <div class="col-md-7">
+          <form name="addressForm"  >
+              <div layout layout-sm="column">
+                <md-input-container flex>
+                    <label>Οδός</label>
+                    <input ng-model="address.streetname" required ng-blur="updateAddress()">
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Αριθμός</label>
+                    <input ng-model="address.streetnumber" required ng-change="updateAddress()">
+                </md-input-container>
+                <md-input-container flex>
+                    <label>TK</label>
+                    <input ng-model="address.zipcode" required ng-change="updateAddress()">
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Πόλη</label>
+                    <input ng-model="address.city" required ng-blur="updateAddress()">
+                </md-input-container>
+                  <md-input-container flex>
+                      <label>Χώρα</label>
+                      <input ng-model="address.country"  ng-blur="updateAddress()">
+                  </md-input-container>
+
+              </div>
+              <button ui-wave class="btn btn-flat btn-primary" ng-click="addressSelected()" type="submit" form="addressForm" ng-disabled="!(addressForm).$valid">OK</button>
+          </form>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,22 @@
+<div class="page-profile page">
+    <header class="hidden-xs"></header>
+    <div class="contents">
+    <div class="card">
+        <div class="card-content">
+            <div class="">
+              <uib-tabset justified="true" class="ui-tab">
+                    <uib-tab heading="Λογαριασμός">
+                        <profileform user=vm.user></profileform>
+                    </uib-tab>
+                    <uib-tab heading="Διευθύνσεις">
+                      <addresslist user=vm.user></addresslist>
+                    </uib-tab>
+                    <uib-tab heading="Προηγούμενα Ραντεβού">
+                      <appointments for=vm.appointmentsListType query-params=vm.appointmentQueryParams></appointments>
+                    </uib-tab>
+                </uib-tabset>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>

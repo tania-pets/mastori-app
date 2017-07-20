@@ -1,0 +1,78 @@
+<form class="form-horizontal" novalidate name="profile_form" ng-submit="!profile_form.$valid || vm.userUpdated(profile_form)">
+    <md-input-container class="md-block">
+        <label>Email *</label>
+        <md-icon class="zmdi zmdi-account-o"></md-icon>
+        <input required
+               type="email"
+               name="email"
+               ng-model="vm.user.email"
+               ng-pattern="/^.+@.+\..+$/"
+               ng-unique='email'/>
+        <div ng-messages="profile_form.email.$error" multiple ng-if='profile_form.email.$dirty'>
+            <div ng-message="required">This is required.</div>
+            <div ng-message="pattern">It must be an e-mail address.</div>
+            <div ng-message="unique">This email already exists.</div>
+        </div>
+    </md-input-container>
+
+    <div class="divider divider-md"></div>
+
+    <md-input-container class="md-block">
+        <label>Password *</label>
+        <md-icon class="zmdi zmdi-lock-outline"></md-icon>
+        <input required
+               type="password"
+               name="password"
+               ng-model="vm.user.password"
+               ng-minlength="6">
+        <div ng-messages="profile_form.password.$error" multiple ng-if='profile_form.password.$dirty'>
+            <div ng-message="required">This is required.</div>
+            <div ng-message="minlength">The password field needs to be at least 6 chars.</div>
+        </div>
+    </md-input-container>
+
+    <md-input-container class="md-block">
+        <label>Password (Again) *</label>
+        <md-icon class="zmdi zmdi-lock-outline"></md-icon>
+        <input required
+               type="password"
+               name="password_repeat"
+               ng-model="vm.user.password_repeat"
+               match-password="password">
+        <div ng-messages="profile_form.password_repeat.$error" multiple ng-if='profile_form.password_repeat.$dirty'>
+            <div ng-message="required">This is required.</div>
+            <div ng-message="passwordMatch">Your passwords did not match</div>
+        </div>
+    </md-input-container>
+
+    <md-input-container class="md-block">
+        <label>Fullname *</label>
+        <md-icon class="zmdi zmdi-lock-outline"></md-icon>
+        <input required
+               type="text"
+               name="name"
+               ng-model="vm.user.name">
+        <div ng-messages="profile_form.name.$error" multiple ng-if='profile_form.name.$dirty'>
+            <div ng-message="required">This is required.</div>
+        </div>
+    </md-input-container>
+
+    <md-input-container class="md-block">
+        <label>Mobile *</label>
+        <md-icon class="zmdi zmdi-lock-outline"></md-icon>
+        <input required
+               type="text"
+               name="phone"
+               ng-model="vm.user.phone"
+               ng-pattern="vm.mobileRegex">
+        <div ng-messages="profile_form.phone.$error" multiple ng-if='profile_form.phone.$dirty'>
+            <div ng-message="required">This is required.</div>
+            <div ng-message="pattern">Please enter a valid mobile number.</div>
+        </div>
+    </md-input-container>
+
+    <div class="divider"></div>
+    <md-button type="submit"
+        class="md-raised btn-w-md md-primary pull-right m-b-md"
+        data-ng-disabled="!profile_form.$valid">ΑΠΟΘΗΚΕΥΣΗ</md-button>
+</form>
