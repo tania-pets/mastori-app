@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('app')
+    angular.module('components.countrymap')
         .directive('countryMap', [countrymap]);
 
     function countrymap() {

@@ -35,13 +35,13 @@
 
 
   </head>
- <body data-ng-app="app"
+  <body data-ng-app="app"
         id="app"
-        data-custom-page>
+        data-custom-page
+        data-ng-controller="AppCtrl">
         <ui-view class="app" data-ng-class=" { 'layout-boxed': main.layout === 'boxed','nav-collapsed-min': main.menu === 'collapsed'} "></ui-view>
- <body>
 
-<!--         <ui-view class="app" data-ng-class=" { 'layout-boxed': main.layout === 'boxed','nav-collapsed-min': main.menu === 'collapsed'} "></ui-view> -->
+
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <!-- <script>
@@ -112,103 +112,82 @@
 
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <!-- Bootstrapping -->
-    <script src="src/app.module.js"></script>
+    <script src="scripts/app.module.js"></script>
+    <script src="scripts/core/app.config.js"></script>
+    <script src="scripts/core/app.controller.js"></script>
+    <script src="scripts/core/config.route.js"></script>
+    <script src="scripts/core/app.lang.js"></script>
 
-    <!-- core modules -->
-    <script src="src/core/core.module.js"></script>
-    <script src="src/core/router/router.module.js"></script>
-    <script src="src/core/router/router.service.js"></script>
-    <script src="src/core/constants/constants.module.js"></script>
-    <script src="src/core/filters/filters.module.js"></script>
-    <script src="src/core/interceptors/authInterceptor.js"></script>
-    <script src="src/core/config/config.module.js"></script>
-    <script src="src/core/run/run.module.js"></script>
+    <!-- <script src="scripts/chart/chart.module.js"></script>
 
-    <!-- layout -->
-    <script src="src/layout/layout.module.js"></script>
+          <script src="scripts/form/form.module.js"></script>
+          <script src="scripts/form/formValidation.module.js"></script>
+          <script src="scripts/layout/layout.module.js"></script>
+          <script src="scripts/page/page.module.js"></script>
+          <script src="scripts/table/table.module.js"></script>
+          <script src="scripts/ui/ui.module.js"></script>
+          <script src="scripts/chart/chart.controller.js"></script>
+          <script src="scripts/chart/chart.directive.js"></script>
+          <script src="scripts/chart/chartjs.controller.js"></script>
+          <script src="scripts/chart/flot.controller.js"></script>
 
-    <!-- models -->
-    <script src="src/models/DataModel.js"></script>
-    <script src="src/models/auth.js"></script>
-    <script src="src/models/profession.js"></script>
-    <script src="src/models/area.js"></script>
-    <script src="src/models/mastori.js"></script>
-    <script src="src/models/appointment.js"></script>
-    <script src="src/models/rating.js"></script>
-    <script src="src/models/user.js"></script>
+          <script src="scripts/core/i18n.js"></script>
+          <script src="scripts/form/form.controller.js"></script>
+          <script src="scripts/form/form.directive.js"></script>
+          <script src="scripts/form/formValidation.controller.js"></script>
+          <script src="scripts/layout/layout.controller.js"></script>
+          <script src="scripts/layout/layout.diretive.js"></script>
+          <script src="scripts/layout/loader.js"></script>
+          <script src="scripts/layout/sidebar.directive.js"></script>
+          <script src="scripts/page/page.controller.js"></script>
+          <script src="scripts/page/page.directive.js"></script>
+          <script src="scripts/table/table.controller.js"></script>
+          <script src="scripts/ui/material.controller.js"></script>
+          <script src="scripts/ui/ui.controller.js"></script>
+          <script src="scripts/ui/ui.directive.js"></script>
+          <script src="scripts/ui/ui.service.js"></script>-->
 
-    <!-- sections modules -->
-    <script src="src/sections/sections.module.js"></script>
+          <script src="scripts/constants/config.js"></script>
+          <script src="scripts/models/DataModel.js"></script>
+          <script src="scripts/models/auth.js"></script>
+          <script src="scripts/models/profession.js"></script>
+          <script src="scripts/models/area.js"></script>
+          <script src="scripts/models/mastori.js"></script>
+          <script src="scripts/models/appointment.js"></script>
+          <script src="scripts/models/rating.js"></script>
+          <script src="scripts/models/user.js"></script>
 
-    <script src="src/sections/profile/profile.module.js"></script>
-    <script src="src/sections/profile/profile.route.js"></script>
-    <script src="src/sections/profile/profile.controller.js"></script>
+          <script src="scripts/controllers/main.js"></script>
+          <script src="scripts/controllers/home.js"></script>
+          <script src="scripts/controllers/auth.js"></script>
+          <script src="scripts/controllers/signup.js"></script>
+          <script src="scripts/controllers/mastoria.js"></script>
+          <script src="scripts/controllers/mastori.js"></script>
+          <script src="scripts/controllers/landing.js"></script>
+          <script src="scripts/controllers/user.js"></script>
+          <script src="scripts/controllers/address.js"></script>
+          <script src="scripts/controllers/phonevalidate.js"></script>
 
-    <script src="src/sections/mastoria/mastoria.module.js"></script>
-    <script src="src/sections/mastoria/mastoria.route.js"></script>
-    <script src="src/sections/mastoria/mastoria.controller.js"></script>
-    <script src="src/sections/mastoria/mastori.controller.js"></script>
 
-    <script src="src/sections/login/login.module.js"></script>
-    <script src="src/sections/login/login.route.js"></script>
 
-    <script src="src/sections/signup/signup.module.js"></script>
-    <script src="src/sections/signup/signup.route.js"></script>
-    <script src="src/sections/signup/signup.controller.js"></script>
 
-    <script src="src/sections/forgotpass/forgotpass.module.js"></script>
-    <script src="src/sections/forgotpass/forgotpass.route.js"></script>
-    <script src="src/sections/forgotpass/forgotpass.controller.js"></script>
+          <script src="scripts/services/authService.js"></script>
+          <script src="scripts/services/lazyLoadGoogleMaps.js"></script>
 
-    <!-- services -->
-    <script src="src/services/authService.js"></script>
-    <script src="src/services/lazyLoadGoogleMaps.js"></script>
+          <!-- <script src="scripts/directives/page.directive.js"></script> -->
+          <script src="scripts/directives/user_unique.directive.js"></script>
+          <script src="scripts/directives/toString.directive.js"></script>
+          <script src="scripts/directives/toStringOnlySelected.directive.js"></script>
+          <script src="scripts/directives/map.directive.js"></script>
+          <script src="scripts/directives/countrymap.directive.js"></script>
+          <script src="scripts/controllers/modalInstance.js"></script>
+          <script src="scripts/interceptors/authInterceptor.js"></script>
 
-    <!-- directives -->
-    <script src="src/directives/user_unique.directive.js"></script>
-    <script src="src/directives/addressAutocomplete.directive.js"></script>
-    <script src="src/directives/toString.directive.js"></script>
-    <script src="src/directives/toStringOnlySelected.directive.js"></script>
-    <script src="src/directives/map.directive.js"></script>
-    <script src="src/directives/countrymap.directive.js"></script>
-    <script src="src/directives/sidebar.directive.js"></script>
-    <script src="src/directives/layout.directive.js"></script>
 
-    <!-- component modules -->
-    <script src="src/components/components.module.js"></script>
-    <script src="src/components/addresslist/addresslist.module.js"></script>
-    <script src="src/components/addresslist/addresslist.directive.js"></script>
-    <script src="src/components/addresslist/addresslist.controller.js"></script>
 
-    <script src="src/components/addressmodal/addressmodal.module.js"></script>
-    <script src="src/components/addressmodal/addressmodal.controller.js"></script>
-
-    <script src="src/components/login/login.module.js"></script>
-    <script src="src/components/login/login.directive.js"></script>
-    <script src="src/components/login/loginModal.directive.js"></script>
-    <script src="src/components/login/auth.controller.js"></script>
-
-    <script src="src/components/profileform/profileform.module.js"></script>
-    <script src="src/components/profileform/profileform.directive.js"></script>
-    <script src="src/components/profileform/profileform.controller.js"></script>
-
-    <script src="src/components/appointmentform/appointmentform.module.js"></script>
-    <script src="src/components/appointmentform/appointmentform.directive.js"></script>
-    <script src="src/components/appointmentform/appointmentform.controller.js"></script>
-
-    <script src="src/components/appointments/appointments.module.js"></script>
-    <script src="src/components/appointments/appointments.directive.js"></script>
-    <script src="src/components/appointments/appointments.controller.js"></script>
-
-    <script src="src/components/ratingform/ratingform.module.js"></script>
-    <script src="src/components/ratingform/ratingform.directive.js"></script>
-    <script src="src/components/ratingform/ratingform.controller.js"></script>
-
-    <script src="src/components/ratings/ratings.module.js"></script>
-    <script src="src/components/ratings/ratings.directive.js"></script>
-    <script src="src/components/ratings/ratings.controller.js"></script>
-
-    <!-- endbuild -->
+          <script src="scripts/filters/filters.js"></script>
+          <script src="scripts/directives/sidebar.directive.js"></script>
+          <script src="scripts/directives/layout.diretive.js"></script>
+        <!-- endbuild -->
 </body>
 </html>

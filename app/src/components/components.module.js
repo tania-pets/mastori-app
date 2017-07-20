@@ -9,7 +9,9 @@
         'components.appointmentform',
     	'components.appointments',
     	'components.ratingform',
-    	'components.ratings'
+        'components.ratings',
+        'components.addressautocomplete',
+    	'components.countrymap'
   	])
 
 })();
