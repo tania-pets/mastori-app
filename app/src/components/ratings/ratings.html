@@ -1,14 +1,14 @@
 <div class="card">
     <div class="card-content">
       <uib-alert type="warning" close="bCloseAlert=1" ng-hide="bCloseAlert">Πσσστ! Μπορείς να προσθέσεις κ εσύ κριτικές κλείνοντας online ραντεβού με τα μαστόρια!</uib-alert>
-      <section  class="panel panel-trans m-t-md" ng-if="vm.ratings.data.length">
+      <section  class="panel panel-trans m-t-md" ng-if="vm.ratings.total">
         <h2>Κριτικές και Αξιολογήσεις Χρηστών</h2>
         <div class="row m-t-lg">
           <div class="col-md-4">
-            <uib-rating class="ui-rating size-h2 ui-rating-warning" ng-model="vm.ratingAvg" max="5" data-readonly="true"></uib-rating>
+            <uib-rating class="ui-rating size-h2 ui-rating-warning" ng-model="vm.mastori.avg_rating" max="5" data-readonly="true"></uib-rating>
           </div>
           <div class="col-md-2">
-            <h4 style="margin-left:-80px;">{{vm.ratings.data.length}} αξιολογήσεις</h4>
+            <h4 style="margin-left:-80px;">{{vm.ratings.total}} αξιολογήσεις</h4>
           </div>
           <div class="col-md-6">
             <div ng-repeat="n in vm.range(1,5)" class="row">
@@ -16,25 +16,25 @@
                 {{n}} αστέρια
               </div>
               <div class="col-md-9">
-                <md-slider onclick="return false;" flex min="0" max="{{vm.ratings.data.length}}" ng-model="(vm.ratings.data | filter:{rating:n}:true).length" aria-label="{{vm.ratings.data.length}}"
-                ng-class="{'md-warn': (vm.ratings.data | filter:{rating:n}:true).length / vm.ratings.data.length  >= 0.8 ,
-                           'md-orange': (vm.ratings.data | filter:{rating:n}:true).length / vm.ratings.data.length  >= 0.6,
-                           'md-yellow': (vm.ratings.data | filter:{rating:n}:true).length / vm.ratings.data.length  >= 0.4,
-                           'md-empty': (vm.ratings.data | filter:{rating:n}:true).length / vm.ratings.data.length  == 0,
-                           'md-primary': (vm.ratings.data | filter:{rating:n}:true).length / vm.ratings.data.length  >= 0.2,
-                           'md-grey': (vm.ratings.data | filter:{rating:n}:true).length / vm.ratings.data.length  <= 0.2,
+                <md-slider onclick="return false;" flex min="0" max="vm.ratings.total" ng-model="(vm.ratings.statistics | filter:{rating:n}:true)[0].count" aria-label="{{vm.ratings.data.length}}"
+                ng-class="{'md-warn': (vm.ratings.statistics | filter:{rating:n}:true)[0].count / vm.ratings.total  >= 0.8 ,
+                           'md-orange': (vm.ratings.statistics | filter:{rating:n}:true)[0].count / vm.ratings.total  >= 0.6,
+                           'md-yellow': (vm.ratings.statistics | filter:{rating:n}:true)[0].count / vm.ratings.total  >= 0.4,
+                           'md-empty': (vm.ratings.statistics | filter:{rating:n}:true)[0].count / vm.ratings.total  == 0,
+                           'md-primary': (vm.ratings.statistics | filter:{rating:n}:true)[0].count / vm.ratings.total  >= 0.2,
+                           'md-grey': (vm.ratings.statistics | filter:{rating:n}:true)[0].count / vm.ratings.total  <= 0.2,
 
                           }"
                 ></md-slider>
               </div>
               <div class="col-md-1 m-t-md">
-                {{(vm.ratings.data | filter:{rating:n}:true).length}}
+                {{(vm.ratings.statistics | filter:{rating:n}:true)[0].count}}
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section  class="panel panel-trans" infinite-scroll="vm.loadMoreRatings()" infinite-scroll-disabled="busyRat || vm.ratings.data.length === vm.ratings.total" infinite-scroll-distance="1">
+      <section  class="panel panel-trans" infinite-scroll="vm.loadMoreRatings()" infinite-scroll-disabled="vm.busyAp || vm.ratings.data.length === vm.ratings.total" infinite-scroll-distance="1">
         <h3 class="md-headline md-primary">Αξιολογήσεις ({{vm.ratings.total}})</h3>
           <md-divider></md-divider>
           <md-list layout-padding="">

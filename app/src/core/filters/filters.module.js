@@ -23,7 +23,6 @@
 
   .filter('matcher', function() {
     return function(arr1, arr2, property1 = 'id', property2 = 'id') {
-      debugger;
       var array2Ids = []
       angular.forEach(arr2, function(value, index) {
         array2Ids.push(value[property2]);

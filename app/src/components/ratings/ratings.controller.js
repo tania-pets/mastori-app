@@ -8,16 +8,16 @@
   function RatingsController($rootScope, RatingModel) {
 
     var vm = this,
-      busyAp = false;
+      busyAp = false,
+      ratingQueryParams = {orderby: 'created_at', order: 'desc', mastori_id: vm.mastori.id, 'statistics': true};
 
     activate();
 
     function activate(){
 
       angular.extend(vm, {
-          ratings:   RatingModel.query(vm.queryParams, function(ratings){
+          ratings:   RatingModel.query(ratingQueryParams, function(ratings){
             $rootScope.$broadcast('ratings:fetched', ratings);
-            vm.ratingAvg = ratings.data.length ==0 ? 0 : calculateAverage(ratings);
           }),
           busyAp: busyAp,
           loadMoreRatings:  loadMoreRatings,
@@ -27,13 +27,14 @@
     }
 
     function loadMoreRatings() {
+      debugger;
       if (vm.busyAp) {
           return;
       }
       vm.busyAp = true;
 
       var page = vm.ratings.current_page + 1;
-      var queryParams = angular.extend({page: page}, vm.queryParams);
+      var queryParams = angular.extend({page: page}, ratingQueryParams);
       var oldData = vm.ratings.data;
 
       RatingModel.query(queryParams, function (data) {
@@ -50,17 +51,7 @@
           input.push(i);
       }
       return input;
-   }
-
-   //calculates the average rating
-    var calculateAverage = function(ratings){
-      var sum = 0;
-      for(var i = 0; i < ratings.data.length; i++){
-        sum += parseInt(ratings.data[i].rating);
-      }
-      var avg = sum/ratings.data.length;
-      return avg;
-    };
+    }
 
   }
 

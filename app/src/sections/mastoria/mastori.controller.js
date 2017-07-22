@@ -12,21 +12,16 @@
       initloggedInActions();
     });
 
-    $scope.$on('ratings:fetched', function(event,data) {
-      vm.ratingsTotalCount = data.total;
-    });
-
     $scope.$on('appointments:fetched', function(event,data) {
       vm.appointmentsTotalCount = data.total;
     });
 
     var vm = this,
       user = AuthService.user(),
-      ratingsTotalCount,
       appointmentsTotalCount,
       appointmentQueryParams,
-      ratingQueryParams = {orderby: 'created_at', order: 'desc', mastori_id: mastori.id},
-      appointmentsListType = 'user';
+      appointmentsListType = 'user',
+      activetab = 0;
 
     activate();
 
@@ -35,11 +30,10 @@
       angular.extend(vm, {
           user: user,
           mastori: mastori,
-          ratingsTotalCount: ratingsTotalCount,
           appointmentsTotalCount: appointmentsTotalCount,
           appointmentQueryParams: appointmentQueryParams,
-          ratingQueryParams: ratingQueryParams,
-          appointmentsListType: appointmentsListType
+          appointmentsListType: appointmentsListType,
+          activetab: activetab
       });
 
       if (vm.user) {

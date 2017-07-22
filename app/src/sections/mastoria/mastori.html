@@ -24,10 +24,10 @@
                   <to-string values="vm.mastori.professions" key="title" class="text-white"></to-string>
                 </div>
                 <div class="col-sm-12 col-md-auto">
-                  <uib-rating class="ui-rating size-h4 ui-rating-warning" ng-model="mastori.avg_rating" max="5" data-readonly="true"></uib-rating>
+                  <uib-rating class="ui-rating size-h4 ui-rating-warning" ng-model="vm.mastori.avg_rating" max="5" data-readonly="true"></uib-rating>
                 </div>
                 <div class="col-sm-12 col-md-auto">
-                  <i class="fa fa-video-camera"></i>Κριτικές ({{ vm.ratingsTotalCount }})
+                  <i class="fa fa-video-camera"></i>Κριτικές ({{ vm.mastori.ratings_count }})
                 </div>
                 <div class="col-sm-12 col-md-auto" ng-if="user">
                   <i class="fa fa-image"></i> Προηγούμενα Ραντεβού ({{ vm.appointmentsTotalCount }})
@@ -46,11 +46,11 @@
               <uib-tab heading="Πληροφορίες">
                   <div data-ng-include=" 'src/sections/mastoria/mastori.info.html' "></div>
               </uib-tab>
-              <uib-tab heading="Κριτικές ({{ vm.ratingsTotalCount }})">
-                  <ratings query-params=vm.ratingQueryParams></ratings>
+              <uib-tab heading="Κριτικές ({{ vm.mastori.ratings_count }})" select="vm.activetab=1">
+                  <ratings ng-if="vm.mastori.$resolved && vm.activetab==1" mastori=vm.mastori></ratings>
               </uib-tab>
-              <uib-tab ng-if="vm.user" heading="Προηγούμενα Ραντεβού ({{ vm.appointmentsTotalCount }})" disable="vm.appointmentsTotalCount == 0">
-                  <appointments ng-if=vm.appointmentQueryParams for=vm.appointmentsListType query-params=vm.appointmentQueryParams></appointments>
+              <uib-tab ng-if="vm.user" heading="Προηγούμενα Ραντεβού ({{ vm.appointmentsTotalCount }})"disable="vm.appointmentsTotalCount == 0" select="vm.activetab=2">
+                  <appointments ng-if="vm.appointmentQueryParams && vm.activetab==2" for=vm.appointmentsListType query-params=vm.appointmentQueryParams></appointments>
               </uib-tab>
           </uib-tabset>
         </div>
