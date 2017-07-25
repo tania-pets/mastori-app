@@ -42,7 +42,8 @@
     }
 
     function initloggedInActions() {
-      vm.appointmentQueryParams = {orderby: 'created_at', order: 'desc', user_id: vm.user.id};
+      vm.appointmentQueryParams = {orderby: 'created_at', order: 'desc', user_id: vm.user.id, mastori_id: vm.mastori.id};
+      console.info('in mastori', vm.appointmentQueryParams);
     }
   }
 

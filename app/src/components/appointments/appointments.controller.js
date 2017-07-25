@@ -13,7 +13,6 @@
     });
 
     $scope.$on('appointment:created', function (e, appointment) {
-      debugger;
       vm.appointments.data = !vm.appointments.data ? [] : vm.appointments.data;
       vm.appointments.data.unshift(appointment); // add it first to appointments list
     });

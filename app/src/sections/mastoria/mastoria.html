@@ -90,7 +90,7 @@
                                             </div>
                                         </div>
                                         <a ui-sref="mastori({id: mastori.id})" class="media-left p-b-sm">
-                                            <img alt="" src="images/g1.jpg" class="img-circle img80_80">
+                                            <img alt="" ng-src="{{ mastori.photo || 'images/g1.jpg' }}" class="img-circle img80_80">
                                         </a>
                                         <div class="media-body">
                                             <div class="row">
@@ -119,7 +119,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-5">
-                                                    <a ng-href="#/app/mastoria/{{ mastori.id }}" class="btn btn-primary btn-md m-t-md m-b-xs">ΚΛΕΙΣΕ ΡΑΝΤΕΒΟΥ</a>
+                                                    <a ui-sref="mastori({id: mastori.id})" class="btn btn-primary btn-md m-t-md m-b-xs">ΚΛΕΙΣΕ ΡΑΝΤΕΒΟΥ</a>
                                                 </div>
                                             </div>
                                             <!-- <p>{{ ::mastori.description }}</p> -->

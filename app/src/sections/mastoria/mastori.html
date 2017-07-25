@@ -7,7 +7,7 @@
 
           <div class="col-md-2 col-xs-4 col-sm-3">
             <div class="profile-img">
-                <img alt="" src="images/g1.jpg" class="img-circle img-responsive">
+                <img alt="" ng-src="{{ mastori.photo || 'images/g1.jpg' }}" class="img-circle img-responsive">
             </div>
          </div>
 
@@ -30,7 +30,7 @@
                   <i class="fa fa-video-camera"></i>Κριτικές ({{ vm.mastori.ratings_count }})
                 </div>
                 <div class="col-sm-12 col-md-auto" ng-if="user">
-                  <i class="fa fa-image"></i> Προηγούμενα Ραντεβού ({{ vm.appointmentsTotalCount }})
+                  <i class="fa fa-image"></i> Προηγούμενα Ραντεβού
                 </div>
               </div>
             </div>
@@ -47,9 +47,9 @@
                   <div data-ng-include=" 'src/sections/mastoria/mastori.info.html' "></div>
               </uib-tab>
               <uib-tab heading="Κριτικές ({{ vm.mastori.ratings_count }})" select="vm.activetab=1">
-                  <ratings ng-if="vm.mastori.$resolved && vm.activetab==1" mastori=vm.mastori></ratings>
+                  <ratings ng-if="vm.mastori && vm.activetab==1" mastori=vm.mastori></ratings>
               </uib-tab>
-              <uib-tab ng-if="vm.user" heading="Προηγούμενα Ραντεβού ({{ vm.appointmentsTotalCount }})"disable="vm.appointmentsTotalCount == 0" select="vm.activetab=2">
+              <uib-tab ng-if="vm.user" heading="Προηγούμενα Ραντεβού" select="vm.activetab=2">
                   <appointments ng-if="vm.appointmentQueryParams && vm.activetab==2" for=vm.appointmentsListType query-params=vm.appointmentQueryParams></appointments>
               </uib-tab>
           </uib-tabset>
@@ -68,7 +68,7 @@
         <div class="appontment_container text-center" sticky >
           <md-button class="md-raised btn-lg bg-yellow text-white" ng-click="hide_appointment_form = !hide_appointment_form">ΚΛΕΙΣΕ ΡΑΝΤΕΒΟΥ</md-button>
           <div uib-collapse="!hide_appointment_form" class="bg-white fcontainer" >
-            <appointmentform ng-if=vm.mastori.$resolved mastori=vm.mastori></appointmentform>
+            <appointmentform ng-if=vm.mastori mastori=vm.mastori></appointmentform>
           </div>
         </div>
       </div>

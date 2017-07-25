@@ -31,7 +31,9 @@
         },
         resolve: {
           mastori: function(MastoriModel, $stateParams) {
-            return MastoriModel.query({id: $stateParams.id});
+            return MastoriModel.query({id: $stateParams.id}).$promise.then(function(mastori){
+              return mastori;
+            });
           }
         }
       });
