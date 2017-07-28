@@ -13,12 +13,14 @@
           AuthService.updateUserData(saved);
           toaster.pop('success', "Ετοιμος!", "Τα στοιχεία του λογαριασμού σου ανανεώθηκαν με επιτυχία!");
       }, function(error){
+          // reset user to real values
+          vm.user = new UserModel(angular.copy(AuthService.user()));
           toaster.pop('error', "Ουπς!", "Κάτι δεν πήγε καλά.. Ξαναπροσπάθησε παρακαλώ!");
       });
     });
 
     var vm = this,
-        user = new UserModel(AuthService.user()),
+        user = new UserModel(angular.copy(AuthService.user())),
         appointmentQueryParams = {orderby: 'created_at', order: 'desc', user_id: user.id},
         appointmentsListType = 'user';
 
