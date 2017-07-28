@@ -26,7 +26,7 @@
         event.preventDefault();
       } else if (toState.skipIfLoggedIn && AuthService.isAuthenticated()) {
         // User is authenticated and state is only for non authenticated users
-        $state.transitionTo('/', {notify: false}); // no need to run this watcher again
+        $state.transitionTo('landing', {notify: false}); // no need to run this watcher again
         event.preventDefault();
       }
     });
