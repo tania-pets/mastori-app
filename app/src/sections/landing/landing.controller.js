@@ -150,7 +150,6 @@ angular.module('sections.landing')
 
     /*search mastoria*/
     function search () {
-      debugger;
       var params = {};
       if (vm.selectedLocation) {
         params.userlocation = vm.selectedLocation;
