@@ -5,7 +5,7 @@
   .controller('AuthController', AuthController);
 
   /* @ngInject */
-  function AuthController($rootScope, $scope, AuthService, AutModel, $state, $location, toaster) {
+  function AuthController($rootScope, $scope, AuthService, AutModel, $state, toaster) {
 
     var vm = this;
 
@@ -30,14 +30,14 @@
             // emit event
             $rootScope.$broadcast('user:logedin');
             // redirect only if current state applies only to guests
-            if ($state.current.resolve && typeof $state.current.resolve.skipIfLoggedIn === 'function') {
+            if ($state.current.skipIfLoggedIn) {
               $state.go('landing');
             }
           } else {
             // redirect to previous state if it applies only to authenticated users
             if ($rootScope.redirectAfterLogin !== undefined) {
 
-              $location.path($rootScope.redirectAfterLogin);
+              $state.go($rootScope.redirectAfterLogin);
               $rootScope.redirectAfterLogin = null;
             } else {
               $state.go('landing');
