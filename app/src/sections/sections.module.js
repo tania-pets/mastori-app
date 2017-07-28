@@ -6,7 +6,8 @@
     'sections.profile',
     'sections.login',
     'sections.signup',
-    'sections.forgotpass'
+    'sections.forgotpass',
+    'sections.landing'
   ]);
 
 

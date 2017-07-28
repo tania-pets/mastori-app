@@ -1,0 +1,341 @@
+<div id="loader-container" ></div>
+<div id="ip-container" class="ip-container">
+
+  <div class="ip-main" id="landing">
+    <!-- Mobile nav -->
+    <div id="cbp-spmenu" class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right">
+      <div class="mobile_nav_close_button"><a id="hideRight" href=""><span class="close_icon zmdi zmdi-arrow-right"></span></a></div>
+      <nav id="mobile_menu_content" class="navbar-nav-mobile"><a href="#hero">Home</a><a href="#features">Features</a><a href="#faq">FAQ</a><a href="#newsletter">Newsletter</a><a href="#contact">Contact</a></nav>
+    </div>
+    <header id="header" class="header navbar navbar-light animated alpha80">
+      <div class="container">
+        <div class="navbar">
+          <ul class="nav navbar-nav pull-left col-md-4">
+            <li class="nav-item"><a href="#hero">Αρχική</a></li>
+            <li class="nav-item"><a href="#map">Περιοχές</a></li>
+          </ul>
+          <a href="#" class="navbar-brand pull-left col-md-4 col-sm-2 col-xs-2 text-center">
+            <img src="images/landing/logo.png" class="center-block img-responsive"/>
+          </a>
+          <ul class="nav navbar-nav pull-right col-md-4">
+            <li class="nav-item"><a href="#features">Πώς Λειτουργεί</a></li>
+            <li ng-if="!vm.user" class="nav-item"><login-modal text="'Login'"></login-modal></li>
+            <li ng-if="vm.user" class="nav-item"><a href ui-sref="profile">Προφιλ</a></li>
+          </ul>
+          <div class="pull-right togger-container"><span id="showRight" class="zmdi zmdi-menu navbar-toggler"></span></div>
+        </div>
+      </div>
+    </header>
+    <div class="main-content">
+      <div id="hero" class="hero">
+        <div class="hero-inner">
+          <div class="container">
+            <div class="col-lg-6 col-lg-offset-3  col-xs-12">
+              <h2 class='shadow'>Βρες εύκολα το μάστορά σου όπου κι αν βρίσκεσαι</h2>
+            </div>
+            <div class="row">
+              <div class="col-md-10  col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12    alpha80 " id="search">
+                <form ng-submit="$event.preventDefault()">
+                  <div class="row center-block" >
+                    <div class="col-md-5 col-sm-5 col-xs-5 control bg-white" >
+                      <md-autocomplete
+                              md-selected-item="selectedItem"
+                              md-search-text-change="vm.searchTextChange(searchText)"
+                              md-search-text="searchText"
+                              md-selected-item-change="vm.selectedItemChange(item)"
+                              md-items="item in vm.querySearch(searchText)"
+                              md-item-text="item.title"
+                              md-min-length="0"
+                              placeholder="Ειδικότητα">
+                          <md-item-template>
+                              <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.title}}</span>
+                          </md-item-template>
+                          <md-not-found>
+                              Δε βρέθηκαν ειδικότητες για "{{searchText}}".
+                          </md-not-found>
+                      </md-autocomplete>
+                    </div>
+                    <div class="col-md-5 col-sm-5  col-xs-5  control">
+                      <input id="address-input" type="text" class="form-control search-address" placeholder="Διεύθυνση">
+                    </div>
+                    <div class="col-md-2 col-sm-2  col-xs-2  col-sm-offset-1  col-md-offset-1 control text-right">
+                      <button class="btn btn-warning" ng-click="vm.search()" >
+                        <i class="zmdi zmdi-search text-lg"></i>
+                        <span class="hidden-xs hidden-sm">Βρες τώρα</span>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="row m-t-md hidden-xs" >
+              <div class="col-lg-10 col-lg-offset-1 col-sm-10 col-sm-offset-1  col-xs-12" >
+                <div class="row">
+                  <div class="col-xs-6">
+                    <div class="row professions">
+                        <div class="col-xs-3">
+                          <div class="alpha80">
+                            <img src="images/landing/professions/icon1.png" class="img-responsive" />
+                            Ηλεκτρολόγοι
+                          </div>
+                        </div>
+                        <div class="col-xs-3">
+                          <div class="alpha80">
+                            <img src="images/landing/professions/icon2.png" class="img-responsive" />
+                            Υδραυλικοί
+                          </div>
+                        </div>
+                        <div class="col-xs-3">
+                          <div class="alpha80">
+                            <img src="images/landing/professions/icon3.png" class="img-responsive" />
+                            Ψυκτικοί
+                          </div>
+                        </div>
+                        <div class="col-xs-3">
+                          <div class="alpha80">
+                            <img src="images/landing/professions/icon4.png" class="img-responsive" />
+                             Ανελκυστήρες
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-6">
+                    <div class="row professions last">
+                        <div class="col-xs-3">
+                          <div class="alpha80">
+                            <img src="images/landing/professions/icon5.png" class="img-responsive" />
+                            Ελαιοχ/στές
+                           </div>
+                        </div>
+                        <div class="col-xs-3">
+                          <div class="alpha80">
+                            <img src="images/landing/professions/icon6.png" class="img-responsive" />
+                            Χτίστες
+                          </div>
+                        </div>
+                        <div class="col-xs-3">
+                          <div class="alpha80">
+                            <img src="images/landing/professions/icon7.png" class="img-responsive" />
+                            Σιδεράδες
+                          </div>
+                        </div>
+                        <div class="col-xs-3">
+                          <div class="alpha80">
+                            <img src="images/landing/professions/icon8.png" class="img-responsive" />
+                            Πατωματζήδες
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+               </div>
+              </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <div id="features" class="features">
+        <header>
+          <h2 class="section-heading-underline">Βρες μάστορα σε τρία απλά βήματα!</h2>
+        </header>
+        <div class="container">
+          <div class="row">
+            <div class="feature-item col-md-4 text-center wow fadeInUp">
+              <div class="image-container">
+                <img src="images/landing/step1.png" />
+              </div>
+              <h3>Βρες Μαστόρι</h3>
+              <div class="desc">
+                <p>Αναζήτησε το μαστόρι που θές εκεί που το θές</p>
+              </div>
+            </div>
+            <div data-wow-delay="0.3s" class="feature-item col-md-4 text-center wow fadeInUp">
+              <div class="image-container">
+                <img src="images/landing/step2.png" />
+              </div>
+              <h3>Κλείσε Ραντεβού</h3>
+              <div class="desc">
+                <p>Επικοινώνησε με το μαστόρι και μάθε αν είνα διαθέσιμο</p>
+              </div>
+            </div>
+            <div data-wow-delay="0.6s" class="feature-item col-md-4 text-center wow fadeInUp">
+              <div class="image-container">
+                <img src="images/landing/step3.png" />
+              </div>
+              <h3>Αξιολόγησε το μαστόρι</h3>
+              <div class="desc">
+                <p>Αξιολόγησε τη δουλειά!</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 separator"></div>
+          </div>
+          <div class="row feature_icons center-block">
+            <div class="feature-item col-md-4 col-sm-4 col-xs-12 text-center wow fadeInUp">
+              <div class="row center-block">
+                <div class="icon-container  col-md-6 col-sm-6 col-xs-6 text-center-sm"><span class="zmdi zmdi-check"></span></div>
+                <div class="col-md-6  col-sm-6 desc_sm text-center-sm col-xs-6">
+                  Καταπληκτικό
+                </div>
+              </div>
+            </div>
+            <div data-wow-delay="0.3s" class="feature-item col-md-4  col-xs-12 col-sm-4  text-center wow fadeInUp">
+              <div class="row center-block">
+                <div class="icon-container  col-md-6 col-sm-6 col-xs-6  text-center-sm"><span class="zmdi zmdi-check"></span></div>
+                <div class="col-md-6  col-sm-6 desc_sm text-center-sm col-xs-6 ">
+                  Καταπληκτικό
+                </div>
+              </div>
+            </div>
+            <div data-wow-delay="0.6s" class="feature-item col-md-4 col-xs-12  col-sm-4  text-center wow fadeInUp">
+              <div class="row center-block">
+                <div class="icon-container  col-md-6 col-sm-6 text-center-sm col-xs-6 "><span class="zmdi zmdi-check"></span></div>
+                <div class="col-md-6  col-sm-6 desc_sm text-center-sm col-xs-6 ">
+                  Καταπληκτικό
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="testimorials" class="testimorials" >
+        <div class="container">
+          <header>
+            <h2 class="section-heading-underline">Σχόλια χρηστών</h2>
+          </header>
+          <slick infinite="true" >
+            <div class="row text-center" ng-repeat="slide in vm.slides">
+              <div class="col-md-12">
+                <div class="profile-img">
+                  <!-- <img alt="" src="{{slide.img}}" class="img-circle img80_80"> -->
+                </div>
+                <h3>{{slide.name}}</h3>
+                <small>{{slide.date}}</small>
+              </div>
+              <div class="col-md-8 col-md-offset-2 quote">
+                 <i>
+                   {{slide.text}}
+                 </i>
+              </div>
+            </div>
+
+
+          </slick>
+
+
+        </div>
+      </div>
+      <div id="map" class="map">
+        <div class="container">
+          <div class="row">
+            <h2 class="section-heading-underline hidden-sm hidden-md hidden-lg">Περιοχές που εξυπηρετούμε</h2>
+
+            <div class="col-md-8 col-sm-8 col-xs-12">
+              <country-map markers="vm.mapMarkers" zoomable="false" lines="vm.mapLines"></country-map >
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-4 hidden-xs">
+                <h2 class="section-heading-underline">Περιοχές που εξυπηρετούμε</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="whatis" class="whatis">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-5">
+              <img src="images/landing/monitor.jpg" class="img-responsive center-block"/>
+            </div>
+            <div class="col-md-7">
+              <header>
+                <h2 class="section-heading-underline">Τι είναι το mastori.gr</h2>
+              </header>
+              <p>
+                Το Lorem Ipsum είναι απλά ένα κείμενο χωρίς νόημα για τους επαγγελματίες της τυπογραφίας και στοιχειοθεσίας.
+                Το Lorem Ipsum είναι το επαγγελματικό πρότυπο όσον αφορά το κείμενο χωρίς νόημα, από τον 15ο αιώνα,
+                όταν ένας ανώνυμος τυπογράφος πήρε ένα δοκίμιο και ανακάτεψε τις λέξεις για να δημιουργήσει ένα δείγμα βιβλίου.
+                Όχι μόνο επιβίωσε πέντε αιώνες, αλλά κυριάρχησε στην ηλεκτρονική στοιχειοθεσία, παραμένοντας με κάθε τρόπο
+                αναλλοίωτο.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="apps" class="apps">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <header>
+              <h2 class="section-heading-underline">Έχεις Smartphone;</h2>
+            </header>
+            <p>
+              Βρε μάστορα τώρα από το κινητό σου σε λιγότερο από 1 λεπτό.
+              Διαθέσιμο για iOS και Android.
+            </p>
+            <div class="row m-t-lg">
+              <div class="col-md-4">
+                <a href="https://itunes.apple.com" target="_blank"><img src="images/landing/icon-appstore.png" class="img-responsive center-block"/></a>
+              </div>
+              <div class="col-md-4">
+                <a href="https://play.google.com/store" target="_blank"><img src="images/landing/icon-googleplay.png" class="img-responsive center-block"/></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <img src="images/landing/mobiles.png" class="img-responsive center-block"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="row fnav">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="row center-block text-center">
+            <!-- <ul class="col-md-2">
+              <li>Αρχική</li>
+            </ul> -->
+            <ul class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+              <li>Σχετικά με Εμάς</li>
+              <li><a href="">Η ομάδα</a></li>
+              <li><a href="">Όροι και προϋποθέσεις</a></li>
+            </ul>
+            <ul class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+              <li>Περιοχές</li>
+              <li><a href="">Αθήνα</a></li>
+              <li><a href="">Θεσσαλονίκη</a></li>
+            </ul>
+            <!--
+            <ul class="col-md-2">
+              <li>Blog</li>
+            </ul> -->
+            <ul class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+              <li>Κοινωνική Δικτύωση</li>
+              <li><a href="">Facebook</a></li>
+              <li><a href="">Twitter</a></li>
+            </ul>
+            <ul class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+              <li>Ο Λογαριασμός μου</li>
+              <li><a href="">Εγγραφή</a></li>
+              <li><a ui-sref="app.signin">Σύνδεση</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1 copyright">
+          <div class="col-md-8"><span>© <span id="copyright"></span> mastori.gr, All rights reserved</span></div>
+          <div class="col-md-3 pull-right">
+            <ul class="list-unstyled social pull-right">
+              <li ><a href="https://www.facebook.com/" alt="Facebook" title="Facebook"  target="_blank"><i class="zmdi zmdi-facebook"></i></a></li>
+              <li><a href="https://twitter.com" alt="Twitter" title="Twitter"  target="_blank"><i class="zmdi zmdi-twitter"></i></a></li>
+              <li><a href="https://linkedin.com" alt="Linkedin" title="Linkedin"  target="_blank"><i class="zmdi zmdi-linkedin-box"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </div>
+</div>

@@ -19,11 +19,9 @@
     'angularSpinner',
     'infinite-scroll',
     'geolocation',
-    'oc.lazyLoad',
     'ncy-angular-breadcrumb',
     'toaster',
     'angularMoment',
-    'slickCarousel',
     'sticky',
     /* Cross-app modules */
     'core.constants',
