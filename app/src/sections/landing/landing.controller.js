@@ -150,9 +150,11 @@ angular.module('sections.landing')
 
     /*search mastoria*/
     function search () {
+      debugger;
       var params = {};
-      if (vm.selectedLocation) {
-        params.userlocation = vm.selectedLocation;
+      if (vm.selectedLocation && vm.selectedLocation.lng && vm.selectedLocation.lat) {
+        params.lng = vm.selectedLocation.lng;
+        params.lat = vm.selectedLocation.lat;
       }
       if (vm.selectedProfession && vm.selectedProfession.id) {
         params['profession[]'] = vm.selectedProfession.id;
@@ -191,7 +193,10 @@ angular.module('sections.landing')
        } else {
          lat = place.geometry.location.lat();
          lng = place.geometry.location.lng();
-         vm.selectedLocation = lng+','+lat;
+         vm.selectedLocation = {
+          lng: lng,
+          lat: lat
+        };
        }
     }
 
