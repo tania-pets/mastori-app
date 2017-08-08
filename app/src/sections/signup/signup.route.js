@@ -12,11 +12,7 @@
         templateUrl: 'src/sections/signup/signup.html',
         controller:'SignupController as vm',
         bindToController: true,
-        resolve: {
-          skipIfLoggedIn: function(RouterService){
-            return RouterService.skipIfLoggedIn;
-          }
-        },
+        skipIfLoggedIn: true,
         ncyBreadcrumb: {
             label: 'Signup',
             parent: 'landing'

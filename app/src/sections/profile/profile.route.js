@@ -13,11 +13,7 @@
         bindToController: true,
         cache: false,
         templateUrl: 'src/sections/profile/profile.html',
-        resolve: {
-          loginRequired: function(RouterService){
-            return RouterService.loginRequired;
-          }
-        },
+        loginRequired: true,
         ncyBreadcrumb: {
             label: 'Profile',
             parent: 'landing'

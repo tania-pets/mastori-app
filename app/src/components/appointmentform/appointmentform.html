@@ -1,8 +1,10 @@
-<form role="form" method="post" novalidate name="appointment_form" id="appointment_form" ng-submit="!appointment_form.$valid || vm.submitAppointment(appointment_form)"  class="text-left">
+<div>
+<form ng-show="vm.allowedAppointmentAddresses.length > 0" role="form" method="post" novalidate name="appointment_form" id="appointment_form" ng-submit="!appointment_form.$valid || vm.submitAppointment(appointment_form)"  class="text-left">
     <md-input-container class="md-block">
         <label>Διεύθυνση <span class="required">*</span></label>
         <md-select name="address_id" ng-model="vm.appointment.address_id" required >
-            <md-option ng-selected="$first" ng-repeat="address in vm.allowedAppointmentAddresses" value="{{ address.id }}">
+            <md-option ng-selected></md-option>
+            <md-option ng-repeat="address in vm.allowedAppointmentAddresses" value="{{ address.id }}">
                 {{ address.friendly_name ? address.friendly_name :  address.streetname + ' ' + address.streetnumber }}
             </md-option>
         </md-select>
@@ -47,3 +49,8 @@
     </div>
 
 </form>
+<div ng-show="vm.allowedAppointmentAddresses == 0">
+    Χμμμ... φαίνεται πως δεν έχεις κάποια διεύθυνση καταχωρημένη για τις περιοχές που εξυπηρετεί το μαστόρι.
+    <a ui-sref="profile" class="btn btn-primary btn-md m-t-md m-b-xs">ΠΡΟΣΘΕΣΕ ΔΙΕΥΘΥΝΣΗ</a>
+</div>
+</div>

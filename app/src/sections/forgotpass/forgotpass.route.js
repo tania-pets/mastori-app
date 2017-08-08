@@ -12,11 +12,7 @@
         templateUrl: 'src/sections/forgotpass/forgotpass.html',
         controller:'ForgotPassController as vm',
         bindToController: true,
-        resolve: {
-          skipIfLoggedIn: function(RouterService){
-            return RouterService.skipIfLoggedIn;
-          }
-        },
+        skipIfLoggedIn: true,
         ncyBreadcrumb: {
             label: 'Forgot Password',
             parent: 'landing'

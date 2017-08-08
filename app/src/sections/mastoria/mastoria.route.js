@@ -9,7 +9,8 @@
 
     $stateProvider
       .state('mastoria', {
-          url: '/mastoria',
+          url: '/mastoria?order&orderby&only_offers&{profession[]:int}&{area[]:int}&near&q&lng&lat',
+          reloadOnSearch : false,
           controller:'MastoriaController as vm',
           bindToController: true,
           cache: false,

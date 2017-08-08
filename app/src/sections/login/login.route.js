@@ -10,11 +10,7 @@
     $stateProvider.state('login', {
         url: '/login',
         templateUrl: 'src/sections/login/login.html',
-        resolve: {
-          skipIfLoggedIn: function(RouterService){
-            return RouterService.skipIfLoggedIn;
-          }
-        },
+        skipIfLoggedIn: true,
         ncyBreadcrumb: {
             label: 'Login',
             parent: 'landing'

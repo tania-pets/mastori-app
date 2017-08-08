@@ -102,7 +102,7 @@
           logout: function logout() {
             console.log('logout');
             $localStorage.$reset();
-            $state.go('app.signin');
+            $state.go('login');
           }
         };
       }

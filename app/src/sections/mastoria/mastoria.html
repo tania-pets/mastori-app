@@ -53,7 +53,7 @@
                 </div>
                 <div class="row">
                     <!-- PROFESSION AND AREA FILTERS -->
-                    <div class="col-sm-3" ng-class="{ 'hidden-xs': !showFilters }" data-ng-include=" 'src/sections/mastoria/mastoria.filters.html' "></div>
+                    <div class="col-sm-3" ng-class="{ 'hidden-xs': !vm.showFilters }" data-ng-include=" 'src/sections/mastoria/mastoria.filters.html' "></div>
                     <!-- RESULTS -->
                     <div class="col-sm-9">
                         <!-- SORTING AND OFFERS/NEAR ME FILTERS -->
@@ -126,7 +126,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div ng-show="busy">
+                                <div ng-show="vm.busy">
                                     <md-progress-circular md-mode="indeterminate" class="md-primary md-hue-3 m-auto" md-diameter="96"></md-progress-circular>
                                 </div>
                             </div>
