@@ -5,4 +5,7 @@
 /bower_components
 .DS_Store
 /app/scripts/constants/config.js
+/app/libs
+/app/dist
+/app/www
 /config/development.json
