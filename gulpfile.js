@@ -1,6 +1,8 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var bower = require('bower');
+var useref = require('gulp-useref');
+
 var historyApiFallback = require('connect-history-api-fallback')
 
 var browserSync = require('browser-sync').create();
@@ -62,18 +64,28 @@ gulp.task('git-check', function(done) {
   done();
 });
 
-gulp.task('serve', ['sass'], function() {
+gulp.task('serve', ['sass', 'build'], function() {
 
     browserSync.init({
-        server: "./app",
+        server: "./www",
         middleware: [historyApiFallback()]
     });
 
-    gulp.watch("app/styles/*.scss", ['sass']);
-    gulp.watch("app/styles/**/*.scss", ['sass']);
-    gulp.watch("app/**/*.html").on('change', browserSync.reload);
-    gulp.watch("app/**/*.js").on('change', browserSync.reload);
-    gulp.watch("app/dist/**/*.css").on('change', browserSync.reload);
+    gulp.watch("app/styles/*.scss", ['sass','build']);
+    gulp.watch("app/styles/**/*.scss", ['sass','build']);
+    gulp.watch("app/**/*.html", ['build']).on('change', browserSync.reload);
+    gulp.watch("app/**/*.js", ['build']).on('change', browserSync.reload);
+});
+gulp.task('assets', function(){
+  sh.cp('-R', 'app/images/', 'www/images');
+  sh.cp('-R', 'app/fonts/', 'www/fonts');
+  sh.cp('-R', 'app/svg/', 'www/svg');
+});
+
+gulp.task('build',['assets'], function(){
+      return gulp.src('app/index.html')
+        .pipe(useref({searchPath: './app'}))
+        .pipe(gulp.dest('./www'));
 });
 
 gulp.task('deploy', function(){

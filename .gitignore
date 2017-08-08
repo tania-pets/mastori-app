@@ -8,4 +8,5 @@
 /app/libs
 /app/dist
 /app/www
+/www
 /config/development.json
