@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
+    <!-- build:css(app) css/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="libs/angular-material/angular-material.css" />
     <link rel="stylesheet" href="libs/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" />
@@ -25,12 +25,12 @@
     <!-- endbuild -->
 
 
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/bootstrap.css">
-    <link rel="stylesheet" href="styles/loader.css">
-    <link rel="stylesheet" href="styles/ui.css">
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/overwrite.css">
+    <!-- build:css(app) css/main.css -->
+    <link rel="stylesheet" href="www/css/bootstrap.css">
+    <link rel="stylesheet" href="www/css/loader.css">
+    <link rel="stylesheet" href="www/css/ui.css">
+    <link rel="stylesheet" href="www/css/main.css">
+    <link rel="stylesheet" href="www/css/overwrite.css">
     <!-- endbuild -->
 
 
@@ -54,12 +54,12 @@
        ga('send', 'pageview');
     </script> -->
 
+
+
+    <!-- build:js(./app/) js/vendor.js -->
+    <!-- bower:js -->
     <script src="libs/jquery/dist/jquery.js"></script>
     <script src="libs/angular/angular.js"></script>
-
-
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
     <script src="libs/angular-animate/angular-animate.js"></script>
     <script src="libs/angular-cookies/angular-cookies.js"></script>
     <script src="libs/angular-resource/angular-resource.js"></script>
@@ -111,7 +111,7 @@
     <!-- endbuild -->
 
 
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <!-- build:js({.tmp,app}) js/app.js -->
     <!-- Bootstrapping -->
     <script src="src/app.module.js"></script>
 
@@ -212,7 +212,7 @@
     <script src="src/components/countrymap/countrymap.module.js"></script>
     <script src="src/components/countrymap/countrymap.directive.js"></script>
 
-     <script src="src/components/drilldownmap/drilldownmap.module.js"></script>
+    <script src="src/components/drilldownmap/drilldownmap.module.js"></script>
     <script src="src/components/drilldownmap/drilldownmap.directive.js"></script>
 
     <!-- endbuild -->
