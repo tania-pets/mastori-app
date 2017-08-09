@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var bower = require('bower');
 var useref = require('gulp-useref');
+var templateCache = require('gulp-angular-templatecache');
 
 var historyApiFallback = require('connect-history-api-fallback')
 
@@ -16,7 +17,8 @@ var sh = require('shelljs');
 
 
 var paths = {
-  sass: ['./app/styles/*.scss']
+  sass: ['./app/styles/*.scss'],
+  templates: ['!./app/index.html', './app/src/**/**.html']
 };
 
 gulp.task('default', ['sass']);
@@ -44,6 +46,19 @@ gulp.task('install', ['git-check'], function() {
     .on('log', function(data) {
       gutil.log('bower', gutil.colors.cyan(data.id), data.message);
     });
+});
+
+
+gulp.task('templates', function () {
+  sh.rm('app/src/layout/layout.module.js');
+
+  return gulp.src(paths.templates)
+    .pipe(templateCache('layout.module.js',{
+      module: 'mastori.layout',
+      moduleSystem: 'IIFE',
+      standalone: true
+    }))
+    .pipe(gulp.dest('app/src/layout/'));
 });
 
 gulp.task('build', ['install','sass'], function(){
@@ -83,9 +98,16 @@ gulp.task('assets', function(){
 });
 
 gulp.task('build',['assets'], function(){
-      return gulp.src('app/index.html')
-        .pipe(useref({searchPath: './app'}))
-        .pipe(gulp.dest('./www'));
+  // Copy landing page assets to www
+
+  sh.mkdir('-p', 'www/js/landing');
+  sh.mkdir('-p', 'www/css/landing');
+  sh.cp('-R', './app/scripts/landing/', './www/js/landing');
+  sh.cp('-R', './app/styles/landing/', './www/css/landing');
+
+  return gulp.src('app/index.html')
+             .pipe(useref({searchPath: './app'}))
+             .pipe(gulp.dest('./www'));
 });
 
 gulp.task('deploy', function(){

@@ -5,31 +5,28 @@ Uses theme (added in drive): http://themeforest.net/item/material-design-admin-w
 
 ## Requirements
 * Install [Node.js] (https://nodejs.org/)
-* Install [Ruby] (https://www.ruby-lang.org/)
-* Install Compass
-
-        gem install compass
-* Install yeomann, grunt-CLI, bower, generator-angular, generator-karma
-
-        npm install -g yo grunt-cli bower generator-angular generator-karma
 
 ## Installation
+
+Install gulp globally
+   `npm install gulp -g`
+
 Install node & bower packages
 
-    npm install
-    bower install
+    `npm install`
+    `bower install`
 
 ## Build & development
 
 Update your config/development.json
-Run `grunt` for building and `grunt serve` for preview.
+Run `gulp build` for building and `gulp serve` for preview.
 
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.15.1.
 
 ## Testing
 
-Running `grunt test` will run the unit tests with karma.
+Running `gulp test` will run the unit tests with karma.
 
 ## Problematic package versions
 
