@@ -16,7 +16,7 @@
 						$scope.openLoginModal = function () {
 
 		            $scope.modalInstance = $uibModal.open({
-		                templateUrl: 'src/components/login/login.modal.html',
+		                templateUrl: 'components/login/login.modal.html',
 		                size: 'lg'
 		            });
 		        };

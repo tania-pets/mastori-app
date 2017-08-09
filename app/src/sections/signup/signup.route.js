@@ -9,7 +9,7 @@
 
     $stateProvider.state('signup', {
         url: '/signup',
-        templateUrl: 'src/sections/signup/signup.html',
+        templateUrl: 'sections/signup/signup.html',
         controller:'SignupController as vm',
         bindToController: true,
         skipIfLoggedIn: true,

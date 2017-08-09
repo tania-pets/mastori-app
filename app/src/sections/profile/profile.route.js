@@ -12,7 +12,7 @@
         controller:'ProfileController as vm',
         bindToController: true,
         cache: false,
-        templateUrl: 'src/sections/profile/profile.html',
+        templateUrl: 'sections/profile/profile.html',
         loginRequired: true,
         ncyBreadcrumb: {
             label: 'Profile',

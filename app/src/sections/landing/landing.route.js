@@ -9,7 +9,7 @@
 
     $stateProvider.state('landing', {
         url: '/',
-        templateUrl: 'src/sections/landing/landing.html',
+        templateUrl: 'sections/landing/landing.html',
         controller:'LandingController as vm',
         bindToController: true,
         ncyBreadcrumb: {

@@ -9,7 +9,7 @@
 
     $stateProvider.state('forgotpass', {
         url: '/forgotpass',
-        templateUrl: 'src/sections/forgotpass/forgotpass.html',
+        templateUrl: 'sections/forgotpass/forgotpass.html',
         controller:'ForgotPassController as vm',
         bindToController: true,
         skipIfLoggedIn: true,

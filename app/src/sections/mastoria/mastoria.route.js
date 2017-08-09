@@ -14,7 +14,7 @@
           controller:'MastoriaController as vm',
           bindToController: true,
           cache: false,
-          templateUrl: 'src/sections/mastoria/mastoria.html',
+          templateUrl: 'sections/mastoria/mastoria.html',
           ncyBreadcrumb: {
               label: 'Mastoria',
               parent: 'landing'
@@ -25,7 +25,7 @@
         controller: 'MastoriController as vm',
         bindToController: true,
         cache: false,
-        templateUrl: 'src/sections/mastoria/mastori.html',
+        templateUrl: 'sections/mastoria/mastori.html',
         ncyBreadcrumb: {
             label: 'Mastori',
             parent: 'mastoria'

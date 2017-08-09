@@ -9,7 +9,7 @@
 
     $stateProvider.state('login', {
         url: '/login',
-        templateUrl: 'src/sections/login/login.html',
+        templateUrl: 'sections/login/login.html',
         skipIfLoggedIn: true,
         ncyBreadcrumb: {
             label: 'Login',

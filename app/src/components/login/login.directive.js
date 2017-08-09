@@ -9,7 +9,7 @@
     return {
       restrict: 'E',
       replace: 'true',
-      templateUrl: 'src/components/login/login.html',
+      templateUrl: 'components/login/login.html',
       controller: 'AuthController',
       controllerAs: 'vm',
       bindToController: true,
